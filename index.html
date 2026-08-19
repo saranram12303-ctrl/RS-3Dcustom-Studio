@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="RS 3D Custom Studio - 3D Custom Printing, Personalised Gifts, Custom Designs and Engineering Prototypes.">
+
+<title>RS 3D Custom Studio | Your Idea • Our Creation</title>
+
+<style>
+
+/* =========================================================
+   RS 3D CUSTOM STUDIO
+   PREMIUM SINGLE PAGE WEBSITE
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:#070707;
+    color:#ffffff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --orange:#ff7a00;
+    --orange2:#ffb000;
+    --gold:#ff9800;
+    --dark:#070707;
+    --dark2:#101010;
+    --card:#151515;
+    --card2:#1b1b1b;
+    --gray:#aaaaaa;
+    --white:#ffffff;
+    --border:rgba(255,140,0,.28);
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section{
+    padding:100px 0;
+    position:relative;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title .small{
+    color:var(--orange);
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-title h2{
+    font-size:clamp(32px,5vw,55px);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.section-title h2 span{
+    color:var(--orange);
+}
+
+.section-title p{
+    color:#aaa;
+    margin-top:15px;
+    font-size:17px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,140,0,.18);
+}
+
+.nav-inner{
+    height:75px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-mark{
+    font-size:27px;
+    font-weight:1000;
+    font-style:italic;
+
+    background:linear-gradient(
+        135deg,
+        #fff,
+        #ff7a00
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.logo-text{
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo-text span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#ccc;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--orange);
+}
+
+.nav-btn{
+    padding:11px 19px;
+    border-radius:30px;
+
+    background:linear-gradient(
+        135deg,
+        #ff6500,
+        #ff9d00
+    );
+
+    color:#000 !important;
+    font-weight:900 !important;
+
+    box-shadow:
+        0 0 20px rgba(255,115,0,.25);
+}
+
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding-top:75px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255,100,0,.16),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #0c0c0c,
+            #050505
+        );
+}
+
+/* glowing background */
+
+.hero::before{
+    content:"";
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    background:rgba(255,100,0,.10);
+
+    filter:blur(100px);
+
+    top:10%;
+    left:-150px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:rgba(255,160,0,.07);
+
+    filter:blur(100px);
+
+    right:-150px;
+    bottom:0;
+}
+
+.hero-grid{
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:900px;
+    margin:auto;
+
+    text-align:center;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 18px;
+
+    border:1px solid var(--border);
+    border-radius:50px;
+
+    background:rgba(255,100,0,.06);
+
+    color:#ddd;
+
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+
+    margin-bottom:30px;
+}
+
+.hero-badge i{
+    width:8px;
+    height:8px;
+    background:var(--orange);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--orange);
+}
+
+.hero h1{
+    font-size:clamp(48px,9vw,100px);
+    line-height:.95;
+
+    font-weight:1000;
+    letter-spacing:-4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.hero h1 .rs{
+    color:#fff;
+}
+
+.hero h1 .orange{
+    color:var(--orange);
+}
+
+.hero h1 .metal{
+    background:linear-gradient(
+        180deg,
+        #fff,
+        #888
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero-sub{
+    color:#aaa;
+    font-size:clamp(17px,3vw,23px);
+    line-height:1.7;
+
+    max-width:750px;
+    margin:0 auto 40px;
+}
+
+.hero-sub strong{
+    color:#fff;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    padding:16px 28px;
+
+    border-radius:10px;
+
+    font-weight:900;
+
+    transition:.3s;
+}
+
+.btn-primary{
+    color:#050505;
+
+    background:linear-gradient(
+        135deg,
+        #ff6500,
+        #ffb000
+    );
+
+    box-shadow:
+        0 10px 35px rgba(255,100,0,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 15px 45px rgba(255,100,0,.40);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.04);
+    color:#fff;
+}
+
+.btn-outline:hover{
+    border-color:var(--orange);
+    color:var(--orange);
+    transform:translateY(-4px);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    margin-top:75px;
+
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.stat{
+    padding:25px;
+    text-align:center;
+
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.stat:last-child{
+    border-right:none;
+}
+
+.stat h3{
+    color:var(--orange);
+    font-size:30px;
+    font-weight:1000;
+}
+
+.stat p{
+    color:#888;
+    font-size:12px;
+    margin-top:5px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services{
+    background:#090909;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+}
+
+.service-card{
+    position:relative;
+
+    padding:35px 25px;
+
+    min-height:260px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #0d0d0d
+        );
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.service-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    background:rgba(255,100,0,.08);
+
+    border-radius:50%;
+
+    filter:blur(40px);
+
+    right:-50px;
+    top:-50px;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+
+    border-color:rgba(255,120,0,.45);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5),
+        0 0 30px rgba(255,100,0,.08);
+}
+
+.service-icon{
+    width:65px;
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:rgba(255,100,0,.08);
+
+    border:1px solid rgba(255,130,0,.25);
+
+    font-size:30px;
+
+    margin-bottom:25px;
+}
+
+.service-card h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.service-card p{
+    color:#999;
+    line-height:1.7;
+    font-size:14px;
+}
+
+.service-number{
+    position:absolute;
+    right:20px;
+    bottom:15px;
+
+    color:rgba(255,255,255,.05);
+
+    font-size:65px;
+    font-weight:1000;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,100,0,.05),
+            transparent 40%
+        ),
+        #070707;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.product-card{
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,120,0,.4);
+}
+
+.product-image{
+    height:230px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,100,0,.12),
+            transparent 60%
+        ),
+        #151515;
+
+    position:relative;
+}
+
+.product-icon{
+    font-size:85px;
+
+    filter:
+        drop-shadow(
+            0 10px 25px rgba(255,100,0,.18)
+        );
+}
+
+.product-info{
+    padding:25px;
+}
+
+.product-info h3{
+    font-size:21px;
+    margin-bottom:9px;
+}
+
+.product-info p{
+    color:#888;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.product-tag{
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    color:var(--orange);
+
+    border:1px solid rgba(255,120,0,.25);
+
+    font-size:11px;
+    font-weight:800;
+
+    text-transform:uppercase;
+}
+
+/* =========================
+   SHOWCASE
+========================= */
+
+.showcase{
+    padding:0 0 100px;
+}
+
+.showcase-box{
+    position:relative;
+
+    padding:70px 30px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    border:1px solid rgba(255,120,0,.2);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,100,0,.14),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #191919,
+            #090909
+        );
+}
+
+.showcase-box::before{
+    content:"RS 3D";
+
+    position:absolute;
+
+    font-size:200px;
+
+    font-weight:1000;
+
+    color:rgba(255,255,255,.018);
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    white-space:nowrap;
+}
+
+.showcase-content{
+    position:relative;
+    z-index:2;
+}
+
+.showcase h2{
+    font-size:clamp(32px,6vw,65px);
+    font-weight:1000;
+    text-transform:uppercase;
+}
+
+.showcase h2 span{
+    color:var(--orange);
+}
+
+.showcase p{
+    max-width:650px;
+    margin:20px auto 30px;
+
+    color:#999;
+    line-height:1.7;
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.process{
+    background:#0a0a0a;
+}
+
+.process-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+
+    position:relative;
+}
+
+.process-grid::before{
+    content:"";
+
+    position:absolute;
+
+    top:45px;
+    left:12%;
+    right:12%;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--orange),
+            transparent
+        );
+
+    opacity:.5;
+}
+
+.process-item{
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+}
+
+.process-icon{
+    width:90px;
+    height:90px;
+
+    margin:0 auto 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#111;
+
+    border:1px solid var(--orange);
+
+    color:var(--orange);
+
+    font-size:30px;
+
+    box-shadow:
+        0 0 30px rgba(255,100,0,.1);
+}
+
+.process-item h3{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.process-item p{
+    color:#888;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* =========================
+   WHY US
+========================= */
+
+.why-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:25px;
+}
+
+.why-card{
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#111;
+
+    border-radius:18px;
+
+    display:flex;
+
+    gap:20px;
+
+    transition:.3s;
+}
+
+.why-card:hover{
+    border-color:rgba(255,120,0,.35);
+    transform:translateY(-5px);
+}
+
+.why-icon{
+    min-width:55px;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:rgba(255,100,0,.08);
+
+    color:var(--orange);
+
+    font-size:24px;
+}
+
+.why-card h3{
+    margin-bottom:8px;
+}
+
+.why-card p{
+    color:#888;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:100px 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,100,0,.12),
+            transparent 50%
+        );
+}
+
+.cta-box{
+    padding:70px 30px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,120,0,.3);
+
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #0b0b0b
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.5);
+}
+
+.cta-box h2{
+    font-size:clamp(35px,6vw,65px);
+
+    font-weight:1000;
+
+    text-transform:uppercase;
+}
+
+.cta-box h2 span{
+    color:var(--orange);
+}
+
+.cta-box p{
+    max-width:650px;
+
+    margin:20px auto 30px;
+
+    color:#999;
+
+    line-height:1.7;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    background:#080808;
+}
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+}
+
+.contact-left h2{
+    font-size:45px;
+    font-weight:1000;
+    margin-bottom:20px;
+}
+
+.contact-left h2 span{
+    color:var(--orange);
+}
+
+.contact-left > p{
+    color:#888;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.contact-item-icon{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:rgba(255,100,0,.08);
+
+    color:var(--orange);
+}
+
+.contact-item div:last-child{
+    color:#ccc;
+}
+
+.contact-item small{
+    display:block;
+    color:#777;
+    margin-bottom:3px;
+}
+
+.contact-box{
+    padding:35px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:#111;
+}
+
+.contact-box h3{
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.contact-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.contact-button{
+    padding:17px 20px;
+
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.whatsapp{
+    background:#168c4a;
+}
+
+.instagram{
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
+        );
+}
+
+.contact-button:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:40px 0;
+
+    background:#050505;
+}
+
+.footer-inner{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.footer-logo{
+    font-size:22px;
+    font-weight:1000;
+}
+
+.footer-logo span{
+    color:var(--orange);
+}
+
+.footer-copy{
+    color:#666;
+    font-size:12px;
+    text-align:center;
+}
+
+.footer-social{
+    display:flex;
+    gap:10px;
+}
+
+.social{
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    color:#aaa;
+
+    transition:.3s;
+}
+
+.social:hover{
+    color:var(--orange);
+    border-color:var(--orange);
+}
+
+/* =========================
+   SCROLL TOP
+========================= */
+
+.top-btn{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    color:#000;
+
+    font-weight:1000;
+
+    z-index:999;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+.top-btn.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        position:absolute;
+
+        top:75px;
+        left:0;
+
+        width:100%;
+
+        padding:25px;
+
+        background:#0b0b0b;
+
+        border-bottom:1px solid rgba(255,120,0,.2);
+
+        display:none;
+
+        flex-direction:column;
+        align-items:stretch;
+
+        gap:5px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:15px;
+        text-align:center;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .service-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .product-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .process-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:45px 20px;
+    }
+
+    .process-grid::before{
+        display:none;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .section{
+        padding:75px 0;
+    }
+
+    .container{
+        width:90%;
+    }
+
+    .logo-text{
+        display:none;
+    }
+
+    .hero{
+        min-height:90vh;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero-sub{
+        font-size:16px;
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        margin-top:50px;
+    }
+
+    .stat:nth-child(2){
+        border-right:none;
+    }
+
+    .stat:nth-child(-n+2){
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .service-grid,
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-card{
+        min-height:220px;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-card{
+        padding:22px;
+    }
+
+    .contact-left h2{
+        font-size:36px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+
+    .footer-copy{
+        order:3;
+    }
+
+    .showcase-box{
+        padding:55px 20px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+<div class="container nav-inner">
+
+<a href="#home" class="logo">
+
+<div class="logo-mark">
+RS
+</div>
+
+<div class="logo-text">
+3D <span>CUSTOM STUDIO</span>
+</div>
+
+</a>
+
+
+<nav class="nav-links" id="navLinks">
+
+<a href="#home">HOME</a>
+<a href="#services">SERVICES</a>
+<a href="#products">PRODUCTS</a>
+<a href="#process">PROCESS</a>
+<a href="#about">WHY US</a>
+<a href="#contact" class="nav-btn">
+CONTACT
+</a>
+
+</nav>
+
+
+<div class="menu" id="menu">
+☰
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="hero-grid"></div>
+
+<div class="container">
+
+<div class="hero-content reveal">
+
+<div class="hero-badge">
+<i></i>
+3D PRINTING • CUSTOM DESIGN • ENGINEERING
+</div>
+
+
+<h1>
+
+<span class="rs">RS</span>
+<span class="metal">3D</span>
+
+<br>
+
+<span class="orange">CUSTOM</span>
+<span class="metal">STUDIO</span>
+
+</h1>
+
+
+<p class="hero-sub">
+
+<strong>Your Idea.</strong>
+Our Creation.
+Made Just For You.
+
+<br>
+
+From personalised gifts and custom products
+to engineering prototypes and practical
+3D printing solutions.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="#products"
+   class="btn btn-primary">
+
+EXPLORE OUR WORK →
+</a>
+
+<a href="#contact"
+   class="btn btn-outline">
+
+💬 GET A QUOTE
+
+</a>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<h3>3D</h3>
+
+<p>Custom Printing</p>
+
+</div>
+
+
+<div class="stat">
+
+<h3>100%</h3>
+
+<p>Customised</p>
+
+</div>
+
+
+<div class="stat">
+
+<h3>∞</h3>
+
+<p>Design Possibilities</p>
+
+</div>
+
+
+<div class="stat">
+
+<h3>24/7</h3>
+
+<p>Creative Ideas</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="section services"
+         id="services">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<div class="small">
+WHAT WE DO
+</div>
+
+<h2>
+OUR <span>SERVICES</span>
+</h2>
+
+<p>
+Creative solutions designed around your idea.
+</p>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+▣
+</div>
+
+<h3>3D Printing</h3>
+
+<p>
+High-quality custom 3D printing for
+models, parts, products, prototypes
+and creative projects.
+</p>
+
+<div class="service-number">
+01
+</div>
+
+</div>
+
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+🎁
+</div>
+
+<h3>Personalised Gifts</h3>
+
+<p>
+Photo lamps, name plates, keychains,
+couple gifts, miniatures and unique
+custom creations.
+</p>
+
+<div class="service-number">
+02
+</div>
+
+</div>
+
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+✎
+</div>
+
+<h3>Custom Design</h3>
+
+<p>
+Have an idea? We transform your concept
+into a practical and printable 3D design.
+</p>
+
+<div class="service-number">
+03
+</div>
+
+</div>
+
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+⚙
+</div>
+
+<h3>Engineering</h3>
+
+<p>
+Custom mechanical parts, prototypes,
+machine components and low-cost
+engineering solutions.
+</p>
+
+<div class="service-number">
+04
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SHOWCASE
+===================================================== -->
+
+<section class="showcase">
+
+<div class="container">
+
+<div class="showcase-box reveal">
+
+<div class="showcase-content">
+
+<h2>
+IMAGINE IT.
+<br>
+<span>WE CAN CREATE IT.</span>
+</h2>
+
+<p>
+Whether it is a special gift, a mechanical
+component, a miniature, a prototype or
+something completely new — send us your
+idea and let us turn it into reality.
+</p>
+
+<a href="#contact"
+   class="btn btn-primary">
+
+START YOUR PROJECT →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
+
+<section class="section products"
+         id="products">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<div class="small">
+CUSTOM CREATIONS
+</div>
+
+<h2>
+WHAT WE <span>PRINT</span>
+</h2>
+
+<p>
+From beautiful gifts to functional engineering parts.
+</p>
+
+</div>
+
+
+<div class="product-grid">
+
+
+<div class="product-card reveal">
+
+<div class="product-image">
+
+<div class="product-icon">
+💡
+</div>
+
+</div>
+
+<div class="product-info">
+
+<h3>Photo Lamps</h3>
+
+<p>
+Turn your favourite memories into
+beautiful personalised LED lamps.
+</p>
+
+<span class="product-tag">
+Personalised
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="product-card reveal">
+
+<div class="product-image">
+
+<div class="product-icon">
+🔑
+</div>
+
+</div>
+
+<div class="product-info">
+
+<h3>Name Keychains</h3>
+
+<p>
+Custom names, initials and designs
+printed specially for you.
+</p>
+
+<span class="product-tag">
+Custom Name
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="product-card reveal">
+
+<div class="product-image">
+
+<div class="product-icon">
+🏛
+</div>
+
+</div>
+
+<div class="product-info">
+
+<h3>Miniatures</h3>
+
+<p>
+Custom miniatures, monuments,
+characters and decorative models.
+</p>
+
+<span class="product-tag">
+3D Model
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="product-card reveal">
+
+<div class="product-image">
+
+<div class="product-icon">
+🪴
+</div>
+
+</div>
+
+<div class="product-info">
+
+<h3>Home Décor</h3>
+
+<p>
+Modern vases, planters, sculptures,
+organisers and decorative creations.
+</p>
+
+<span class="product-tag">
+Home Décor
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="product-card reveal">
+
+<div class="product-image">
+
+<div class="product-icon">
+⚙️
+</div>
+
+</div>
+
+<div class="product-info">
+
+<h3>Engineering Parts</h3>
+
+<p>
+Functional components, brackets,
+gears, adapters and custom machine parts.
+</p>
+
+<span class="product-tag">
+Engineering
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="product-card reveal">
+
+<div class="product-image">
+
+<div class="product-icon">
+🚗
+</div>
+
+</div>
+
+<div class="product-info">
+
+<h3>Custom Accessories</h3>
+
+<p>
+Car, bike and everyday accessories
+designed around your requirements.
+</p>
+
+<span class="product-tag">
+Custom Made
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section class="section process"
+         id="process">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<div class="small">
+SIMPLE PROCESS
+</div>
+
+<h2>
+FROM IDEA TO <span>REALITY</span>
+</h2>
+
+<p>
+A simple process. A beautiful result.
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+
+<div class="process-item reveal">
+
+<div class="process-icon">
+💬
+</div>
+
+<h3>01. SHARE</h3>
+
+<p>
+Send us your idea,
+photo, sketch or requirement.
+</p>
+
+</div>
+
+
+
+<div class="process-item reveal">
+
+<div class="process-icon">
+✎
+</div>
+
+<h3>02. DESIGN</h3>
+
+<p>
+We create or customise
+the design according to your needs.
+</p>
+
+</div>
+
+
+
+<div class="process-item reveal">
+
+<div class="process-icon">
+▣
+</div>
+
+<h3>03. PRINT</h3>
+
+<p>
+Your approved design
+is carefully 3D printed.
+</p>
+
+</div>
+
+
+
+<div class="process-item reveal">
+
+<div class="process-icon">
+🎁
+</div>
+
+<h3>04. DELIVER</h3>
+
+<p>
+Your finished creation
+is packed and delivered to you.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY US
+===================================================== -->
+
+<section class="section"
+         id="about">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<div class="small">
+WHY RS 3D
+</div>
+
+<h2>
+WHY <span>CHOOSE US?</span>
+</h2>
+
+<p>
+Quality, creativity and personalised service.
+</p>
+
+</div>
+
+
+<div class="why-grid">
+
+
+<div class="why-card reveal">
+
+<div class="why-icon">
+✓
+</div>
+
+<div>
+
+<h3>High Quality Prints</h3>
+
+<p>
+We focus on clean designs, good
+surface quality and reliable results.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="why-card reveal">
+
+<div class="why-icon">
+✦
+</div>
+
+<div>
+
+<h3>Fully Customised</h3>
+
+<p>
+Your product can be designed around
+your exact idea and requirements.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="why-card reveal">
+
+<div class="why-icon">
+₹
+</div>
+
+<div>
+
+<h3>Affordable Solutions</h3>
+
+<p>
+Creative custom products and practical
+engineering solutions at reasonable prices.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="why-card reveal">
+
+<div class="why-icon">
+⚡
+</div>
+
+<div>
+
+<h3>Fast Response</h3>
+
+<p>
+Quick communication from idea,
+design approval to production.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="why-card reveal">
+
+<div class="why-icon">
+⚙
+</div>
+
+<div>
+
+<h3>Engineering Support</h3>
+
+<p>
+We can help turn mechanical concepts
+into practical printable components.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="why-card reveal">
+
+<div class="why-icon">
+♥
+</div>
+
+<div>
+
+<h3>Made With Care</h3>
+
+<p>
+Every custom creation receives
+individual attention before delivery.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+<div class="container">
+
+<div class="cta-box reveal">
+
+<h2>
+HAVE AN <span>IDEA?</span>
+</h2>
+
+<p>
+Don't worry if you don't have a 3D model.
+Send us your idea, drawing, image or reference.
+We'll help you take it from concept to creation.
+</p>
+
+<a href="#contact"
+   class="btn btn-primary">
+
+💡 START YOUR IDEA
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="section contact"
+         id="contact">
+
+<div class="container">
+
+<div class="contact-grid">
+
+
+<div class="contact-left reveal">
+
+<div class="section-title"
+     style="text-align:left;margin-bottom:25px;">
+
+<div class="small">
+LET'S CREATE
+</div>
+
+<h2>
+CONTACT <span>RS 3D</span>
+</h2>
+
+</div>
+
+
+<p>
+
+Have a custom product in mind?
+Need a 3D printed part?
+Want a personalised gift?
+
+Send us your idea and let's
+create something special.
+
+</p>
+
+
+<div class="contact-info">
+
+
+<div class="contact-item">
+
+<div class="contact-item-icon">
+☎
+</div>
+
+<div>
+
+<small>PHONE / WHATSAPP</small>
+
+<a href="https://wa.me/919085341818">
++91 90853 41818
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="contact-item">
+
+<div class="contact-item-icon">
+◎
+</div>
+
+<div>
+
+<small>INSTAGRAM</small>
+
+<a href="https://instagram.com/rs3dcustomstudio"
+   target="_blank">
+
+@rs3dcustomstudio
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="contact-item">
+
+<div class="contact-item-icon">
+⌖
+</div>
+
+<div>
+
+<small>LOCATION</small>
+
+Namakkal, Tamil Nadu, India
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="contact-box reveal">
+
+<h3>
+Start Your Custom Project
+</h3>
+
+<p style="color:#777;
+          line-height:1.6;
+          margin-bottom:25px;">
+
+Click below and send us your
+requirement directly.
+
+</p>
+
+
+<div class="contact-buttons">
+
+
+<a class="contact-button whatsapp"
+   href="https://wa.me/919085341818?text=Hello%20RS%203D%20Custom%20Studio%2C%20I%20have%20a%20custom%20project%20idea.">
+
+💬 CHAT ON WHATSAPP
+
+</a>
+
+
+
+<a class="contact-button instagram"
+   href="https://instagram.com/rs3dcustomstudio"
+   target="_blank">
+
+◎ FOLLOW ON INSTAGRAM
+
+</a>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-inner">
+
+
+<div class="footer-logo">
+
+RS <span>3D</span>
+
+</div>
+
+
+<div class="footer-copy">
+
+© 2026 RS 3D Custom Studio.
+<br>
+
+Your Idea • Our Creation • Made Just For You
+
+</div>
+
+
+<div class="footer-social">
+
+<a class="social"
+   href="https://instagram.com/rs3dcustomstudio"
+   target="_blank">
+
+◎
+
+</a>
+
+<a class="social"
+   href="https://wa.me/917708859615">
+
+☎
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     SCROLL TOP
+===================================================== -->
+
+<a href="#home"
+   class="top-btn"
+   id="topBtn">
+
+↑
+
+</a>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menu =
+document.getElementById("menu");
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+menu.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+/* Close mobile menu
+   after clicking link */
+
+document.querySelectorAll(
+    ".nav-links a"
+).forEach(link => {
+
+    link.addEventListener(
+        "click",
+        () => {
+
+            navLinks.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add(
+                "active"
+            );
+
+        }
+
+    });
+
+},
+
+{
+    threshold:0.12
+}
+
+);
+
+
+reveals.forEach(
+    element => observer.observe(element)
+);
+
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+const topBtn =
+document.getElementById("topBtn");
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(window.scrollY > 500){
+
+            topBtn.classList.add("show");
+
+        }else{
+
+            topBtn.classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* =========================
+   NAVBAR SCROLL
+========================= */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const navbar =
+        document.querySelector(".navbar");
+
+        if(window.scrollY > 30){
+
+            navbar.style.background =
+                "rgba(5,5,5,.96)";
+
+        }else{
+
+            navbar.style.background =
+                "rgba(5,5,5,.88)";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
