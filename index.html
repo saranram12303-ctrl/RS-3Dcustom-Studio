@@ -1,0 +1,3297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#080808">
+
+<title>RS 3D Custom Studio</title>
+
+<style>
+
+/* =====================================================
+   RS 3D CUSTOM STUDIO
+   PREMIUM MULTI-PAGE STYLE SINGLE HTML WEBSITE
+   ===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:#070707;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+:root{
+    --orange:#ff7200;
+    --orange2:#ffad00;
+    --black:#070707;
+    --dark:#0d0d0d;
+    --card:#141414;
+    --border:#292929;
+    --gray:#999;
+    --green:#18a558;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    height:74px;
+
+    z-index:1000;
+
+    background:
+        rgba(7,7,7,.94);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
+
+.header-inner{
+    width:92%;
+    max-width:1250px;
+    height:100%;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    cursor:pointer;
+}
+
+.logo-rs{
+    font-size:30px;
+    font-weight:1000;
+    font-style:italic;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #ff7200
+        );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.logo-name{
+    font-size:16px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.logo-name span{
+    color:var(--orange);
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+nav button{
+    border:0;
+    background:transparent;
+
+    color:#aaa;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    font-size:13px;
+    font-weight:700;
+
+    transition:.25s;
+}
+
+nav button:hover,
+nav button.active{
+    color:#fff;
+    background:#181818;
+}
+
+.cart-nav{
+    position:relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6800,
+            #ffad00
+        ) !important;
+
+    color:#000 !important;
+
+    padding:
+        10px 17px !important;
+
+    border-radius:9px !important;
+}
+
+.cart-count{
+    position:absolute;
+
+    top:-8px;
+    right:-8px;
+
+    min-width:20px;
+    height:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#fff;
+    color:#000;
+
+    font-size:11px;
+    font-weight:1000;
+
+    border:2px solid #070707;
+}
+
+.menu-btn{
+    display:none;
+
+    border:0;
+    background:transparent;
+
+    color:#fff;
+
+    font-size:27px;
+}
+
+
+/* =====================================================
+   PAGE SYSTEM
+   ===================================================== */
+
+main{
+    padding-top:74px;
+}
+
+.page{
+    display:none;
+
+    min-height:
+        calc(100vh - 74px);
+
+    animation:
+        pageIn .35s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =====================================================
+   COMMON
+   ===================================================== */
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.page-title{
+    padding:75px 0 45px;
+}
+
+.page-label{
+    color:var(--orange);
+
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.page-title h1{
+    font-size:
+        clamp(38px,7vw,70px);
+
+    line-height:1;
+
+    text-transform:uppercase;
+
+    font-weight:1000;
+}
+
+.page-title h1 span{
+    color:var(--orange);
+}
+
+.page-title p{
+    color:#888;
+
+    margin-top:18px;
+
+    max-width:650px;
+
+    line-height:1.7;
+}
+
+.btn{
+    border:0;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+
+    padding:14px 21px;
+
+    border-radius:9px;
+
+    font-size:14px;
+    font-weight:900;
+
+    transition:.25s;
+}
+
+.btn-orange{
+    background:
+        linear-gradient(
+            135deg,
+            #ff6800,
+            #ffad00
+        );
+
+    color:#000;
+}
+
+.btn-orange:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(255,100,0,.25);
+}
+
+.btn-dark{
+    background:#181818;
+
+    border:1px solid #303030;
+
+    color:#fff;
+}
+
+.btn-dark:hover{
+    border-color:var(--orange);
+    color:var(--orange);
+}
+
+
+/* =====================================================
+   HOME
+   ===================================================== */
+
+#home{
+    min-height:
+        calc(100vh - 74px);
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(255,105,0,.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 15% 70%,
+            rgba(255,170,0,.05),
+            transparent 30%
+        ),
+        #070707;
+}
+
+.home-grid{
+    position:absolute;
+    inset:0;
+
+    opacity:.45;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:45px 45px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+}
+
+.home-content{
+    position:relative;
+    z-index:2;
+
+    min-height:
+        calc(100vh - 74px);
+
+    display:flex;
+    align-items:center;
+}
+
+.home-copy{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    padding:9px 15px;
+
+    border:1px solid
+        rgba(255,120,0,.3);
+
+    border-radius:30px;
+
+    color:#aaa;
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:25px;
+}
+
+.badge i{
+    width:7px;
+    height:7px;
+
+    background:var(--orange);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 12px
+        var(--orange);
+}
+
+.home-copy h1{
+    font-size:
+        clamp(48px,9vw,105px);
+
+    line-height:.92;
+
+    font-weight:1000;
+
+    letter-spacing:-5px;
+
+    text-transform:uppercase;
+}
+
+.home-copy h1 .orange{
+    color:var(--orange);
+}
+
+.home-copy h1 .silver{
+    color:#999;
+}
+
+.home-copy p{
+    max-width:680px;
+
+    color:#999;
+
+    font-size:
+        clamp(16px,2vw,20px);
+
+    line-height:1.7;
+
+    margin:
+        28px 0 35px;
+}
+
+.home-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.home-mini{
+    display:flex;
+    gap:30px;
+
+    margin-top:55px;
+
+    padding-top:25px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+.home-mini div strong{
+    display:block;
+
+    color:var(--orange);
+
+    font-size:22px;
+}
+
+.home-mini div span{
+    color:#666;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+}
+
+
+/* =====================================================
+   PRODUCTS
+   ===================================================== */
+
+.product-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+
+    padding-bottom:80px;
+}
+
+.product-card{
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #0e0e0e
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(255,120,0,.4);
+
+    box-shadow:
+        0 18px 50px
+        rgba(0,0,0,.4);
+}
+
+.product-image{
+    height:235px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,110,0,.12),
+            transparent 60%
+        ),
+        #131313;
+
+    overflow:hidden;
+}
+
+/* Product visual placeholder */
+
+.product-symbol{
+    font-size:80px;
+
+    filter:
+        drop-shadow(
+            0 15px 25px
+            rgba(255,100,0,.15)
+        );
+}
+
+.product-info{
+    padding:22px;
+}
+
+.product-info h3{
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.product-info p{
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    min-height:42px;
+}
+
+.product-bottom{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.price{
+    color:#fff;
+
+    font-size:21px;
+
+    font-weight:1000;
+}
+
+.price small{
+    color:#666;
+
+    font-size:11px;
+
+    font-weight:500;
+}
+
+.add-btn{
+    border:0;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    background:
+        var(--orange);
+
+    color:#000;
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+.add-btn:hover{
+    background:var(--orange2);
+}
+
+
+/* =====================================================
+   SERVICES
+   ===================================================== */
+
+.service-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+
+    padding-bottom:80px;
+}
+
+.service-card{
+    padding:32px;
+
+    border:1px solid #242424;
+
+    background:#111;
+
+    border-radius:18px;
+
+    transition:.3s;
+}
+
+.service-card:hover{
+    border-color:
+        rgba(255,120,0,.35);
+
+    transform:translateY(-5px);
+}
+
+.service-icon{
+    width:60px;
+    height:60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        rgba(255,110,0,.08);
+
+    border:
+        1px solid
+        rgba(255,120,0,.2);
+
+    border-radius:14px;
+
+    font-size:27px;
+
+    margin-bottom:20px;
+}
+
+.service-card h2{
+    font-size:23px;
+
+    margin-bottom:10px;
+}
+
+.service-card p{
+    color:#888;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   ABOUT
+   ===================================================== */
+
+.about-box{
+    padding-bottom:80px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.1fr .9fr;
+
+    gap:30px;
+}
+
+.about-main,
+.about-list{
+    background:#111;
+
+    border:
+        1px solid #242424;
+
+    border-radius:20px;
+
+    padding:35px;
+}
+
+.about-main h2{
+    font-size:35px;
+
+    margin-bottom:20px;
+}
+
+.about-main h2 span{
+    color:var(--orange);
+}
+
+.about-main p{
+    color:#888;
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+}
+
+.about-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.about-point{
+    display:flex;
+
+    gap:14px;
+
+    padding:17px;
+
+    background:#171717;
+
+    border-radius:12px;
+}
+
+.about-point b{
+    color:var(--orange);
+}
+
+.about-point span{
+    color:#aaa;
+}
+
+
+/* =====================================================
+   CONTACT
+   ===================================================== */
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:25px;
+
+    padding-bottom:80px;
+}
+
+.contact-card{
+    background:#111;
+
+    border:
+        1px solid #252525;
+
+    border-radius:20px;
+
+    padding:35px;
+}
+
+.contact-card h2{
+    font-size:30px;
+
+    margin-bottom:15px;
+}
+
+.contact-card p{
+    color:#888;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+}
+
+.contact-line{
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:15px 0;
+
+    border-bottom:
+        1px solid #202020;
+}
+
+.contact-line:last-child{
+    border-bottom:0;
+}
+
+.contact-icon{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,110,0,.08);
+
+    color:var(--orange);
+}
+
+.contact-line small{
+    display:block;
+
+    color:#666;
+
+    font-size:10px;
+
+    margin-bottom:3px;
+}
+
+.contact-line a{
+    color:#ddd;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+.contact-actions{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.whatsapp{
+    background:#159447;
+
+    color:#fff;
+}
+
+.instagram{
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
+        );
+
+    color:#fff;
+}
+
+
+/* =====================================================
+   CART
+   ===================================================== */
+
+.cart-page{
+    padding-bottom:80px;
+}
+
+.cart-layout{
+    display:grid;
+
+    grid-template-columns:
+        1fr 360px;
+
+    gap:25px;
+}
+
+.cart-items{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.cart-item{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:17px;
+
+    background:#111;
+
+    border:
+        1px solid #242424;
+
+    border-radius:14px;
+}
+
+.cart-thumb{
+    width:75px;
+    height:75px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:#181818;
+
+    font-size:34px;
+
+    flex-shrink:0;
+}
+
+.cart-details{
+    flex:1;
+}
+
+.cart-details h3{
+    font-size:16px;
+
+    margin-bottom:5px;
+}
+
+.cart-details p{
+    color:#777;
+
+    font-size:12px;
+}
+
+.qty{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:10px;
+}
+
+.qty button{
+    width:27px;
+    height:27px;
+
+    border:1px solid #333;
+
+    background:#191919;
+
+    color:#fff;
+
+    border-radius:6px;
+}
+
+.qty span{
+    min-width:20px;
+
+    text-align:center;
+}
+
+.cart-price{
+    text-align:right;
+}
+
+.cart-price strong{
+    display:block;
+
+    color:var(--orange);
+
+    font-size:17px;
+}
+
+.remove{
+    border:0;
+
+    background:none;
+
+    color:#666;
+
+    margin-top:7px;
+
+    font-size:11px;
+}
+
+.remove:hover{
+    color:#ff4d4d;
+}
+
+.cart-summary{
+    height:max-content;
+
+    position:sticky;
+
+    top:95px;
+
+    padding:25px;
+
+    background:#111;
+
+    border:
+        1px solid #292929;
+
+    border-radius:18px;
+}
+
+.cart-summary h2{
+    font-size:22px;
+
+    margin-bottom:22px;
+}
+
+.summary-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#888;
+
+    padding:10px 0;
+}
+
+.summary-total{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding-top:18px;
+
+    margin-top:10px;
+
+    border-top:1px solid #292929;
+
+    font-size:21px;
+
+    font-weight:1000;
+}
+
+.summary-total span:last-child{
+    color:var(--orange);
+}
+
+.checkout{
+    width:100%;
+
+    margin-top:22px;
+
+    border:0;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    background:#159447;
+
+    color:#fff;
+
+    font-weight:1000;
+}
+
+.empty{
+    padding:70px 20px;
+
+    text-align:center;
+
+    background:#111;
+
+    border:1px dashed #333;
+
+    border-radius:18px;
+}
+
+.empty-icon{
+    font-size:55px;
+
+    margin-bottom:15px;
+}
+
+.empty h2{
+    margin-bottom:8px;
+}
+
+.empty p{
+    color:#777;
+
+    margin-bottom:20px;
+}
+
+
+/* =====================================================
+   ORDER MODAL
+   ===================================================== */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,0,0,.78);
+
+    backdrop-filter:blur(8px);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:500px;
+
+    max-height:
+        calc(100vh - 40px);
+
+    overflow:auto;
+
+    background:#111;
+
+    border:
+        1px solid #333;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    animation:
+        modalIn .25s ease;
+}
+
+@keyframes modalIn{
+
+    from{
+        opacity:0;
+        transform:scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.modal-top{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:22px;
+}
+
+.modal-top h2{
+    font-size:22px;
+}
+
+.close{
+    border:0;
+
+    background:#1d1d1d;
+
+    color:#aaa;
+
+    width:35px;
+    height:35px;
+
+    border-radius:8px;
+
+    font-size:20px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+
+    color:#aaa;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+
+    border:
+        1px solid #303030;
+
+    background:#080808;
+
+    color:#fff;
+
+    padding:13px;
+
+    border-radius:8px;
+
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:90px;
+
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:var(--orange);
+}
+
+.modal-note{
+    color:#666;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    margin:15px 0;
+}
+
+.modal-submit{
+    width:100%;
+
+    border:0;
+
+    padding:15px;
+
+    border-radius:9px;
+
+    background:#159447;
+
+    color:#fff;
+
+    font-weight:1000;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer{
+    padding:30px 0;
+
+    border-top:
+        1px solid #202020;
+
+    text-align:center;
+
+    background:#050505;
+
+    color:#666;
+
+    font-size:12px;
+}
+
+footer strong{
+    color:#aaa;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media(max-width:850px){
+
+    nav{
+        position:absolute;
+
+        top:74px;
+        left:0;
+
+        width:100%;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        padding:15px;
+
+        background:#0b0b0b;
+
+        border-bottom:
+            1px solid #282828;
+    }
+
+    nav.open{
+        display:flex;
+    }
+
+    nav button{
+        width:100%;
+
+        padding:14px;
+
+        text-align:center;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .product-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .cart-layout{
+        grid-template-columns:1fr;
+    }
+
+    .cart-summary{
+        position:static;
+    }
+
+    .about-box,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:560px){
+
+    .logo-name{
+        display:none;
+    }
+
+    .container{
+        width:90%;
+    }
+
+    .home-copy h1{
+        letter-spacing:-2px;
+    }
+
+    .home-mini{
+        gap:17px;
+    }
+
+    .home-mini div strong{
+        font-size:18px;
+    }
+
+    .home-mini div span{
+        font-size:9px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cart-item{
+        align-items:flex-start;
+    }
+
+    .cart-thumb{
+        width:60px;
+        height:60px;
+        font-size:28px;
+    }
+
+    .cart-price{
+        min-width:70px;
+    }
+
+}
+
+
+/* =====================================================
+   NOTIFICATION
+   ===================================================== */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:
+        translate(-50%,20px);
+
+    z-index:9000;
+
+    background:#1b1b1b;
+
+    border:
+        1px solid #333;
+
+    color:#fff;
+
+    padding:13px 20px;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.5);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    font-size:13px;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="header-inner">
+
+
+<div class="logo"
+     onclick="openPage('home')">
+
+<div class="logo-rs">
+RS
+</div>
+
+<div class="logo-name">
+3D <span>CUSTOM STUDIO</span>
+</div>
+
+</div>
+
+
+<nav id="nav">
+
+<button
+    data-page="home"
+    onclick="openPage('home')">
+
+HOME
+
+</button>
+
+<button
+    data-page="products"
+    onclick="openPage('products')">
+
+PRODUCTS
+
+</button>
+
+<button
+    data-page="services"
+    onclick="openPage('services')">
+
+SERVICES
+
+</button>
+
+<button
+    data-page="about"
+    onclick="openPage('about')">
+
+ABOUT
+
+</button>
+
+<button
+    data-page="contact"
+    onclick="openPage('contact')">
+
+CONTACT
+
+</button>
+
+<button
+    class="cart-nav"
+    data-page="cart"
+    onclick="openPage('cart')">
+
+🛒 CART
+
+<span
+    class="cart-count"
+    id="cartCount">
+
+0
+
+</span>
+
+</button>
+
+</nav>
+
+
+<button
+    class="menu-btn"
+    id="menuBtn">
+
+☰
+
+</button>
+
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HOME PAGE
+===================================================== -->
+
+<section
+    class="page active"
+    id="home">
+
+<div class="home-grid"></div>
+
+<div class="container home-content">
+
+<div class="home-copy">
+
+
+<div class="badge">
+
+<i></i>
+
+CUSTOM 3D PRINTING • DESIGN • CREATIVE
+
+</div>
+
+
+<h1>
+
+RS <span class="silver">3D</span>
+
+<br>
+
+<span class="orange">CUSTOM</span>
+
+<br>
+
+STUDIO
+
+</h1>
+
+
+<p>
+
+Your idea. Our creation.
+From personalised gifts and custom products
+to engineering parts and 3D prototypes —
+we make it real.
+
+</p>
+
+
+<div class="home-actions">
+
+<button
+    class="btn btn-orange"
+    onclick="openPage('products')">
+
+🛍 SHOP PRODUCTS
+
+</button>
+
+
+<button
+    class="btn btn-dark"
+    onclick="openPage('contact')">
+
+💬 GET A QUOTE
+
+</button>
+
+</div>
+
+
+<div class="home-mini">
+
+<div>
+
+<strong>3D</strong>
+
+<span>Printing</span>
+
+</div>
+
+
+<div>
+
+<strong>100%</strong>
+
+<span>Custom</span>
+
+</div>
+
+
+<div>
+
+<strong>∞</strong>
+
+<span>Possibilities</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCTS PAGE
+===================================================== -->
+
+<section
+    class="page"
+    id="products">
+
+<div class="container">
+
+
+<div class="page-title">
+
+<div class="page-label">
+OUR PRODUCTS
+</div>
+
+<h1>
+SHOP <span>RS 3D</span>
+</h1>
+
+<p>
+Choose your product and add it to your cart.
+You can send the complete order directly to us
+through WhatsApp.
+</p>
+
+</div>
+
+
+<div
+    class="product-grid"
+    id="productGrid">
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES PAGE
+===================================================== -->
+
+<section
+    class="page"
+    id="services">
+
+<div class="container">
+
+
+<div class="page-title">
+
+<div class="page-label">
+WHAT WE DO
+</div>
+
+<h1>
+OUR <span>SERVICES</span>
+</h1>
+
+<p>
+Creative and practical 3D solutions
+for personal, commercial and engineering needs.
+</p>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<div class="service-card">
+
+<div class="service-icon">
+🖨️
+</div>
+
+<h2>
+3D Printing
+</h2>
+
+<p>
+Custom 3D printing for prototypes,
+models, decorative products,
+functional parts and more.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">
+🎁
+</div>
+
+<h2>
+Custom Gifts
+</h2>
+
+<p>
+Personalised names, keychains,
+photo lamps, miniatures and
+special occasion gifts.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">
+🎨
+</div>
+
+<h2>
+Custom Design
+</h2>
+
+<p>
+Have an idea but no 3D model?
+Send your sketch or reference.
+We can help develop the design.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">
+⚙️
+</div>
+
+<h2>
+Engineering Parts
+</h2>
+
+<p>
+Custom brackets, adapters,
+covers, holders, prototypes and
+other practical components.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT PAGE
+===================================================== -->
+
+<section
+    class="page"
+    id="about">
+
+<div class="container">
+
+
+<div class="page-title">
+
+<div class="page-label">
+ABOUT US
+</div>
+
+<h1>
+WHY <span>RS 3D?</span>
+</h1>
+
+<p>
+We combine creativity, custom design and
+3D printing to turn ideas into real products.
+</p>
+
+</div>
+
+
+<div class="about-box">
+
+
+<div class="about-main">
+
+<h2>
+YOUR IDEA.
+<span>OUR CREATION.</span>
+</h2>
+
+<p>
+RS 3D Custom Studio is focused on creating
+unique customised products, gifts,
+3D printed models and practical engineering
+solutions.
+</p>
+
+<p>
+Whether you have a simple idea, a reference
+photo, a drawing or a technical requirement,
+we can work with you to create something
+special.
+</p>
+
+<p>
+Every project is treated as a custom project,
+so the design, size, material and finish can
+be discussed according to your requirements.
+</p>
+
+</div>
+
+
+<div class="about-list">
+
+
+<div class="about-point">
+
+<b>✓</b>
+
+<span>
+Customised designs
+</span>
+
+</div>
+
+
+<div class="about-point">
+
+<b>✓</b>
+
+<span>
+Personalised products
+</span>
+
+</div>
+
+
+<div class="about-point">
+
+<b>✓</b>
+
+<span>
+3D printed prototypes
+</span>
+
+</div>
+
+
+<div class="about-point">
+
+<b>✓</b>
+
+<span>
+Engineering components
+</span>
+
+</div>
+
+
+<div class="about-point">
+
+<b>✓</b>
+
+<span>
+Affordable custom solutions
+</span>
+
+</div>
+
+
+<div class="about-point">
+
+<b>✓</b>
+
+<span>
+Direct WhatsApp support
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT PAGE
+===================================================== -->
+
+<section
+    class="page"
+    id="contact">
+
+<div class="container">
+
+
+<div class="page-title">
+
+<div class="page-label">
+GET IN TOUCH
+</div>
+
+<h1>
+CONTACT <span>US</span>
+</h1>
+
+<p>
+Have an idea? Send us your requirement,
+reference image or product request.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+<h2>
+RS 3D Custom Studio
+</h2>
+
+<p>
+For custom orders, product enquiries,
+3D printing requirements and engineering
+projects, contact us directly.
+</p>
+
+
+<div class="contact-line">
+
+<div class="contact-icon">
+☎
+</div>
+
+<div>
+
+<small>WHATSAPP 01</small>
+
+<a href="tel:+917708859615">
+
++91 77088 59615
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-line">
+
+<div class="contact-icon">
+☎
+</div>
+
+<div>
+
+<small>WHATSAPP 02</small>
+
+<a href="tel:+918870556791">
+
++91 88705 56791
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-line">
+
+<div class="contact-icon">
+◎
+</div>
+
+<div>
+
+<small>INSTAGRAM</small>
+
+<a
+href="https://instagram.com/rs3d_customstudio"
+target="_blank">
+
+@rs3d_customstudio
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="contact-card">
+
+<h2>
+Message Us
+</h2>
+
+<p>
+For the fastest response, use WhatsApp.
+You can also follow us on Instagram.
+</p>
+
+
+<div class="contact-actions">
+
+
+<a
+class="btn contact-button whatsapp"
+href="https://wa.me/917708859615?text=Hi%20RS%203D%20Custom%20Studio%2C%20I%20have%20a%20custom%20order%20enquiry."
+target="_blank">
+
+💬 WHATSAPP 77088 59615
+
+</a>
+
+
+<a
+class="btn contact-button whatsapp"
+href="https://wa.me/918870556791?text=Hi%20RS%203D%20Custom%20Studio%2C%20I%20have%20a%20custom%20order%20enquiry."
+target="_blank">
+
+💬 WHATSAPP 88705 56791
+
+</a>
+
+
+<a
+class="btn contact-button instagram"
+href="https://instagram.com/rs3d_customstudio"
+target="_blank">
+
+📸 @RS3D_CUSTOMSTUDIO
+
+</a>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CART PAGE
+===================================================== -->
+
+<section
+    class="page cart-page"
+    id="cart">
+
+<div class="container">
+
+
+<div class="page-title">
+
+<div class="page-label">
+YOUR ORDER
+</div>
+
+<h1>
+SHOPPING <span>CART</span>
+</h1>
+
+<p>
+Review your selected products and send
+your order to us on WhatsApp.
+</p>
+
+</div>
+
+
+<div class="cart-layout">
+
+
+<div id="cartItems">
+
+</div>
+
+
+<div class="cart-summary">
+
+
+<h2>
+Order Summary
+</h2>
+
+
+<div class="summary-row">
+
+<span>
+Items
+</span>
+
+<span id="summaryItems">
+0
+</span>
+
+</div>
+
+
+<div class="summary-total">
+
+<span>
+TOTAL
+</span>
+
+<span id="cartTotal">
+₹0
+</span>
+
+</div>
+
+
+<button
+class="checkout"
+onclick="openCheckout()">
+
+💬 ORDER ON WHATSAPP
+
+</button>
+
+
+<button
+class="btn btn-dark"
+style="width:100%;margin-top:10px"
+onclick="openPage('products')">
+
+← CONTINUE SHOPPING
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     CHECKOUT MODAL
+===================================================== -->
+
+<div
+class="modal"
+id="checkoutModal">
+
+
+<div class="modal-box">
+
+
+<div class="modal-top">
+
+<h2>
+Order Details
+</h2>
+
+<button
+class="close"
+onclick="closeCheckout()">
+
+×
+
+</button>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+YOUR NAME
+</label>
+
+<input
+type="text"
+id="customerName"
+placeholder="Enter your name">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+PHONE NUMBER
+</label>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="Enter your phone number">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+DELIVERY / ADDRESS
+</label>
+
+<textarea
+id="customerAddress"
+placeholder="Enter delivery address"></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+EXTRA REQUIREMENT
+</label>
+
+<textarea
+id="customerNote"
+placeholder="Colour, size, custom name, etc."></textarea>
+
+</div>
+
+
+<div class="modal-note">
+
+Your order details will be prepared as a WhatsApp
+message. You can review it before sending.
+
+</div>
+
+
+<button
+class="modal-submit"
+onclick="sendWhatsAppOrder()">
+
+💬 SEND ORDER ON WHATSAPP
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+class="toast"
+id="toast">
+
+Added to cart ✓
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<strong>
+RS 3D Custom Studio
+</strong>
+
+<br><br>
+
+Your Idea • Our Creation
+
+<br><br>
+
+© 2026 RS 3D Custom Studio
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   PRODUCT DATABASE
+
+   CHANGE PRODUCT NAME / PRICE HERE
+===================================================== */
+
+const products = [
+
+{
+    id:1,
+    name:"Custom Name Keychain",
+    price:149,
+    icon:"🔑",
+    description:
+    "Personalised 3D printed name keychain."
+},
+
+{
+    id:2,
+    name:"Custom Photo Lamp",
+    price:499,
+    icon:"💡",
+    description:
+    "Personalised photo lamp made specially for you."
+},
+
+{
+    id:3,
+    name:"3D Miniature",
+    price:799,
+    icon:"🏛️",
+    description:
+    "Custom miniature models and decorative figures."
+},
+
+{
+    id:4,
+    name:"Custom Name Plate",
+    price:349,
+    icon:"🔤",
+    description:
+    "Personalised name plate for home, room or office."
+},
+
+{
+    id:5,
+    name:"Engineering Prototype",
+    price:599,
+    icon:"⚙️",
+    description:
+    "Custom 3D printed prototype or functional part."
+},
+
+{
+    id:6,
+    name:"Custom Home Décor",
+    price:449,
+    icon:"🪴",
+    description:
+    "Unique 3D printed decorative products."
+}
+
+];
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cart =
+JSON.parse(
+    localStorage.getItem("rs3d_cart")
+) || [];
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function openPage(page){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(section => {
+
+            section.classList.remove("active");
+
+        });
+
+
+    const target =
+        document.getElementById(page);
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+
+    document
+        .querySelectorAll("nav button")
+        .forEach(button => {
+
+            button.classList.remove("active");
+
+            if(
+                button.dataset.page === page
+            ){
+
+                button.classList.add("active");
+
+            }
+
+        });
+
+
+    document
+        .getElementById("nav")
+        .classList.remove("open");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+
+    if(page === "cart"){
+
+        renderCart();
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+    const grid =
+        document.getElementById(
+            "productGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    products.forEach(product => {
+
+        grid.innerHTML += `
+
+        <article class="product-card">
+
+            <div class="product-image">
+
+                <div class="product-symbol">
+                    ${product.icon}
+                </div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <p>
+                    ${product.description}
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        ₹${product.price}
+                        <small>/ piece</small>
+                    </div>
+
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart(${product.id})">
+
+                        + ADD
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart(id){
+
+    const product =
+        products.find(
+            p => p.id === id
+        );
+
+
+    const existing =
+        cart.find(
+            item => item.id === id
+        );
+
+
+    if(existing){
+
+        existing.qty += 1;
+
+    }else{
+
+        cart.push({
+
+            id:product.id,
+
+            name:product.name,
+
+            price:product.price,
+
+            icon:product.icon,
+
+            qty:1
+
+        });
+
+    }
+
+
+    saveCart();
+
+    showToast(
+        product.name +
+        " added to cart ✓"
+    );
+
+}
+
+
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
+
+function changeQty(id, amount){
+
+    const item =
+        cart.find(
+            product => product.id === id
+        );
+
+
+    if(!item){
+        return;
+    }
+
+
+    item.qty += amount;
+
+
+    if(item.qty <= 0){
+
+        cart =
+            cart.filter(
+                product =>
+                product.id !== id
+            );
+
+    }
+
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   REMOVE ITEM
+===================================================== */
+
+function removeItem(id){
+
+    cart =
+        cart.filter(
+            item =>
+            item.id !== id
+        );
+
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   SAVE CART
+===================================================== */
+
+function saveCart(){
+
+    localStorage.setItem(
+        "rs3d_cart",
+        JSON.stringify(cart)
+    );
+
+
+    updateCartCount();
+
+}
+
+
+/* =====================================================
+   CART COUNT
+===================================================== */
+
+function updateCartCount(){
+
+    const count =
+        cart.reduce(
+            (total,item) =>
+            total + item.qty,
+            0
+        );
+
+
+    document.getElementById(
+        "cartCount"
+    ).textContent = count;
+
+}
+
+
+/* =====================================================
+   RENDER CART
+===================================================== */
+
+function renderCart(){
+
+    const container =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    const summaryItems =
+        document.getElementById(
+            "summaryItems"
+        );
+
+
+    const totalElement =
+        document.getElementById(
+            "cartTotal"
+        );
+
+
+    if(cart.length === 0){
+
+        container.innerHTML = `
+
+        <div class="empty">
+
+            <div class="empty-icon">
+                🛒
+            </div>
+
+            <h2>
+                Your cart is empty
+            </h2>
+
+            <p>
+                Add some custom products
+                to your cart.
+            </p>
+
+            <button
+                class="btn btn-orange"
+                onclick="openPage('products')">
+
+                SHOP PRODUCTS
+
+            </button>
+
+        </div>
+
+        `;
+
+        summaryItems.textContent = "0";
+
+        totalElement.textContent = "₹0";
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    let total = 0;
+    let items = 0;
+
+
+    cart.forEach(item => {
+
+        const itemTotal =
+            item.price * item.qty;
+
+
+        total += itemTotal;
+
+        items += item.qty;
+
+
+        container.innerHTML += `
+
+        <div class="cart-item">
+
+            <div class="cart-thumb">
+
+                ${item.icon}
+
+            </div>
+
+
+            <div class="cart-details">
+
+                <h3>
+                    ${item.name}
+                </h3>
+
+                <p>
+                    ₹${item.price} / piece
+                </p>
+
+
+                <div class="qty">
+
+                    <button
+                        onclick="changeQty(${item.id},-1)">
+
+                        −
+
+                    </button>
+
+                    <span>
+                        ${item.qty}
+                    </span>
+
+                    <button
+                        onclick="changeQty(${item.id},1)">
+
+                        +
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="cart-price">
+
+                <strong>
+                    ₹${itemTotal}
+                </strong>
+
+                <button
+                    class="remove"
+                    onclick="removeItem(${item.id})">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+    summaryItems.textContent =
+        items;
+
+
+    totalElement.textContent =
+        "₹" + total;
+
+}
+
+
+/* =====================================================
+   OPEN CHECKOUT
+===================================================== */
+
+function openCheckout(){
+
+    if(cart.length === 0){
+
+        showToast(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    document
+        .getElementById(
+            "checkoutModal"
+        )
+        .classList.add("show");
+
+}
+
+
+/* =====================================================
+   CLOSE CHECKOUT
+===================================================== */
+
+function closeCheckout(){
+
+    document
+        .getElementById(
+            "checkoutModal"
+        )
+        .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   SEND WHATSAPP ORDER
+===================================================== */
+
+function sendWhatsAppOrder(){
+
+    const name =
+        document
+        .getElementById(
+            "customerName"
+        )
+        .value
+        .trim();
+
+
+    const phone =
+        document
+        .getElementById(
+            "customerPhone"
+        )
+        .value
+        .trim();
+
+
+    const address =
+        document
+        .getElementById(
+            "customerAddress"
+        )
+        .value
+        .trim();
+
+
+    const note =
+        document
+        .getElementById(
+            "customerNote"
+        )
+        .value
+        .trim();
+
+
+    if(!name){
+
+        alert(
+            "Please enter your name."
+        );
+
+        return;
+
+    }
+
+
+    if(!phone){
+
+        alert(
+            "Please enter your phone number."
+        );
+
+        return;
+
+    }
+
+
+    let message =
+        "Hello RS 3D Custom Studio! 👋%0A%0A";
+
+
+    message +=
+        "*NEW ORDER*%0A%0A";
+
+
+    message +=
+        "Customer: " +
+        encodeURIComponent(name) +
+        "%0A";
+
+
+    message +=
+        "Phone: " +
+        encodeURIComponent(phone) +
+        "%0A";
+
+
+    if(address){
+
+        message +=
+            "Address: " +
+            encodeURIComponent(address) +
+            "%0A";
+
+    }
+
+
+    message +=
+        "%0A*PRODUCTS:*%0A";
+
+
+    let total = 0;
+
+
+    cart.forEach(item => {
+
+        const itemTotal =
+            item.price *
+            item.qty;
+
+
+        total += itemTotal;
+
+
+        message +=
+            encodeURIComponent(
+                "• " +
+                item.name +
+                " × " +
+                item.qty +
+                " = ₹" +
+                itemTotal
+            ) +
+            "%0A";
+
+    });
+
+
+    message +=
+        "%0A*TOTAL: ₹" +
+        total +
+        "*%0A";
+
+
+    if(note){
+
+        message +=
+            "%0ARequirement: " +
+            encodeURIComponent(note);
+
+    }
+
+
+    message +=
+        "%0A%0AThank you!";
+
+
+    /*
+       WhatsApp number used for checkout:
+       7708859615
+
+       You can change this to
+       8870556791 if required.
+    */
+
+    const whatsappNumber =
+        "917708859615";
+
+
+    const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        message;
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2200
+        );
+
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+document
+    .getElementById("menuBtn")
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById("nav")
+                .classList.toggle("open");
+
+        }
+    );
+
+
+/* =====================================================
+   CLOSE MODAL WHEN CLICK OUTSIDE
+===================================================== */
+
+document
+    .getElementById(
+        "checkoutModal"
+    )
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                closeCheckout();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+renderProducts();
+
+updateCartCount();
+
+openPage("home");
+
+</script>
+
+</body>
+</html>
