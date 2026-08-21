@@ -7,145 +7,72 @@
 <title>RS 3D Custom Studio</title>
 
 <style>
-
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#f5f5f5;
+    background:#ffffff;
     color:#222;
     padding-bottom:75px;
 }
 
-button{
-    font-family:inherit;
-    cursor:pointer;
-}
+/* ================= HEADER ================= */
 
 .header{
     background:#fff;
-    padding:16px 15px 12px;
+    border-bottom:3px solid #ff7a00;
+    padding:18px 15px;
+    text-align:center;
     position:sticky;
     top:0;
-    z-index:100;
-    box-shadow:0 2px 8px rgba(0,0,0,.12);
-}
-
-.top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
+    z-index:1000;
 }
 
 .logo{
-    font-size:21px;
-    font-weight:800;
-    color:#ff7a00;
-    white-space:nowrap;
-}
-
-.search{
-    flex:1;
-    max-width:430px;
-    background:#f1f3f6;
-    border-radius:25px;
-    padding:11px 16px;
-    border:none;
-    outline:none;
-    font-size:14px;
-}
-
-.cart-top{
-    position:relative;
-    font-size:25px;
-}
-
-.cart-count{
-    position:absolute;
-    top:-6px;
-    right:-8px;
-    background:#ff7a00;
-    color:#fff;
-    border-radius:50%;
-    width:18px;
-    height:18px;
-    font-size:11px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.hero{
-    background:#fff;
-    text-align:center;
-    padding:25px 15px;
-    border-bottom:3px solid #ff7a00;
-}
-
-.hero h1{
     font-size:28px;
-    margin-bottom:7px;
-}
-
-.hero p{
-    color:#666;
-    font-size:15px;
-}
-
-.categories{
-    background:#fff;
-    padding:15px 10px;
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-}
-
-.category{
-    min-width:75px;
-    border:1px solid #ddd;
-    border-radius:12px;
-    padding:10px 8px;
-    background:white;
-    text-align:center;
-    font-size:12px;
-}
-
-.category span{
-    display:block;
-    font-size:24px;
-    margin-bottom:5px;
-}
-
-.category.active{
-    border:2px solid #ff7a00;
-    color:#ff7a00;
-}
-
-.section{
-    padding:18px 12px;
-}
-
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:14px;
-}
-
-.section-title h2{
-    font-size:21px;
+    font-weight:800;
     color:#222;
 }
 
-.section-title a{
-    color:#ff7a00;
-    font-size:13px;
+.tagline{
+    margin-top:6px;
+    color:#777;
+    font-size:16px;
 }
+
+/* ================= MAIN ================= */
+
+.container{
+    width:94%;
+    max-width:1000px;
+    margin:auto;
+}
+
+.section{
+    margin:18px 0;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.section-title{
+    color:#f47700;
+    font-size:24px;
+    font-weight:800;
+    margin-bottom:16px;
+}
+
+/* ================= PRODUCTS ================= */
 
 .products{
     display:grid;
@@ -153,112 +80,304 @@ button{
     gap:12px;
 }
 
-.card{
-    background:#fff;
-    border-radius:14px;
-    overflow:hidden;
+.product{
     border:1px solid #ddd;
-    box-shadow:0 2px 6px rgba(0,0,0,.07);
-}
-
-.product-img{
-    width:100%;
-    height:145px;
-    object-fit:cover;
-    background:#eee;
-}
-
-.card-body{
+    border-radius:15px;
     padding:10px;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
 }
 
-.card h3{
+.product:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.product img{
+    width:100%;
+    height:125px;
+    object-fit:cover;
+    border-radius:10px;
+    background:#f5f5f5;
+}
+
+.product h3{
     font-size:14px;
-    margin-bottom:5px;
+    margin-top:8px;
 }
 
-.card p{
+.product p{
+    color:#888;
     font-size:12px;
-    color:#777;
-    margin-bottom:8px;
+    margin-top:4px;
 }
 
 .price{
-    font-size:17px;
+    color:#f47700;
     font-weight:bold;
-    color:#222;
-    margin-bottom:9px;
+    margin-top:6px;
 }
 
-.add{
+/* ================= FORM ================= */
+
+label{
+    display:block;
+    font-weight:bold;
+    margin:14px 0 7px;
+}
+
+input,
+select,
+textarea{
     width:100%;
-    border:0;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    background:#fff;
+    color:#222;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border-color:#ff7a00;
+}
+
+/* ================= COLOURS ================= */
+
+.colours{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.colour{
+    width:58px;
+    height:58px;
+    border-radius:12px;
+    border:2px solid #ccc;
+    cursor:pointer;
+}
+
+.colour.selected{
+    outline:3px solid #ff7a00;
+    outline-offset:2px;
+}
+
+.orange{background:#ff7a00;}
+.black{background:#000;}
+.white{background:#fff;}
+.gray{background:#888;}
+
+.silver{
+    background:linear-gradient(
+        135deg,
+        #777,
+        #fff,
+        #aaa,
+        #fff,
+        #777
+    );
+}
+
+.selected-colour{
+    margin-top:14px;
+    background:#f5f5f5;
+    padding:15px;
+    border-radius:10px;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+    border:none;
+    border-radius:10px;
+    padding:14px 18px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-orange{
     background:#ff7a00;
     color:white;
-    padding:10px;
-    border-radius:8px;
-    font-weight:bold;
 }
 
-.view{
-    width:100%;
-    border:1px solid #ff7a00;
-    background:white;
-    color:#ff7a00;
-    padding:9px;
-    border-radius:8px;
-    margin-top:7px;
-    font-weight:bold;
-}
-
-.banner{
-    margin:5px 12px 10px;
-    background:linear-gradient(135deg,#ff7a00,#ff9f43);
+.btn-dark{
+    background:#444;
     color:white;
-    padding:22px;
-    border-radius:15px;
 }
 
-.banner h2{
-    margin-bottom:6px;
+.btn-light{
+    background:#eee;
+    color:#222;
 }
 
-.banner p{
-    font-size:13px;
+.button-row{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
 }
+
+.button-row .btn{
+    flex:1;
+}
+
+/* ================= CART ================= */
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.cart-item img{
+    width:70px;
+    height:70px;
+    border-radius:10px;
+    object-fit:cover;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-info h3{
+    font-size:15px;
+}
+
+.cart-info p{
+    color:#777;
+    margin-top:4px;
+}
+
+.remove{
+    background:#eee;
+    border:0;
+    border-radius:8px;
+    padding:8px;
+    cursor:pointer;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:18px;
+}
+
+/* ================= CHECKOUT ================= */
+
+.checkout-box{
+    background:#fafafa;
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:12px;
+}
+
+.order-success{
+    display:none;
+    background:#e9f9ee;
+    color:#18733b;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+/* ================= ABOUT ================= */
+
+.about-text{
+    line-height:1.7;
+    color:#555;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.feature{
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+}
+
+.feature-icon{
+    font-size:28px;
+    margin-bottom:7px;
+}
+
+/* ================= BOTTOM NAV ================= */
 
 .bottom-nav{
     position:fixed;
     bottom:0;
     left:0;
-    right:0;
-    height:68px;
-    background:white;
+    width:100%;
+    background:#fff;
+    border-top:1px solid #ddd;
     display:flex;
     justify-content:space-around;
-    align-items:center;
-    box-shadow:0 -2px 10px rgba(0,0,0,.15);
-    z-index:200;
+    padding:8px 3px;
+    z-index:2000;
 }
 
 .nav-item{
     border:0;
-    background:white;
-    color:#777;
-    text-align:center;
+    background:none;
+    color:#666;
     font-size:11px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:3px;
+    cursor:pointer;
+    min-width:50px;
 }
 
-.nav-item .icon{
-    display:block;
-    font-size:23px;
-    margin-bottom:3px;
+.nav-icon{
+    font-size:22px;
 }
 
 .nav-item.active{
     color:#ff7a00;
     font-weight:bold;
 }
+
+/* ================= BADGE ================= */
+
+.cart-badge{
+    background:#ff7a00;
+    color:white;
+    border-radius:50%;
+    font-size:10px;
+    min-width:18px;
+    height:18px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    position:absolute;
+    margin-left:15px;
+    margin-top:-5px;
+}
+
+/* ================= HIDDEN ================= */
 
 .page{
     display:none;
@@ -268,134 +387,7 @@ button{
     display:block;
 }
 
-/* product details popup */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.55);
-    z-index:500;
-    padding:25px 15px;
-    overflow:auto;
-}
-
-.modal-box{
-    max-width:500px;
-    margin:20px auto;
-    background:white;
-    border-radius:18px;
-    padding:18px;
-}
-
-.modal-box img{
-    width:100%;
-    max-height:350px;
-    object-fit:contain;
-    border-radius:12px;
-}
-
-.close{
-    float:right;
-    border:0;
-    background:#eee;
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    font-size:20px;
-}
-
-.modal-box h2{
-    margin:15px 0 8px;
-}
-
-.modal-price{
-    color:#ff7a00;
-    font-size:22px;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-.modal-box button{
-    width:100%;
-    padding:13px;
-    border:0;
-    border-radius:9px;
-    background:#ff7a00;
-    color:white;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-/* cart */
-
-.cart-box{
-    background:white;
-    border-radius:15px;
-    padding:15px;
-}
-
-.cart-item{
-    display:flex;
-    gap:12px;
-    padding:12px 0;
-    border-bottom:1px solid #ddd;
-}
-
-.cart-item img{
-    width:80px;
-    height:80px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-.cart-item h3{
-    font-size:14px;
-    margin-bottom:7px;
-}
-
-.remove{
-    background:#eee;
-    border:0;
-    padding:6px 10px;
-    border-radius:6px;
-    margin-top:7px;
-}
-
-.total{
-    display:flex;
-    justify-content:space-between;
-    font-size:19px;
-    font-weight:bold;
-    padding:18px 0;
-}
-
-.checkout{
-    width:100%;
-    background:#ff7a00;
-    color:white;
-    border:0;
-    padding:14px;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-/* about/settings */
-
-.info-box{
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    line-height:1.7;
-}
-
-.setting{
-    background:white;
-    padding:16px;
-    border-bottom:1px solid #ddd;
-    display:flex;
-    justify-content:space-between;
-}
+/* ================= DESKTOP ================= */
 
 @media(min-width:700px){
 
@@ -403,624 +395,632 @@ button{
         grid-template-columns:repeat(4,1fr);
     }
 
-    .product-img{
-        height:190px;
+    .product img{
+        height:180px;
     }
 
-    .section{
-        max-width:1100px;
-        margin:auto;
+    .bottom-nav{
+        max-width:700px;
+        left:50%;
+        transform:translateX(-50%);
+        border:1px solid #ddd;
+        border-radius:18px 18px 0 0;
     }
 
-    .hero h1{
-        font-size:36px;
+    .container{
+        max-width:1000px;
     }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
-
-    <div class="top">
-
-        <div class="logo">
-            RS 3D
-        </div>
-
-        <input
-            class="search"
-            type="search"
-            placeholder="Search 3D products..."
-            oninput="searchProducts(this.value)"
-        >
-
-        <div class="cart-top" onclick="showPage('cart')">
-            🛒
-            <span class="cart-count" id="cartCount">0</span>
-        </div>
-
-    </div>
-
+    <div class="logo">RS 3D Custom Studio</div>
+    <div class="tagline">Customize your 3D product easily</div>
 </header>
 
 
-<!-- HOME -->
+<main class="container">
 
-<div id="home" class="page active">
+<!-- ================= HOME ================= -->
 
-    <div class="hero">
-        <h1>RS 3D Custom Studio</h1>
-        <p>3D • Crafts • Custom Products</p>
+<section id="home" class="page active">
+
+<div class="section">
+    <div class="section-title">Our Products</div>
+
+    <div class="products">
+
+        <div class="product"
+             onclick="selectProduct('3D Personalized Figurine',
+             '3DPersonalizedCustomFigurines...',
+             'Custom 3D Product',
+             499)">
+            <img src="3DPersonalizedCustomFigurines..." alt="Figurine">
+            <h3>3D Personalized Figurine</h3>
+            <p>Custom 3D Product</p>
+            <div class="price">₹499</div>
+        </div>
+
+
+        <div class="product"
+             onclick="selectProduct('3D Printed Miniature',
+             '3d-printed-miniatures-sl.jpg',
+             '3D Printed Model',
+             599)">
+            <img src="3d-printed-miniatures-sl.jpg" alt="Miniature">
+            <h3>3D Printed Miniature</h3>
+            <p>3D Printed Model</p>
+            <div class="price">₹599</div>
+        </div>
+
+
+        <div class="product"
+             onclick="selectProduct('3D Model',
+             '3d-18.jpg',
+             'Custom Model',
+             449)">
+            <img src="3d-18.jpg" alt="3D Model">
+            <h3>3D Model</h3>
+            <p>Custom Model</p>
+            <div class="price">₹449</div>
+        </div>
+
+
+        <div class="product"
+             onclick="selectProduct('Teddy Bear Keychain',
+             'teddy_bear_keychain_01.webp',
+             '3D Keychain',
+             199)">
+            <img src="teddy_bear_keychain_01.webp" alt="Teddy Bear">
+            <h3>Teddy Bear Keychain</h3>
+            <p>3D Keychain</p>
+            <div class="price">₹199</div>
+        </div>
+
+
+        <div class="product"
+             onclick="selectProduct('Toothbrush',
+             'toothbrush.png',
+             'Custom Product',
+             249)">
+            <img src="toothbrush.png" alt="Toothbrush">
+            <h3>Toothbrush</h3>
+            <p>Custom Product</p>
+            <div class="price">₹249</div>
+        </div>
+
+
+        <div class="product"
+             onclick="selectProduct('Custom Office Product',
+             'flexidesk-pro-modular-office-org...',
+             'Custom Product',
+             799)">
+            <img src="flexidesk-pro-modular-office-org..." alt="Office Product">
+            <h3>Custom Office Product</h3>
+            <p>3D Custom Product</p>
+            <div class="price">₹799</div>
+        </div>
+
+
+        <div class="product"
+             onclick="selectProduct('3D Keychain',
+             '3Events-keychain.png',
+             'Custom Keychain',
+             149)">
+            <img src="3Events-keychain.png" alt="Keychain">
+            <h3>3D Keychain</h3>
+            <p>Custom Keychain</p>
+            <div class="price">₹149</div>
+        </div>
+
+
+        <div class="product"
+             onclick="selectProduct('Custom 3D Product',
+             'i_340x270.8171282022_i2e.jpg',
+             'Premium Model',
+             699)">
+            <img src="i_340x270.8171282022_i2e.jpg" alt="Custom">
+            <h3>Custom 3D Product</h3>
+            <p>Premium Model</p>
+            <div class="price">₹699</div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="section">
+
+    <div class="section-title">3D Custom Studio</div>
+
+    <p class="about-text">
+        Choose a product, customize the size and colour,
+        add your quantity and place your order easily.
+    </p>
+
+    <div class="feature-grid">
+
+        <div class="feature">
+            <div class="feature-icon">🧊</div>
+            <b>3D Design</b>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🎨</div>
+            <b>Craft</b>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🛠️</div>
+            <b>Custom</b>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <b>Delivery</b>
+        </div>
+
     </div>
 
+</div>
 
-    <div class="categories">
+</section>
 
-        <button class="category active">
-            <span>🏠</span>
-            Home
-        </button>
 
-        <button class="category" onclick="scrollToProducts()">
-            <span>🧊</span>
-            3D
-        </button>
+<!-- ================= CRAFT ================= -->
 
-        <button class="category" onclick="scrollToProducts()">
-            <span>🎨</span>
-            Crafts
-        </button>
+<section id="craft" class="page">
 
-        <button class="category" onclick="showPage('cart')">
-            <span>🛒</span>
-            Cart
-        </button>
+<div class="section">
 
-        <button class="category" onclick="showPage('about')">
-            <span>ℹ️</span>
-            About
-        </button>
+    <div class="section-title">🎨 Craft Studio</div>
 
+    <p class="about-text">
+        Create your own custom 3D product with different
+        colours, sizes and quantities.
+    </p>
+
+    <button class="btn btn-orange"
+            style="margin-top:15px"
+            onclick="showPage('home')">
+        Start Customizing
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- ================= 3D ================= -->
+
+<section id="threeD" class="page">
+
+<div class="section">
+
+    <div class="section-title">🧊 3D Studio</div>
+
+    <p class="about-text">
+        Upload your 3D/product image and select the
+        required size and colour.
+    </p>
+
+    <button class="btn btn-orange"
+            style="margin-top:15px"
+            onclick="showPage('home')">
+        Choose 3D Product
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- ================= PRODUCT DETAILS ================= -->
+
+<section id="details" class="page">
+
+<div class="section">
+
+<div class="section-title">Product Details</div>
+
+<label>Product Name</label>
+<input id="productName"
+       type="text"
+       placeholder="Select a product above">
+
+<label>Upload 3D/Product Image</label>
+<input type="file" id="productImage">
+
+<label>Select Size</label>
+<select id="size">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>Custom</option>
+</select>
+
+<label>Quantity</label>
+<input id="quantity"
+       type="number"
+       min="1"
+       value="1">
+
+<label>Select Colour</label>
+
+<div class="colours">
+
+    <div class="colour orange selected"
+         onclick="chooseColour('Orange',this)"></div>
+
+    <div class="colour black"
+         onclick="chooseColour('Black',this)"></div>
+
+    <div class="colour white"
+         onclick="chooseColour('White',this)"></div>
+
+    <div class="colour gray"
+         onclick="chooseColour('Gray',this)"></div>
+
+    <div class="colour silver"
+         onclick="chooseColour('Silver',this)"></div>
+
+</div>
+
+<div class="selected-colour">
+    Selected Colour:
+    <b id="selectedColour">Orange</b>
+</div>
+
+<div class="button-row">
+
+    <button class="btn btn-orange"
+            onclick="addToCart()">
+        🛒 Add to Cart
+    </button>
+
+    <button class="btn btn-dark"
+            onclick="showPage('home')">
+        Back
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CART ================= -->
+
+<section id="cart" class="page">
+
+<div class="section">
+
+<div class="section-title">🛒 Your Cart</div>
+
+<div id="cartItems"></div>
+
+<div id="emptyCart"
+     style="text-align:center;color:#777;padding:25px">
+    Your cart is empty.
+</div>
+
+<div id="cartBottom" style="display:none">
+
+    <div class="total">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
     </div>
 
+    <button class="btn btn-orange"
+            style="width:100%;margin-top:18px"
+            onclick="showPage('checkout')">
+        💳 Checkout
+    </button>
 
-    <div class="banner">
+</div>
 
-        <h2>Customize Your Ideas</h2>
+</div>
 
-        <p>
-            Choose your favourite 3D model,
-            customize it and order easily.
-        </p>
+</section>
 
+
+<!-- ================= CHECKOUT ================= -->
+
+<section id="checkout" class="page">
+
+<div class="section">
+
+<div class="section-title">💳 Checkout</div>
+
+<div class="checkout-box">
+
+<label>Full Name</label>
+<input id="customerName"
+       placeholder="Enter your name">
+
+<label>Mobile Number</label>
+<input id="phone"
+       type="tel"
+       placeholder="Enter mobile number">
+
+<label>Email</label>
+<input id="email"
+       type="email"
+       placeholder="Enter email">
+
+<label>Delivery Address</label>
+<textarea id="address"
+          placeholder="Enter complete delivery address"></textarea>
+
+<label>Payment Method</label>
+
+<select id="payment">
+    <option>Cash on Delivery</option>
+    <option>UPI</option>
+    <option>Card</option>
+</select>
+
+<button class="btn btn-orange"
+        style="width:100%;margin-top:18px"
+        onclick="placeOrder()">
+    ✅ Place Order
+</button>
+
+<div id="orderSuccess" class="order-success">
+    Order placed successfully! 🎉
+    We will contact you soon.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="page">
+
+<div class="section">
+
+<div class="section-title">📞 Contact Us</div>
+
+<p class="about-text">
+    Have questions about custom 3D products?
+    Contact us anytime.
+</p>
+
+<label>Name</label>
+<input placeholder="Your name">
+
+<label>Phone</label>
+<input placeholder="Your phone number">
+
+<label>Message</label>
+<textarea placeholder="Write your message"></textarea>
+
+<button class="btn btn-orange"
+        style="width:100%;margin-top:15px"
+        onclick="alert('Thank you! We will contact you soon.')">
+    Send Message
+</button>
+
+<br><br>
+
+<div class="feature-grid">
+
+    <div class="feature">
+        <div class="feature-icon">📞</div>
+        <b>Call Us</b>
+        <p>+91 XXXXX XXXXX</p>
     </div>
 
-
-    <section class="section" id="productSection">
-
-        <div class="section-title">
-
-            <h2>🔥 Popular Products</h2>
-
-            <a onclick="scrollToProducts()">
-                View All
-            </a>
-
-        </div>
-
-
-        <div class="products" id="products"></div>
-
-    </section>
+    <div class="feature">
+        <div class="feature-icon">✉️</div>
+        <b>Email</b>
+        <p>rs3dcustom@gmail.com</p>
+    </div>
 
 </div>
 
+</div>
 
-<!-- 3D PAGE -->
+</section>
 
-<div id="threeD" class="page">
 
-    <section class="section">
+<!-- ================= ABOUT ================= -->
 
-        <div class="section-title">
-            <h2>🧊 3D Products</h2>
-        </div>
+<section id="about" class="page">
 
-        <div class="products" id="threeDProducts"></div>
+<div class="section">
 
-    </section>
+<div class="section-title">ℹ️ About RS 3D</div>
+
+<p class="about-text">
+    RS 3D Custom Studio is a custom 3D product platform
+    where customers can choose products, customize them
+    and place orders easily.
+</p>
+
+<div class="feature-grid">
+
+    <div class="feature">
+        <div class="feature-icon">🧊</div>
+        <b>3D Printing</b>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🎨</div>
+        <b>Custom Design</b>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">📦</div>
+        <b>Quality Products</b>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <b>Easy Delivery</b>
+    </div>
 
 </div>
 
+</div>
 
-<!-- CRAFT PAGE -->
+</section>
 
-<div id="craft" class="page">
 
-    <section class="section">
+<!-- ================= SETTINGS ================= -->
 
-        <div class="section-title">
-            <h2>🎨 Crafts</h2>
-        </div>
+<section id="settings" class="page">
 
-        <div class="products" id="craftProducts"></div>
+<div class="section">
 
-    </section>
+<div class="section-title">⚙️ Settings</div>
+
+<label>Website Language</label>
+
+<select>
+    <option>English</option>
+    <option>Tamil</option>
+</select>
+
+<label>Notifications</label>
+
+<select>
+    <option>Enabled</option>
+    <option>Disabled</option>
+</select>
+
+<div style="margin-top:20px">
+    <b>RS 3D Custom Studio</b>
+    <p style="color:#777;margin-top:5px">
+        Version 1.0
+    </p>
+</div>
 
 </div>
 
+</section>
 
-<!-- CART PAGE -->
 
-<div id="cart" class="page">
+<!-- ================= INSTAGRAM ================= -->
 
-    <section class="section">
+<section id="instagram" class="page">
 
-        <div class="section-title">
-            <h2>🛒 My Cart</h2>
-        </div>
+<div class="section">
 
-        <div class="cart-box">
+<div class="section-title">📸 Instagram</div>
 
-            <div id="cartItems">
-                Your cart is empty.
-            </div>
+<p class="about-text">
+    Follow RS 3D Custom Studio on Instagram to see
+    our latest 3D designs and custom products.
+</p>
 
-            <div class="total">
-
-                <span>Total</span>
-
-                <span id="total">
-                    ₹0
-                </span>
-
-            </div>
-
-            <button class="checkout" onclick="checkout()">
-                Proceed to Checkout
-            </button>
-
-        </div>
-
-    </section>
+<a href="https://instagram.com/"
+   target="_blank"
+   class="btn btn-orange"
+   style="display:block;text-align:center;margin-top:18px">
+    📸 Open Instagram
+</a>
 
 </div>
 
+</section>
 
-<!-- ABOUT -->
-
-<div id="about" class="page">
-
-    <section class="section">
-
-        <div class="section-title">
-            <h2>ℹ️ About RS 3D</h2>
-        </div>
-
-        <div class="info-box">
-
-            <h2>RS 3D Custom Studio</h2>
-
-            <br>
-
-            <p>
-                Welcome to RS 3D Custom Studio.
-                We create customized 3D printed
-                products, miniatures, figurines,
-                keychains and creative crafts.
-            </p>
-
-            <br>
-
-            <p>
-                Select a product, customize it
-                and add it to your cart.
-            </p>
-
-            <br>
-
-            <b>3D • Design • Craft • Custom</b>
-
-        </div>
-
-    </section>
-
-</div>
+</main>
 
 
-<!-- SETTINGS -->
-
-<div id="settings" class="page">
-
-    <section class="section">
-
-        <div class="section-title">
-            <h2>⚙️ Settings</h2>
-        </div>
-
-        <div class="info-box">
-
-            <div class="setting">
-                <span>🔔 Notifications</span>
-                <input type="checkbox" checked>
-            </div>
-
-            <div class="setting">
-                <span>🌐 Language</span>
-                <span>English</span>
-            </div>
-
-            <div class="setting">
-                <span>💰 Currency</span>
-                <span>INR ₹</span>
-            </div>
-
-        </div>
-
-    </section>
-
-</div>
-
-
-<!-- BOTTOM NAVIGATION -->
+<!-- ================= BOTTOM NAVIGATION ================= -->
 
 <nav class="bottom-nav">
 
-    <button class="nav-item active" onclick="showPage('home',this)">
-        <span class="icon">🏠</span>
-        Home
-    </button>
+<button class="nav-item active"
+        onclick="showPage('home',this)">
+    <span class="nav-icon">🏠</span>
+    Home
+</button>
 
-    <button class="nav-item" onclick="showPage('threeD',this)">
-        <span class="icon">🧊</span>
-        3D
-    </button>
+<button class="nav-item"
+        onclick="showPage('threeD',this)">
+    <span class="nav-icon">🧊</span>
+    3D
+</button>
 
-    <button class="nav-item" onclick="showPage('craft',this)">
-        <span class="icon">🎨</span>
-        Crafts
-    </button>
+<button class="nav-item"
+        onclick="showPage('craft',this)">
+    <span class="nav-icon">🎨</span>
+    Craft
+</button>
 
-    <button class="nav-item" onclick="showPage('cart',this)">
-        <span class="icon">🛒</span>
-        Cart
-    </button>
+<button class="nav-item"
+        onclick="showPage('cart',this)">
+    <span class="nav-icon">
+        🛒
+        <span id="cartBadge"
+              class="cart-badge"
+              style="display:none">0</span>
+    </span>
+    Cart
+</button>
 
-    <button class="nav-item" onclick="showPage('about',this)">
-        <span class="icon">ℹ️</span>
-        About
-    </button>
+<button class="nav-item"
+        onclick="showPage('about',this)">
+    <span class="nav-icon">ℹ️</span>
+    About
+</button>
 
-    <button class="nav-item" onclick="showPage('settings',this)">
-        <span class="icon">⚙️</span>
-        Settings
-    </button>
+<button class="nav-item"
+        onclick="showPage('settings',this)">
+    <span class="nav-icon">⚙️</span>
+    Settings
+</button>
 
 </nav>
 
 
-<!-- PRODUCT MODAL -->
-
-<div class="modal" id="modal">
-
-    <div class="modal-box">
-
-        <button class="close" onclick="closeModal()">
-            ×
-        </button>
-
-        <img id="modalImage">
-
-        <h2 id="modalName"></h2>
-
-        <p id="modalDescription"></p>
-
-        <div class="modal-price" id="modalPrice"></div>
-
-        <button onclick="addModalProduct()">
-            🛒 Add to Cart
-        </button>
-
-    </div>
-
-</div>
-
-
 <script>
 
-/* PRODUCTS */
+/* ================= DATA ================= */
 
-const products = [
+let selectedColour = "Orange";
+let selectedProduct = null;
 
-{
-    id:1,
-    name:"3D Personalized Figurine",
-    description:"Custom 3D printed figurine",
-    price:799,
-    image:"3DPersonalizedCustomFigurines_3.jpg",
-    category:"3d"
-},
-
-{
-    id:2,
-    name:"3D Printed Miniature",
-    description:"Detailed 3D printed model",
-    price:999,
-    image:"3d-18.jpg",
-    category:"3d"
-},
-
-{
-    id:3,
-    name:"3D Model",
-    description:"Custom decorative model",
-    price:699,
-    image:"3d-printed-miniatures-sl.jpg",
-    category:"3d"
-},
-
-{
-    id:4,
-    name:"Teddy Bear Keychain",
-    description:"Cute 3D keychain",
-    price:249,
-    image:"teddy_bear_keychain_01.webp",
-    category:"craft"
-},
-
-{
-    id:5,
-    name:"Toothbrush Holder",
-    description:"Custom 3D printed product",
-    price:349,
-    image:"toothbrush.png",
-    category:"craft"
-},
-
-{
-    id:6,
-    name:"Custom Craft Model",
-    description:"Creative handmade style model",
-    price:599,
-    image:"IMG-20250817-WA0057.webp",
-    category:"craft"
-}
-
-];
+let cart = JSON.parse(
+    localStorage.getItem("rs3d_cart") || "[]"
+);
 
 
-let cart = [];
+/* ================= PAGE NAVIGATION ================= */
 
-let currentModalProduct = null;
+function showPage(pageId, button){
 
+    document.querySelectorAll(".page")
+        .forEach(page => {
+            page.classList.remove("active");
+        });
 
-/* DISPLAY PRODUCTS */
+    const page = document.getElementById(pageId);
 
-function productCard(product){
-
-    return `
-
-    <div class="card">
-
-        <img
-            class="product-img"
-            src="${product.image}"
-            onerror="this.src='https://via.placeholder.com/400x300?text=RS+3D'"
-        >
-
-        <div class="card-body">
-
-            <h3>
-                ${product.name}
-            </h3>
-
-            <p>
-                ${product.description}
-            </p>
-
-            <div class="price">
-                ₹${product.price}
-            </div>
-
-            <button
-                class="add"
-                onclick="addToCart(${product.id})"
-            >
-                Add to Cart
-            </button>
-
-            <button
-                class="view"
-                onclick="viewProduct(${product.id})"
-            >
-                View Product
-            </button>
-
-        </div>
-
-    </div>
-
-    `;
-}
-
-
-function loadProducts(){
-
-    document.getElementById("products").innerHTML =
-        products.map(productCard).join("");
-
-    document.getElementById("threeDProducts").innerHTML =
-        products
-        .filter(p => p.category === "3d")
-        .map(productCard)
-        .join("");
-
-    document.getElementById("craftProducts").innerHTML =
-        products
-        .filter(p => p.category === "craft")
-        .map(productCard)
-        .join("");
-}
-
-
-loadProducts();
-
-
-/* ADD CART */
-
-function addToCart(id){
-
-    const product = products.find(p => p.id === id);
-
-    cart.push(product);
-
-    updateCart();
-
-    alert(product.name + " added to cart 🛒");
-
-}
-
-
-function updateCart(){
-
-    document.getElementById("cartCount").innerText =
-        cart.length;
-
-    const cartItems =
-        document.getElementById("cartItems");
-
-    if(cart.length === 0){
-
-        cartItems.innerHTML =
-            "<p>Your cart is empty.</p>";
-
-        document.getElementById("total").innerText =
-            "₹0";
-
-        return;
+    if(page){
+        page.classList.add("active");
     }
 
-
-    cartItems.innerHTML = cart.map((item,index)=>`
-
-        <div class="cart-item">
-
-            <img src="${item.image}">
-
-            <div>
-
-                <h3>${item.name}</h3>
-
-                <b>₹${item.price}</b>
-
-                <br>
-
-                <button
-                    class="remove"
-                    onclick="removeCart(${index})"
-                >
-                    Remove
-                </button>
-
-            </div>
-
-        </div>
-
-    `).join("");
-
-
-    const total =
-        cart.reduce((sum,item)=>sum + item.price,0);
-
-    document.getElementById("total").innerText =
-        "₹" + total;
-
-}
-
-
-function removeCart(index){
-
-    cart.splice(index,1);
-
-    updateCart();
-
-}
-
-
-/* PRODUCT VIEW */
-
-function viewProduct(id){
-
-    const product =
-        products.find(p => p.id === id);
-
-    currentModalProduct = product;
-
-    document.getElementById("modalImage").src =
-        product.image;
-
-    document.getElementById("modalName").innerText =
-        product.name;
-
-    document.getElementById("modalDescription").innerText =
-        product.description;
-
-    document.getElementById("modalPrice").innerText =
-        "₹" + product.price;
-
-    document.getElementById("modal").style.display =
-        "block";
-
-}
-
-
-function closeModal(){
-
-    document.getElementById("modal").style.display =
-        "none";
-
-}
-
-
-function addModalProduct(){
-
-    if(currentModalProduct){
-
-        addToCart(currentModalProduct.id);
-
-        closeModal();
-
-    }
-
-}
-
-
-/* PAGE NAVIGATION */
-
-function showPage(page,button){
-
-    document
-    .querySelectorAll(".page")
-    .forEach(p => p.classList.remove("active"));
-
-    document
-    .getElementById(page)
-    .classList.add("active");
-
-
-    document
-    .querySelectorAll(".nav-item")
-    .forEach(n => n.classList.remove("active"));
+    document.querySelectorAll(".nav-item")
+        .forEach(item => {
+            item.classList.remove("active");
+        });
 
     if(button){
-
         button.classList.add("active");
-
     }
 
     window.scrollTo({
@@ -1028,85 +1028,276 @@ function showPage(page,button){
         behavior:"smooth"
     });
 
-    if(page === "cart"){
+    if(pageId === "cart"){
+        renderCart();
+    }
+}
 
-        updateCart();
 
+/* ================= PRODUCT ================= */
+
+function selectProduct(name,image,description,price){
+
+    selectedProduct = {
+        name:name,
+        image:image,
+        description:description,
+        price:price
+    };
+
+    document.getElementById("productName").value = name;
+
+    showPage("details");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* ================= COLOUR ================= */
+
+function chooseColour(name,element){
+
+    selectedColour = name;
+
+    document.getElementById("selectedColour")
+        .textContent = name;
+
+    document.querySelectorAll(".colour")
+        .forEach(c => c.classList.remove("selected"));
+
+    element.classList.add("selected");
+}
+
+
+/* ================= CART ================= */
+
+function addToCart(){
+
+    if(!selectedProduct){
+
+        alert("Please select a product first.");
+
+        showPage("home");
+
+        return;
     }
 
+    const quantity =
+        parseInt(document.getElementById("quantity").value) || 1;
+
+    const size =
+        document.getElementById("size").value;
+
+    const item = {
+
+        id:Date.now(),
+
+        name:selectedProduct.name,
+
+        image:selectedProduct.image,
+
+        price:selectedProduct.price,
+
+        quantity:quantity,
+
+        size:size,
+
+        colour:selectedColour
+    };
+
+    cart.push(item);
+
+    saveCart();
+
+    alert("Product added to cart 🛒");
+
+    showPage("cart");
 }
 
 
-/* SEARCH */
+/* ================= SAVE CART ================= */
 
-function searchProducts(value){
+function saveCart(){
 
-    value = value.toLowerCase().trim();
+    localStorage.setItem(
+        "rs3d_cart",
+        JSON.stringify(cart)
+    );
 
-    const result =
-        products.filter(p =>
-            p.name.toLowerCase().includes(value)
+    updateBadge();
+}
+
+
+/* ================= CART DISPLAY ================= */
+
+function renderCart(){
+
+    const box =
+        document.getElementById("cartItems");
+
+    const empty =
+        document.getElementById("emptyCart");
+
+    const bottom =
+        document.getElementById("cartBottom");
+
+    if(cart.length === 0){
+
+        box.innerHTML="";
+
+        empty.style.display="block";
+
+        bottom.style.display="none";
+
+        return;
+    }
+
+    empty.style.display="none";
+
+    bottom.style.display="block";
+
+    box.innerHTML="";
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+        total += itemTotal;
+
+        box.innerHTML += `
+
+        <div class="cart-item">
+
+            <img src="${item.image}">
+
+            <div class="cart-info">
+
+                <h3>${item.name}</h3>
+
+                <p>
+                    ${item.size} |
+                    ${item.colour}
+                </p>
+
+                <p>
+                    ₹${item.price} × ${item.quantity}
+                </p>
+
+            </div>
+
+            <button
+                class="remove"
+                onclick="removeItem(${item.id})">
+                ❌
+            </button>
+
+        </div>
+
+        `;
+    });
+
+    document.getElementById("cartTotal")
+        .textContent = "₹" + total;
+}
+
+
+/* ================= REMOVE ================= */
+
+function removeItem(id){
+
+    cart = cart.filter(
+        item => item.id !== id
+    );
+
+    saveCart();
+
+    renderCart();
+}
+
+
+/* ================= BADGE ================= */
+
+function updateBadge(){
+
+    const badge =
+        document.getElementById("cartBadge");
+
+    const count =
+        cart.reduce(
+            (sum,item) =>
+            sum + item.quantity,
+            0
         );
 
-    document.getElementById("products").innerHTML =
-        result.length
-        ? result.map(productCard).join("")
-        : "<p>No products found.</p>";
+    if(count > 0){
 
+        badge.style.display="inline-flex";
+
+        badge.textContent=count;
+
+    }else{
+
+        badge.style.display="none";
+    }
 }
 
 
-/* SCROLL */
+/* ================= CHECKOUT ================= */
 
-function scrollToProducts(){
+function placeOrder(){
 
-    showPage("home");
+    const name =
+        document.getElementById("customerName").value.trim();
 
-    setTimeout(()=>{
+    const phone =
+        document.getElementById("phone").value.trim();
 
-        document
-        .getElementById("productSection")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    const address =
+        document.getElementById("address").value.trim();
 
-    },100);
+    if(!name || !phone || !address){
 
-}
+        alert(
+            "Please fill Name, Phone and Address."
+        );
 
-
-/* CHECKOUT */
-
-function checkout(){
+        return;
+    }
 
     if(cart.length === 0){
 
         alert("Your cart is empty.");
 
+        showPage("home");
+
         return;
     }
 
-    alert(
-        "Thank you for your order! 🧡\n\n" +
-        "Checkout system can be connected later."
-    );
+    document.getElementById("orderSuccess")
+        .style.display="block";
 
+    cart = [];
+
+    saveCart();
+
+    renderCart();
+
+    document.getElementById("customerName").value="";
+    document.getElementById("phone").value="";
+    document.getElementById("email").value="";
+    document.getElementById("address").value="";
 }
 
 
-/* CLOSE MODAL WHEN OUTSIDE CLICK */
+/* ================= START ================= */
 
-document.getElementById("modal")
-.addEventListener("click",function(e){
-
-    if(e.target === this){
-
-        closeModal();
-
-    }
-
-});
-
+updateBadge();
 
 </script>
 
