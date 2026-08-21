@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -9,6 +10,10 @@
 <title>RS 3D Custom Studio</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
 
 * {
     margin: 0;
@@ -22,74 +27,133 @@ body {
     color: #222222;
 }
 
-/* ================= HEADER ================= */
+
+/* =========================
+   HEADER
+========================= */
 
 .header {
     background: #ffffff;
     text-align: center;
-    padding: 35px 20px;
+    padding: 30px 15px;
     border-bottom: 3px solid #ff7900;
 }
 
 .header h1 {
-    font-size: 36px;
+    font-size: 34px;
     color: #222222;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .header p {
-    font-size: 20px;
+    font-size: 18px;
     color: #666666;
 }
 
-/* ================= MAIN ================= */
+
+/* =========================
+   MAIN
+========================= */
 
 .container {
-    max-width: 850px;
-    margin: 30px auto;
-    padding: 30px;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 20px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
     background: #ffffff;
     border: 1px solid #dddddd;
     border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
 }
-
-/* ================= TITLE ================= */
 
 .section-title {
-    font-size: 30px;
     color: #ff7900;
-    margin-bottom: 25px;
+    font-size: 29px;
+    margin-bottom: 20px;
 }
 
-/* ================= LABEL ================= */
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.product-card {
+    background: #ffffff;
+    border: 2px solid #dddddd;
+    border-radius: 14px;
+    padding: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.product-card:hover {
+    border-color: #ff7900;
+    transform: translateY(-3px);
+}
+
+.product-card.selected {
+    border: 3px solid #ff7900;
+}
+
+.product-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #f7f7f7;
+}
+
+.product-card h3 {
+    font-size: 17px;
+    margin-top: 10px;
+    color: #222222;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #777777;
+    margin-top: 5px;
+}
+
+
+/* =========================
+   FORM
+========================= */
 
 label {
     display: block;
     font-size: 18px;
     font-weight: bold;
-    color: #222222;
     margin-top: 20px;
     margin-bottom: 8px;
 }
-
-/* ================= INPUT ================= */
 
 input[type="text"],
 input[type="number"],
 input[type="file"],
 select {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     font-size: 17px;
     border: 1px solid #cccccc;
     border-radius: 10px;
     background: #ffffff;
     color: #222222;
-}
-
-input[type="file"] {
-    cursor: pointer;
 }
 
 input:focus,
@@ -98,9 +162,12 @@ select:focus {
     border: 2px solid #ff7900;
 }
 
-/* ================= IMAGE PREVIEW ================= */
 
-#imagePreview {
+/* =========================
+   PRODUCT PREVIEW
+========================= */
+
+#productPreview {
     display: none;
     width: 100%;
     max-height: 350px;
@@ -108,14 +175,17 @@ select:focus {
     margin-top: 15px;
     border: 1px solid #dddddd;
     border-radius: 12px;
-    background: #ffffff;
+    background: #f7f7f7;
 }
 
-/* ================= COLOUR ================= */
+
+/* =========================
+   COLOUR
+========================= */
 
 .color-title {
-    font-size: 30px;
     color: #ff7900;
+    font-size: 29px;
     margin-top: 30px;
     margin-bottom: 15px;
 }
@@ -124,16 +194,14 @@ select:focus {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
-    margin-bottom: 18px;
 }
 
 .color-option {
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
     border-radius: 12px;
     border: 2px solid #cccccc;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .color-option:hover {
@@ -142,10 +210,7 @@ select:focus {
 
 .color-option.selected {
     border: 4px solid #ff7900;
-    box-shadow: 0 0 0 2px #ffffff;
 }
-
-/* Colours */
 
 .orange {
     background: #ff7900;
@@ -173,43 +238,43 @@ select:focus {
     );
 }
 
-/* ================= SELECTED COLOUR ================= */
+
+/* =========================
+   SELECTED COLOUR
+========================= */
 
 .selected-color {
+    margin-top: 18px;
+    padding: 17px;
     background: #f5f5f5;
     border: 1px solid #dddddd;
-    padding: 18px;
     border-radius: 10px;
     font-size: 18px;
-    margin-bottom: 25px;
 }
 
-#selectedColour {
-    font-weight: bold;
-}
 
-/* ================= BUTTONS ================= */
+/* =========================
+   BUTTONS
+========================= */
 
 .buttons {
     display: flex;
     gap: 12px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 button {
     flex: 1;
-    padding: 16px;
+    padding: 15px;
     border: none;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 button:hover {
     opacity: 0.9;
-    transform: translateY(-1px);
 }
 
 .save-btn {
@@ -227,25 +292,26 @@ button:hover {
     color: #ffffff;
 }
 
-/* ================= MESSAGE ================= */
+
+/* =========================
+   MESSAGE
+========================= */
 
 #message {
     display: none;
     margin-top: 20px;
     padding: 15px;
-    background: #f2f2f2;
+    background: #f5f5f5;
     border-left: 5px solid #ff7900;
     border-radius: 8px;
-    font-size: 16px;
 }
 
-/* ================= MOBILE ================= */
 
-@media (max-width: 600px) {
+/* =========================
+   MOBILE
+========================= */
 
-    .header {
-        padding: 28px 15px;
-    }
+@media (max-width: 700px) {
 
     .header h1 {
         font-size: 29px;
@@ -257,21 +323,24 @@ button:hover {
 
     .container {
         margin: 15px;
+        padding: 0;
+    }
+
+    .section {
         padding: 20px;
-        border-radius: 15px;
     }
 
-    .section-title {
-        font-size: 27px;
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
-    .color-title {
-        font-size: 27px;
+    .product-card img {
+        height: 130px;
     }
 
-    .color-option {
-        width: 65px;
-        height: 65px;
+    .product-card h3 {
+        font-size: 15px;
     }
 
     .buttons {
@@ -284,11 +353,16 @@ button:hover {
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header class="header">
 
@@ -301,9 +375,169 @@ button:hover {
 </header>
 
 
-<!-- ================= MAIN ================= -->
 
 <div class="container">
+
+
+<!-- =========================
+     PRODUCTS SECTION
+========================= -->
+
+<div class="section">
+
+    <h2 class="section-title">
+        Our Products
+    </h2>
+
+    <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div
+            class="product-card"
+            onclick="selectProduct(
+                this,
+                '3D Personalized Figurine',
+                '3DPersonalizedCustomFigurines_3.jpg'
+            )"
+        >
+
+            <img
+                src="3DPersonalizedCustomFigurines_3.jpg"
+                alt="3D Personalized Figurine"
+            >
+
+            <h3>
+                3D Personalized Figurine
+            </h3>
+
+            <p>
+                Custom 3D Product
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div
+            class="product-card"
+            onclick="selectProduct(
+                this,
+                '3D Printed Miniature',
+                '3d-printed-miniatures-sl.jpg'
+            )"
+        >
+
+            <img
+                src="3d-printed-miniatures-sl.jpg"
+                alt="3D Printed Miniature"
+            >
+
+            <h3>
+                3D Printed Miniature
+            </h3>
+
+            <p>
+                3D Printed Model
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div
+            class="product-card"
+            onclick="selectProduct(
+                this,
+                '3D Model',
+                '3d-18.jpg'
+            )"
+        >
+
+            <img
+                src="3d-18.jpg"
+                alt="3D Model"
+            >
+
+            <h3>
+                3D Model
+            </h3>
+
+            <p>
+                Custom Model
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div
+            class="product-card"
+            onclick="selectProduct(
+                this,
+                'Teddy Bear Keychain',
+                'teddy_bear_keychain_01.webp'
+            )"
+        >
+
+            <img
+                src="teddy_bear_keychain_01.webp"
+                alt="Teddy Bear Keychain"
+            >
+
+            <h3>
+                Teddy Bear Keychain
+            </h3>
+
+            <p>
+                3D Keychain
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div
+            class="product-card"
+            onclick="selectProduct(
+                this,
+                'Toothbrush',
+                'toothbrush.png'
+            )"
+        >
+
+            <img
+                src="toothbrush.png"
+                alt="Toothbrush"
+            >
+
+            <h3>
+                Toothbrush
+            </h3>
+
+            <p>
+                Custom Product
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     PRODUCT DETAILS
+========================= -->
+
+<div class="section">
 
     <h2 class="section-title">
         Product Details
@@ -312,20 +546,20 @@ button:hover {
 
     <!-- PRODUCT NAME -->
 
-    <label for="productName">
+    <label>
         Product Name
     </label>
 
     <input
         type="text"
         id="productName"
-        placeholder="Enter product name"
+        placeholder="Select a product above"
     >
 
 
-    <!-- IMAGE UPLOAD -->
+    <!-- UPLOAD -->
 
-    <label for="productImage">
+    <label>
         Upload 3D/Product Image
     </label>
 
@@ -336,41 +570,33 @@ button:hover {
     >
 
     <img
-        id="imagePreview"
+        id="productPreview"
         alt="Product Preview"
     >
 
 
     <!-- SIZE -->
 
-    <label for="size">
+    <label>
         Select Size
     </label>
 
     <select id="size">
 
-        <option value="Small">
-            Small
-        </option>
+        <option>Small</option>
 
-        <option value="Medium">
-            Medium
-        </option>
+        <option>Medium</option>
 
-        <option value="Large">
-            Large
-        </option>
+        <option>Large</option>
 
-        <option value="XL">
-            XL
-        </option>
+        <option>XL</option>
 
     </select>
 
 
     <!-- QUANTITY -->
 
-    <label for="quantity">
+    <label>
         Quantity
     </label>
 
@@ -388,6 +614,7 @@ button:hover {
         Select Colour
     </h2>
 
+
     <div class="color-options">
 
         <div
@@ -396,11 +623,13 @@ button:hover {
             onclick="selectColour(this)"
         ></div>
 
+
         <div
             class="color-option black"
             data-color="Black"
             onclick="selectColour(this)"
         ></div>
+
 
         <div
             class="color-option white"
@@ -408,11 +637,13 @@ button:hover {
             onclick="selectColour(this)"
         ></div>
 
+
         <div
             class="color-option grey"
             data-color="Grey"
             onclick="selectColour(this)"
         ></div>
+
 
         <div
             class="color-option silver"
@@ -423,15 +654,13 @@ button:hover {
     </div>
 
 
-    <!-- SELECTED COLOUR -->
-
     <div class="selected-color">
 
         Selected Colour:
 
-        <span id="selectedColour">
+        <strong id="selectedColour">
             Orange
-        </span>
+        </strong>
 
     </div>
 
@@ -447,12 +676,14 @@ button:hover {
             Save Design
         </button>
 
+
         <button
             class="print-btn"
             onclick="printDesign()"
         >
             Print
         </button>
+
 
         <button
             class="reset-btn"
@@ -464,71 +695,138 @@ button:hover {
     </div>
 
 
-    <!-- MESSAGE -->
-
     <div id="message"></div>
 
 </div>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+</div>
+
+
 
 <script>
 
-/* ================= COLOUR ================= */
+/* =========================
+   SELECT PRODUCT
+========================= */
 
-function selectColour(element) {
+function selectProduct(card, name, image) {
 
-    const options =
-        document.querySelectorAll(".color-option");
+    // Remove old selection
 
-    options.forEach(function(option) {
-        option.classList.remove("selected");
-    });
+    document
+        .querySelectorAll(".product-card")
+        .forEach(function(item) {
 
-    element.classList.add("selected");
+            item.classList.remove("selected");
 
-    const colour =
-        element.getAttribute("data-color");
+        });
 
-    document.getElementById("selectedColour")
-        .textContent = colour;
+
+    // Select current product
+
+    card.classList.add("selected");
+
+
+    // Put product name
+
+    document.getElementById("productName")
+        .value = name;
+
+
+    // Show product image
+
+    const preview =
+        document.getElementById("productPreview");
+
+    preview.src = image;
+
+    preview.style.display = "block";
+
+
+    // Scroll to details
+
+    document
+        .querySelector(".section:nth-child(2)")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
 }
 
 
-/* ================= IMAGE PREVIEW ================= */
+/* =========================
+   UPLOAD IMAGE
+========================= */
 
-document.getElementById("productImage")
+document
+    .getElementById("productImage")
     .addEventListener("change", function(event) {
 
-        const file = event.target.files[0];
+        const file =
+            event.target.files[0];
 
         const preview =
-            document.getElementById("imagePreview");
+            document.getElementById("productPreview");
+
 
         if (file) {
 
             const reader =
                 new FileReader();
 
-            reader.onload = function(e) {
 
-                preview.src = e.target.result;
+            reader.onload =
+                function(e) {
 
-                preview.style.display = "block";
-            };
+                    preview.src =
+                        e.target.result;
+
+                    preview.style.display =
+                        "block";
+
+                };
+
 
             reader.readAsDataURL(file);
 
-        } else {
-
-            preview.style.display = "none";
         }
 
     });
 
 
-/* ================= SAVE ================= */
+/* =========================
+   COLOUR
+========================= */
+
+function selectColour(element) {
+
+    document
+        .querySelectorAll(".color-option")
+        .forEach(function(option) {
+
+            option.classList.remove("selected");
+
+        });
+
+
+    element.classList.add("selected");
+
+
+    const colour =
+        element.getAttribute("data-color");
+
+
+    document
+        .getElementById("selectedColour")
+        .textContent = colour;
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
 
 function saveDesign() {
 
@@ -542,33 +840,44 @@ function saveDesign() {
         document.getElementById("quantity").value;
 
     const colour =
-        document.getElementById("selectedColour").textContent;
+        document.getElementById("selectedColour")
+        .textContent;
+
 
     const message =
         document.getElementById("message");
 
+
     if (name.trim() === "") {
 
-        message.textContent =
-            "Please enter the product name.";
+        message.innerHTML =
+            "Please select a product.";
 
-        message.style.display = "block";
+        message.style.display =
+            "block";
 
         return;
+
     }
 
+
     message.innerHTML =
-        "<strong>Design Saved!</strong><br>" +
+        "<strong>Design Saved!</strong><br><br>" +
         "Product: " + name + "<br>" +
         "Size: " + size + "<br>" +
         "Quantity: " + quantity + "<br>" +
         "Colour: " + colour;
 
-    message.style.display = "block";
+
+    message.style.display =
+        "block";
+
 }
 
 
-/* ================= PRINT ================= */
+/* =========================
+   PRINT
+========================= */
 
 function printDesign() {
 
@@ -577,40 +886,73 @@ function printDesign() {
 }
 
 
-/* ================= RESET ================= */
+/* =========================
+   RESET
+========================= */
 
 function resetDesign() {
 
-    document.getElementById("productName")
+    document
+        .getElementById("productName")
         .value = "";
 
-    document.getElementById("size")
+
+    document
+        .getElementById("size")
         .value = "Small";
 
-    document.getElementById("quantity")
+
+    document
+        .getElementById("quantity")
         .value = "1";
 
-    document.getElementById("productImage")
+
+    document
+        .getElementById("productImage")
         .value = "";
 
-    document.getElementById("imagePreview")
-        .style.display = "none";
 
-    const options =
-        document.querySelectorAll(".color-option");
+    const preview =
+        document.getElementById("productPreview");
 
-    options.forEach(function(option) {
-        option.classList.remove("selected");
-    });
+    preview.style.display =
+        "none";
 
-    document.querySelector(".orange")
+    preview.src = "";
+
+
+    document
+        .querySelectorAll(".product-card")
+        .forEach(function(card) {
+
+            card.classList.remove("selected");
+
+        });
+
+
+    document
+        .querySelectorAll(".color-option")
+        .forEach(function(option) {
+
+            option.classList.remove("selected");
+
+        });
+
+
+    document
+        .querySelector(".orange")
         .classList.add("selected");
 
-    document.getElementById("selectedColour")
+
+    document
+        .getElementById("selectedColour")
         .textContent = "Orange";
 
-    document.getElementById("message")
+
+    document
+        .getElementById("message")
         .style.display = "none";
+
 }
 
 </script>
