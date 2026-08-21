@@ -1,959 +1,1112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>RS 3D Custom Studio</title>
 
 <style>
 
-/* =========================
-   BASIC
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #222222;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f5f5;
+    color:#222;
+    padding-bottom:75px;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
-.header {
-    background: #ffffff;
-    text-align: center;
-    padding: 30px 15px;
-    border-bottom: 3px solid #ff7900;
+button{
+    font-family:inherit;
+    cursor:pointer;
 }
 
-.header h1 {
-    font-size: 34px;
-    color: #222222;
-    margin-bottom: 8px;
+.header{
+    background:#fff;
+    padding:16px 15px 12px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 8px rgba(0,0,0,.12);
 }
 
-.header p {
-    font-size: 18px;
-    color: #666666;
+.top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
 }
 
-
-/* =========================
-   MAIN
-========================= */
-
-.container {
-    max-width: 900px;
-    margin: 25px auto;
-    padding: 20px;
+.logo{
+    font-size:21px;
+    font-weight:800;
+    color:#ff7a00;
+    white-space:nowrap;
 }
 
-
-/* =========================
-   SECTION
-========================= */
-
-.section {
-    background: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 18px;
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+.search{
+    flex:1;
+    max-width:430px;
+    background:#f1f3f6;
+    border-radius:25px;
+    padding:11px 16px;
+    border:none;
+    outline:none;
+    font-size:14px;
 }
 
-.section-title {
-    color: #ff7900;
-    font-size: 29px;
-    margin-bottom: 20px;
+.cart-top{
+    position:relative;
+    font-size:25px;
 }
 
-
-/* =========================
-   PRODUCTS
-========================= */
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+.cart-count{
+    position:absolute;
+    top:-6px;
+    right:-8px;
+    background:#ff7a00;
+    color:#fff;
+    border-radius:50%;
+    width:18px;
+    height:18px;
+    font-size:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.product-card {
-    background: #ffffff;
-    border: 2px solid #dddddd;
-    border-radius: 14px;
-    padding: 12px;
-    cursor: pointer;
-    transition: 0.2s;
+.hero{
+    background:#fff;
+    text-align:center;
+    padding:25px 15px;
+    border-bottom:3px solid #ff7a00;
 }
 
-.product-card:hover {
-    border-color: #ff7900;
-    transform: translateY(-3px);
+.hero h1{
+    font-size:28px;
+    margin-bottom:7px;
 }
 
-.product-card.selected {
-    border: 3px solid #ff7900;
+.hero p{
+    color:#666;
+    font-size:15px;
 }
 
-.product-card img {
-    width: 100%;
-    height: 170px;
-    object-fit: contain;
-    border-radius: 10px;
-    background: #f7f7f7;
+.categories{
+    background:#fff;
+    padding:15px 10px;
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
 }
 
-.product-card h3 {
-    font-size: 17px;
-    margin-top: 10px;
-    color: #222222;
+.category{
+    min-width:75px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:10px 8px;
+    background:white;
+    text-align:center;
+    font-size:12px;
 }
 
-.product-card p {
-    font-size: 14px;
-    color: #777777;
-    margin-top: 5px;
+.category span{
+    display:block;
+    font-size:24px;
+    margin-bottom:5px;
 }
 
-
-/* =========================
-   FORM
-========================= */
-
-label {
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 8px;
+.category.active{
+    border:2px solid #ff7a00;
+    color:#ff7a00;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="file"],
-select {
-    width: 100%;
-    padding: 14px;
-    font-size: 17px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    background: #ffffff;
-    color: #222222;
+.section{
+    padding:18px 12px;
 }
 
-input:focus,
-select:focus {
-    outline: none;
-    border: 2px solid #ff7900;
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
 }
 
-
-/* =========================
-   PRODUCT PREVIEW
-========================= */
-
-#productPreview {
-    display: none;
-    width: 100%;
-    max-height: 350px;
-    object-fit: contain;
-    margin-top: 15px;
-    border: 1px solid #dddddd;
-    border-radius: 12px;
-    background: #f7f7f7;
+.section-title h2{
+    font-size:21px;
+    color:#222;
 }
 
-
-/* =========================
-   COLOUR
-========================= */
-
-.color-title {
-    color: #ff7900;
-    font-size: 29px;
-    margin-top: 30px;
-    margin-bottom: 15px;
+.section-title a{
+    color:#ff7a00;
+    font-size:13px;
 }
 
-.color-options {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+.products{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
 }
 
-.color-option {
-    width: 70px;
-    height: 70px;
-    border-radius: 12px;
-    border: 2px solid #cccccc;
-    cursor: pointer;
+.card{
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid #ddd;
+    box-shadow:0 2px 6px rgba(0,0,0,.07);
 }
 
-.color-option:hover {
-    transform: scale(1.05);
+.product-img{
+    width:100%;
+    height:145px;
+    object-fit:cover;
+    background:#eee;
 }
 
-.color-option.selected {
-    border: 4px solid #ff7900;
+.card-body{
+    padding:10px;
 }
 
-.orange {
-    background: #ff7900;
+.card h3{
+    font-size:14px;
+    margin-bottom:5px;
 }
 
-.black {
-    background: #000000;
+.card p{
+    font-size:12px;
+    color:#777;
+    margin-bottom:8px;
 }
 
-.white {
-    background: #ffffff;
+.price{
+    font-size:17px;
+    font-weight:bold;
+    color:#222;
+    margin-bottom:9px;
 }
 
-.grey {
-    background: #808080;
+.add{
+    width:100%;
+    border:0;
+    background:#ff7a00;
+    color:white;
+    padding:10px;
+    border-radius:8px;
+    font-weight:bold;
 }
 
-.silver {
-    background: linear-gradient(
-        135deg,
-        #777777,
-        #ffffff,
-        #999999,
-        #eeeeee
-    );
+.view{
+    width:100%;
+    border:1px solid #ff7a00;
+    background:white;
+    color:#ff7a00;
+    padding:9px;
+    border-radius:8px;
+    margin-top:7px;
+    font-weight:bold;
 }
 
-
-/* =========================
-   SELECTED COLOUR
-========================= */
-
-.selected-color {
-    margin-top: 18px;
-    padding: 17px;
-    background: #f5f5f5;
-    border: 1px solid #dddddd;
-    border-radius: 10px;
-    font-size: 18px;
+.banner{
+    margin:5px 12px 10px;
+    background:linear-gradient(135deg,#ff7a00,#ff9f43);
+    color:white;
+    padding:22px;
+    border-radius:15px;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
-.buttons {
-    display: flex;
-    gap: 12px;
-    margin-top: 25px;
+.banner h2{
+    margin-bottom:6px;
 }
 
-button {
-    flex: 1;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
+.banner p{
+    font-size:13px;
 }
 
-button:hover {
-    opacity: 0.9;
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:68px;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    box-shadow:0 -2px 10px rgba(0,0,0,.15);
+    z-index:200;
 }
 
-.save-btn {
-    background: #ff7900;
-    color: #ffffff;
+.nav-item{
+    border:0;
+    background:white;
+    color:#777;
+    text-align:center;
+    font-size:11px;
 }
 
-.print-btn {
-    background: #555555;
-    color: #ffffff;
+.nav-item .icon{
+    display:block;
+    font-size:23px;
+    margin-bottom:3px;
 }
 
-.reset-btn {
-    background: #222222;
-    color: #ffffff;
+.nav-item.active{
+    color:#ff7a00;
+    font-weight:bold;
 }
 
-
-/* =========================
-   MESSAGE
-========================= */
-
-#message {
-    display: none;
-    margin-top: 20px;
-    padding: 15px;
-    background: #f5f5f5;
-    border-left: 5px solid #ff7900;
-    border-radius: 8px;
+.page{
+    display:none;
 }
 
+.page.active{
+    display:block;
+}
 
-/* =========================
-   MOBILE
-========================= */
+/* product details popup */
 
-@media (max-width: 700px) {
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:500;
+    padding:25px 15px;
+    overflow:auto;
+}
 
-    .header h1 {
-        font-size: 29px;
+.modal-box{
+    max-width:500px;
+    margin:20px auto;
+    background:white;
+    border-radius:18px;
+    padding:18px;
+}
+
+.modal-box img{
+    width:100%;
+    max-height:350px;
+    object-fit:contain;
+    border-radius:12px;
+}
+
+.close{
+    float:right;
+    border:0;
+    background:#eee;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    font-size:20px;
+}
+
+.modal-box h2{
+    margin:15px 0 8px;
+}
+
+.modal-price{
+    color:#ff7a00;
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.modal-box button{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:9px;
+    background:#ff7a00;
+    color:white;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+/* cart */
+
+.cart-box{
+    background:white;
+    border-radius:15px;
+    padding:15px;
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.cart-item img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.cart-item h3{
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+.remove{
+    background:#eee;
+    border:0;
+    padding:6px 10px;
+    border-radius:6px;
+    margin-top:7px;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    font-size:19px;
+    font-weight:bold;
+    padding:18px 0;
+}
+
+.checkout{
+    width:100%;
+    background:#ff7a00;
+    color:white;
+    border:0;
+    padding:14px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* about/settings */
+
+.info-box{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    line-height:1.7;
+}
+
+.setting{
+    background:white;
+    padding:16px;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    justify-content:space-between;
+}
+
+@media(min-width:700px){
+
+    .products{
+        grid-template-columns:repeat(4,1fr);
     }
 
-    .header p {
-        font-size: 17px;
+    .product-img{
+        height:190px;
     }
 
-    .container {
-        margin: 15px;
-        padding: 0;
+    .section{
+        max-width:1100px;
+        margin:auto;
     }
 
-    .section {
-        padding: 20px;
-    }
-
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .product-card img {
-        height: 130px;
-    }
-
-    .product-card h3 {
-        font-size: 15px;
-    }
-
-    .buttons {
-        flex-direction: column;
-    }
-
-    button {
-        width: 100%;
+    .hero h1{
+        font-size:36px;
     }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <header class="header">
 
-    <h1>RS 3D Custom Studio</h1>
+    <div class="top">
 
-    <p>
-        Customize your 3D product easily
-    </p>
+        <div class="logo">
+            RS 3D
+        </div>
+
+        <input
+            class="search"
+            type="search"
+            placeholder="Search 3D products..."
+            oninput="searchProducts(this.value)"
+        >
+
+        <div class="cart-top" onclick="showPage('cart')">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+
+    </div>
 
 </header>
 
 
+<!-- HOME -->
 
-<div class="container">
+<div id="home" class="page active">
 
-
-<!-- =========================
-     PRODUCTS SECTION
-========================= -->
-
-<div class="section">
-
-    <h2 class="section-title">
-        Our Products
-    </h2>
-
-    <div class="products">
-
-
-        <!-- PRODUCT 1 -->
-
-        <div
-            class="product-card"
-            onclick="selectProduct(
-                this,
-                '3D Personalized Figurine',
-                '3DPersonalizedCustomFigurines_3.jpg'
-            )"
-        >
-
-            <img
-                src="3DPersonalizedCustomFigurines_3.jpg"
-                alt="3D Personalized Figurine"
-            >
-
-            <h3>
-                3D Personalized Figurine
-            </h3>
-
-            <p>
-                Custom 3D Product
-            </p>
-
-        </div>
-
-
-        <!-- PRODUCT 2 -->
-
-        <div
-            class="product-card"
-            onclick="selectProduct(
-                this,
-                '3D Printed Miniature',
-                '3d-printed-miniatures-sl.jpg'
-            )"
-        >
-
-            <img
-                src="3d-printed-miniatures-sl.jpg"
-                alt="3D Printed Miniature"
-            >
-
-            <h3>
-                3D Printed Miniature
-            </h3>
-
-            <p>
-                3D Printed Model
-            </p>
-
-        </div>
-
-
-        <!-- PRODUCT 3 -->
-
-        <div
-            class="product-card"
-            onclick="selectProduct(
-                this,
-                '3D Model',
-                '3d-18.jpg'
-            )"
-        >
-
-            <img
-                src="3d-18.jpg"
-                alt="3D Model"
-            >
-
-            <h3>
-                3D Model
-            </h3>
-
-            <p>
-                Custom Model
-            </p>
-
-        </div>
-
-
-        <!-- PRODUCT 4 -->
-
-        <div
-            class="product-card"
-            onclick="selectProduct(
-                this,
-                'Teddy Bear Keychain',
-                'teddy_bear_keychain_01.webp'
-            )"
-        >
-
-            <img
-                src="teddy_bear_keychain_01.webp"
-                alt="Teddy Bear Keychain"
-            >
-
-            <h3>
-                Teddy Bear Keychain
-            </h3>
-
-            <p>
-                3D Keychain
-            </p>
-
-        </div>
-
-
-        <!-- PRODUCT 5 -->
-
-        <div
-            class="product-card"
-            onclick="selectProduct(
-                this,
-                'Toothbrush',
-                'toothbrush.png'
-            )"
-        >
-
-            <img
-                src="toothbrush.png"
-                alt="Toothbrush"
-            >
-
-            <h3>
-                Toothbrush
-            </h3>
-
-            <p>
-                Custom Product
-            </p>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     PRODUCT DETAILS
-========================= -->
-
-<div class="section">
-
-    <h2 class="section-title">
-        Product Details
-    </h2>
-
-
-    <!-- PRODUCT NAME -->
-
-    <label>
-        Product Name
-    </label>
-
-    <input
-        type="text"
-        id="productName"
-        placeholder="Select a product above"
-    >
-
-
-    <!-- UPLOAD -->
-
-    <label>
-        Upload 3D/Product Image
-    </label>
-
-    <input
-        type="file"
-        id="productImage"
-        accept="image/*"
-    >
-
-    <img
-        id="productPreview"
-        alt="Product Preview"
-    >
-
-
-    <!-- SIZE -->
-
-    <label>
-        Select Size
-    </label>
-
-    <select id="size">
-
-        <option>Small</option>
-
-        <option>Medium</option>
-
-        <option>Large</option>
-
-        <option>XL</option>
-
-    </select>
-
-
-    <!-- QUANTITY -->
-
-    <label>
-        Quantity
-    </label>
-
-    <input
-        type="number"
-        id="quantity"
-        value="1"
-        min="1"
-    >
-
-
-    <!-- COLOUR -->
-
-    <h2 class="color-title">
-        Select Colour
-    </h2>
-
-
-    <div class="color-options">
-
-        <div
-            class="color-option orange selected"
-            data-color="Orange"
-            onclick="selectColour(this)"
-        ></div>
-
-
-        <div
-            class="color-option black"
-            data-color="Black"
-            onclick="selectColour(this)"
-        ></div>
-
-
-        <div
-            class="color-option white"
-            data-color="White"
-            onclick="selectColour(this)"
-        ></div>
-
-
-        <div
-            class="color-option grey"
-            data-color="Grey"
-            onclick="selectColour(this)"
-        ></div>
-
-
-        <div
-            class="color-option silver"
-            data-color="Silver"
-            onclick="selectColour(this)"
-        ></div>
-
+    <div class="hero">
+        <h1>RS 3D Custom Studio</h1>
+        <p>3D • Crafts • Custom Products</p>
     </div>
 
 
-    <div class="selected-color">
+    <div class="categories">
 
-        Selected Colour:
-
-        <strong id="selectedColour">
-            Orange
-        </strong>
-
-    </div>
-
-
-    <!-- BUTTONS -->
-
-    <div class="buttons">
-
-        <button
-            class="save-btn"
-            onclick="saveDesign()"
-        >
-            Save Design
+        <button class="category active">
+            <span>🏠</span>
+            Home
         </button>
 
-
-        <button
-            class="print-btn"
-            onclick="printDesign()"
-        >
-            Print
+        <button class="category" onclick="scrollToProducts()">
+            <span>🧊</span>
+            3D
         </button>
 
+        <button class="category" onclick="scrollToProducts()">
+            <span>🎨</span>
+            Crafts
+        </button>
 
-        <button
-            class="reset-btn"
-            onclick="resetDesign()"
-        >
-            Reset
+        <button class="category" onclick="showPage('cart')">
+            <span>🛒</span>
+            Cart
+        </button>
+
+        <button class="category" onclick="showPage('about')">
+            <span>ℹ️</span>
+            About
         </button>
 
     </div>
 
 
-    <div id="message"></div>
+    <div class="banner">
+
+        <h2>Customize Your Ideas</h2>
+
+        <p>
+            Choose your favourite 3D model,
+            customize it and order easily.
+        </p>
+
+    </div>
+
+
+    <section class="section" id="productSection">
+
+        <div class="section-title">
+
+            <h2>🔥 Popular Products</h2>
+
+            <a onclick="scrollToProducts()">
+                View All
+            </a>
+
+        </div>
+
+
+        <div class="products" id="products"></div>
+
+    </section>
 
 </div>
 
 
+<!-- 3D PAGE -->
+
+<div id="threeD" class="page">
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>🧊 3D Products</h2>
+        </div>
+
+        <div class="products" id="threeDProducts"></div>
+
+    </section>
+
 </div>
 
+
+<!-- CRAFT PAGE -->
+
+<div id="craft" class="page">
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>🎨 Crafts</h2>
+        </div>
+
+        <div class="products" id="craftProducts"></div>
+
+    </section>
+
+</div>
+
+
+<!-- CART PAGE -->
+
+<div id="cart" class="page">
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>🛒 My Cart</h2>
+        </div>
+
+        <div class="cart-box">
+
+            <div id="cartItems">
+                Your cart is empty.
+            </div>
+
+            <div class="total">
+
+                <span>Total</span>
+
+                <span id="total">
+                    ₹0
+                </span>
+
+            </div>
+
+            <button class="checkout" onclick="checkout()">
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<div id="about" class="page">
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>ℹ️ About RS 3D</h2>
+        </div>
+
+        <div class="info-box">
+
+            <h2>RS 3D Custom Studio</h2>
+
+            <br>
+
+            <p>
+                Welcome to RS 3D Custom Studio.
+                We create customized 3D printed
+                products, miniatures, figurines,
+                keychains and creative crafts.
+            </p>
+
+            <br>
+
+            <p>
+                Select a product, customize it
+                and add it to your cart.
+            </p>
+
+            <br>
+
+            <b>3D • Design • Craft • Custom</b>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div id="settings" class="page">
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>⚙️ Settings</h2>
+        </div>
+
+        <div class="info-box">
+
+            <div class="setting">
+                <span>🔔 Notifications</span>
+                <input type="checkbox" checked>
+            </div>
+
+            <div class="setting">
+                <span>🌐 Language</span>
+                <span>English</span>
+            </div>
+
+            <div class="setting">
+                <span>💰 Currency</span>
+                <span>INR ₹</span>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+    <button class="nav-item active" onclick="showPage('home',this)">
+        <span class="icon">🏠</span>
+        Home
+    </button>
+
+    <button class="nav-item" onclick="showPage('threeD',this)">
+        <span class="icon">🧊</span>
+        3D
+    </button>
+
+    <button class="nav-item" onclick="showPage('craft',this)">
+        <span class="icon">🎨</span>
+        Crafts
+    </button>
+
+    <button class="nav-item" onclick="showPage('cart',this)">
+        <span class="icon">🛒</span>
+        Cart
+    </button>
+
+    <button class="nav-item" onclick="showPage('about',this)">
+        <span class="icon">ℹ️</span>
+        About
+    </button>
+
+    <button class="nav-item" onclick="showPage('settings',this)">
+        <span class="icon">⚙️</span>
+        Settings
+    </button>
+
+</nav>
+
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal()">
+            ×
+        </button>
+
+        <img id="modalImage">
+
+        <h2 id="modalName"></h2>
+
+        <p id="modalDescription"></p>
+
+        <div class="modal-price" id="modalPrice"></div>
+
+        <button onclick="addModalProduct()">
+            🛒 Add to Cart
+        </button>
+
+    </div>
+
+</div>
 
 
 <script>
 
-/* =========================
-   SELECT PRODUCT
-========================= */
+/* PRODUCTS */
 
-function selectProduct(card, name, image) {
+const products = [
 
-    // Remove old selection
+{
+    id:1,
+    name:"3D Personalized Figurine",
+    description:"Custom 3D printed figurine",
+    price:799,
+    image:"3DPersonalizedCustomFigurines_3.jpg",
+    category:"3d"
+},
 
-    document
-        .querySelectorAll(".product-card")
-        .forEach(function(item) {
+{
+    id:2,
+    name:"3D Printed Miniature",
+    description:"Detailed 3D printed model",
+    price:999,
+    image:"3d-18.jpg",
+    category:"3d"
+},
 
-            item.classList.remove("selected");
+{
+    id:3,
+    name:"3D Model",
+    description:"Custom decorative model",
+    price:699,
+    image:"3d-printed-miniatures-sl.jpg",
+    category:"3d"
+},
 
-        });
+{
+    id:4,
+    name:"Teddy Bear Keychain",
+    description:"Cute 3D keychain",
+    price:249,
+    image:"teddy_bear_keychain_01.webp",
+    category:"craft"
+},
+
+{
+    id:5,
+    name:"Toothbrush Holder",
+    description:"Custom 3D printed product",
+    price:349,
+    image:"toothbrush.png",
+    category:"craft"
+},
+
+{
+    id:6,
+    name:"Custom Craft Model",
+    description:"Creative handmade style model",
+    price:599,
+    image:"IMG-20250817-WA0057.webp",
+    category:"craft"
+}
+
+];
 
 
-    // Select current product
+let cart = [];
 
-    card.classList.add("selected");
-
-
-    // Put product name
-
-    document.getElementById("productName")
-        .value = name;
+let currentModalProduct = null;
 
 
-    // Show product image
+/* DISPLAY PRODUCTS */
 
-    const preview =
-        document.getElementById("productPreview");
+function productCard(product){
 
-    preview.src = image;
+    return `
 
-    preview.style.display = "block";
+    <div class="card">
+
+        <img
+            class="product-img"
+            src="${product.image}"
+            onerror="this.src='https://via.placeholder.com/400x300?text=RS+3D'"
+        >
+
+        <div class="card-body">
+
+            <h3>
+                ${product.name}
+            </h3>
+
+            <p>
+                ${product.description}
+            </p>
+
+            <div class="price">
+                ₹${product.price}
+            </div>
+
+            <button
+                class="add"
+                onclick="addToCart(${product.id})"
+            >
+                Add to Cart
+            </button>
+
+            <button
+                class="view"
+                onclick="viewProduct(${product.id})"
+            >
+                View Product
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+}
 
 
-    // Scroll to details
+function loadProducts(){
 
-    document
-        .querySelector(".section:nth-child(2)")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+    document.getElementById("products").innerHTML =
+        products.map(productCard).join("");
+
+    document.getElementById("threeDProducts").innerHTML =
+        products
+        .filter(p => p.category === "3d")
+        .map(productCard)
+        .join("");
+
+    document.getElementById("craftProducts").innerHTML =
+        products
+        .filter(p => p.category === "craft")
+        .map(productCard)
+        .join("");
+}
+
+
+loadProducts();
+
+
+/* ADD CART */
+
+function addToCart(id){
+
+    const product = products.find(p => p.id === id);
+
+    cart.push(product);
+
+    updateCart();
+
+    alert(product.name + " added to cart 🛒");
 
 }
 
 
-/* =========================
-   UPLOAD IMAGE
-========================= */
+function updateCart(){
 
-document
-    .getElementById("productImage")
-    .addEventListener("change", function(event) {
+    document.getElementById("cartCount").innerText =
+        cart.length;
 
-        const file =
-            event.target.files[0];
+    const cartItems =
+        document.getElementById("cartItems");
 
-        const preview =
-            document.getElementById("productPreview");
+    if(cart.length === 0){
 
+        cartItems.innerHTML =
+            "<p>Your cart is empty.</p>";
 
-        if (file) {
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function(e) {
-
-                    preview.src =
-                        e.target.result;
-
-                    preview.style.display =
-                        "block";
-
-                };
-
-
-            reader.readAsDataURL(file);
-
-        }
-
-    });
-
-
-/* =========================
-   COLOUR
-========================= */
-
-function selectColour(element) {
-
-    document
-        .querySelectorAll(".color-option")
-        .forEach(function(option) {
-
-            option.classList.remove("selected");
-
-        });
-
-
-    element.classList.add("selected");
-
-
-    const colour =
-        element.getAttribute("data-color");
-
-
-    document
-        .getElementById("selectedColour")
-        .textContent = colour;
-
-}
-
-
-/* =========================
-   SAVE
-========================= */
-
-function saveDesign() {
-
-    const name =
-        document.getElementById("productName").value;
-
-    const size =
-        document.getElementById("size").value;
-
-    const quantity =
-        document.getElementById("quantity").value;
-
-    const colour =
-        document.getElementById("selectedColour")
-        .textContent;
-
-
-    const message =
-        document.getElementById("message");
-
-
-    if (name.trim() === "") {
-
-        message.innerHTML =
-            "Please select a product.";
-
-        message.style.display =
-            "block";
+        document.getElementById("total").innerText =
+            "₹0";
 
         return;
-
     }
 
 
-    message.innerHTML =
-        "<strong>Design Saved!</strong><br><br>" +
-        "Product: " + name + "<br>" +
-        "Size: " + size + "<br>" +
-        "Quantity: " + quantity + "<br>" +
-        "Colour: " + colour;
+    cartItems.innerHTML = cart.map((item,index)=>`
+
+        <div class="cart-item">
+
+            <img src="${item.image}">
+
+            <div>
+
+                <h3>${item.name}</h3>
+
+                <b>₹${item.price}</b>
+
+                <br>
+
+                <button
+                    class="remove"
+                    onclick="removeCart(${index})"
+                >
+                    Remove
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
 
 
-    message.style.display =
+    const total =
+        cart.reduce((sum,item)=>sum + item.price,0);
+
+    document.getElementById("total").innerText =
+        "₹" + total;
+
+}
+
+
+function removeCart(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+/* PRODUCT VIEW */
+
+function viewProduct(id){
+
+    const product =
+        products.find(p => p.id === id);
+
+    currentModalProduct = product;
+
+    document.getElementById("modalImage").src =
+        product.image;
+
+    document.getElementById("modalName").innerText =
+        product.name;
+
+    document.getElementById("modalDescription").innerText =
+        product.description;
+
+    document.getElementById("modalPrice").innerText =
+        "₹" + product.price;
+
+    document.getElementById("modal").style.display =
         "block";
 
 }
 
 
-/* =========================
-   PRINT
-========================= */
+function closeModal(){
 
-function printDesign() {
-
-    window.print();
-
-}
-
-
-/* =========================
-   RESET
-========================= */
-
-function resetDesign() {
-
-    document
-        .getElementById("productName")
-        .value = "";
-
-
-    document
-        .getElementById("size")
-        .value = "Small";
-
-
-    document
-        .getElementById("quantity")
-        .value = "1";
-
-
-    document
-        .getElementById("productImage")
-        .value = "";
-
-
-    const preview =
-        document.getElementById("productPreview");
-
-    preview.style.display =
+    document.getElementById("modal").style.display =
         "none";
 
-    preview.src = "";
+}
 
 
-    document
-        .querySelectorAll(".product-card")
-        .forEach(function(card) {
+function addModalProduct(){
 
-            card.classList.remove("selected");
+    if(currentModalProduct){
 
-        });
+        addToCart(currentModalProduct.id);
 
+        closeModal();
 
-    document
-        .querySelectorAll(".color-option")
-        .forEach(function(option) {
-
-            option.classList.remove("selected");
-
-        });
-
-
-    document
-        .querySelector(".orange")
-        .classList.add("selected");
-
-
-    document
-        .getElementById("selectedColour")
-        .textContent = "Orange";
-
-
-    document
-        .getElementById("message")
-        .style.display = "none";
+    }
 
 }
+
+
+/* PAGE NAVIGATION */
+
+function showPage(page,button){
+
+    document
+    .querySelectorAll(".page")
+    .forEach(p => p.classList.remove("active"));
+
+    document
+    .getElementById(page)
+    .classList.add("active");
+
+
+    document
+    .querySelectorAll(".nav-item")
+    .forEach(n => n.classList.remove("active"));
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    if(page === "cart"){
+
+        updateCart();
+
+    }
+
+}
+
+
+/* SEARCH */
+
+function searchProducts(value){
+
+    value = value.toLowerCase().trim();
+
+    const result =
+        products.filter(p =>
+            p.name.toLowerCase().includes(value)
+        );
+
+    document.getElementById("products").innerHTML =
+        result.length
+        ? result.map(productCard).join("")
+        : "<p>No products found.</p>";
+
+}
+
+
+/* SCROLL */
+
+function scrollToProducts(){
+
+    showPage("home");
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("productSection")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+    },100);
+
+}
+
+
+/* CHECKOUT */
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert("Your cart is empty.");
+
+        return;
+    }
+
+    alert(
+        "Thank you for your order! 🧡\n\n" +
+        "Checkout system can be connected later."
+    );
+
+}
+
+
+/* CLOSE MODAL WHEN OUTSIDE CLICK */
+
+document.getElementById("modal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+
+        closeModal();
+
+    }
+
+});
+
 
 </script>
 
