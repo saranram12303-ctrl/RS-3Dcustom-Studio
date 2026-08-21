@@ -2,548 +2,616 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
 <title>RS 3D Custom Studio</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#111111;
-    color:#ffffff;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222222;
 }
 
-.header{
-    background:#ff7a00;
-    color:#ffffff;
-    padding:20px;
-    text-align:center;
+/* ================= HEADER ================= */
+
+.header {
+    background: #ffffff;
+    text-align: center;
+    padding: 35px 20px;
+    border-bottom: 3px solid #ff7900;
 }
 
-.header h1{
-    font-size:28px;
-    margin-bottom:6px;
+.header h1 {
+    font-size: 36px;
+    color: #222222;
+    margin-bottom: 10px;
 }
 
-.header p{
-    font-size:14px;
+.header p {
+    font-size: 20px;
+    color: #666666;
 }
 
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
+/* ================= MAIN ================= */
+
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-.card{
-    background:#202020;
-    border:1px solid #555555;
-    border-radius:14px;
-    padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+/* ================= TITLE ================= */
+
+.section-title {
+    font-size: 30px;
+    color: #ff7900;
+    margin-bottom: 25px;
 }
 
-h2{
-    color:#ff7a00;
-    margin-bottom:15px;
+/* ================= LABEL ================= */
+
+label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #222222;
+    margin-top: 20px;
+    margin-bottom: 8px;
 }
 
-label{
-    display:block;
-    margin-top:15px;
-    margin-bottom:7px;
-    font-weight:bold;
+/* ================= INPUT ================= */
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 15px;
+    font-size: 17px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #222222;
 }
 
-input,select{
-    width:100%;
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #777777;
-    background:#eeeeee;
-    color:#111111;
-    font-size:16px;
+input[type="file"] {
+    cursor: pointer;
 }
 
-input[type="file"]{
-    background:#ffffff;
+input:focus,
+select:focus {
+    outline: none;
+    border: 2px solid #ff7900;
 }
 
-.main-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+/* ================= IMAGE PREVIEW ================= */
+
+#imagePreview {
+    display: none;
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    margin-top: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    background: #ffffff;
 }
 
-.preview{
-    min-height:350px;
-    background:#eeeeee;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    position:relative;
+/* ================= COLOUR ================= */
+
+.color-title {
+    font-size: 30px;
+    color: #ff7900;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
-.preview img{
-    max-width:100%;
-    max-height:350px;
-    object-fit:contain;
+.color-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
 }
 
-.no-image{
-    color:#555555;
-    text-align:center;
-    padding:20px;
+.color-option {
+    width: 75px;
+    height: 75px;
+    border-radius: 12px;
+    border: 2px solid #cccccc;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.color-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-    margin-top:10px;
+.color-option:hover {
+    transform: scale(1.05);
 }
 
-.color-btn{
-    height:50px;
-    border-radius:8px;
-    border:3px solid transparent;
-    cursor:pointer;
+.color-option.selected {
+    border: 4px solid #ff7900;
+    box-shadow: 0 0 0 2px #ffffff;
 }
 
-.color-btn.active{
-    border-color:#ffffff;
-    box-shadow:0 0 0 3px #ff7a00;
+/* Colours */
+
+.orange {
+    background: #ff7900;
 }
 
-.orange{background:#ff7a00;}
-.black{background:#000000;}
-.white{background:#ffffff;}
-.gray{background:#777777;}
-.metal{background:linear-gradient(135deg,#777,#ddd,#666);}
-
-.buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:20px;
+.black {
+    background: #000000;
 }
 
-button{
-    border:none;
-    padding:13px 20px;
-    border-radius:8px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+.white {
+    background: #ffffff;
 }
 
-.primary{
-    background:#ff7a00;
-    color:#ffffff;
+.grey {
+    background: #808080;
 }
 
-.secondary{
-    background:#555555;
-    color:#ffffff;
+.silver {
+    background: linear-gradient(
+        135deg,
+        #777777,
+        #ffffff,
+        #999999,
+        #eeeeee
+    );
 }
 
-.danger{
-    background:#333333;
-    color:#ffffff;
+/* ================= SELECTED COLOUR ================= */
+
+.selected-color {
+    background: #f5f5f5;
+    border: 1px solid #dddddd;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-bottom: 25px;
 }
 
-.info{
-    background:#eeeeee;
-    color:#111111;
-    border-radius:10px;
-    padding:15px;
-    margin-top:15px;
+#selectedColour {
+    font-weight: bold;
 }
 
-.price{
-    font-size:28px;
-    color:#ff7a00;
-    font-weight:bold;
-    margin-top:10px;
+/* ================= BUTTONS ================= */
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-footer{
-    text-align:center;
-    padding:25px;
-    color:#aaaaaa;
-    border-top:1px solid #444444;
-    margin-top:20px;
+button {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-@media(max-width:700px){
-    .main-grid{
-        grid-template-columns:1fr;
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.save-btn {
+    background: #ff7900;
+    color: #ffffff;
+}
+
+.print-btn {
+    background: #555555;
+    color: #ffffff;
+}
+
+.reset-btn {
+    background: #222222;
+    color: #ffffff;
+}
+
+/* ================= MESSAGE ================= */
+
+#message {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f2f2f2;
+    border-left: 5px solid #ff7900;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 28px 15px;
     }
 
-    .header h1{
-        font-size:22px;
+    .header h1 {
+        font-size: 29px;
     }
 
-    .color-grid{
-        grid-template-columns:repeat(5,1fr);
+    .header p {
+        font-size: 17px;
+    }
+
+    .container {
+        margin: 15px;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    .color-title {
+        font-size: 27px;
+    }
+
+    .color-option {
+        width: 65px;
+        height: 65px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
     }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header class="header">
+
     <h1>RS 3D Custom Studio</h1>
-    <p>Customize your 3D product easily</p>
+
+    <p>
+        Customize your 3D product easily
+    </p>
+
 </header>
+
+
+<!-- ================= MAIN ================= -->
 
 <div class="container">
 
-<div class="main-grid">
-
-<!-- LEFT SIDE -->
-<div class="card">
-
-<h2>Product Details</h2>
-
-<label>Product Name</label>
-<input type="text" id="productName"
-placeholder="Enter product name"
-oninput="updatePreview()">
-
-<label>Upload 3D/Product Image</label>
-<input type="file"
-id="imageUpload"
-accept="image/*"
-onchange="loadImage(event)">
-
-<label>Select Size</label>
-<select id="size" onchange="calculatePrice()">
-<option value="1">Small</option>
-<option value="1.3">Medium</option>
-<option value="1.6">Large</option>
-<option value="2">Extra Large</option>
-</select>
-
-<label>Quantity</label>
-<input type="number"
-id="quantity"
-value="1"
-min="1"
-oninput="calculatePrice()">
-
-<h2 style="margin-top:25px;">Select Colour</h2>
-
-<div class="color-grid">
-
-<button class="color-btn orange active"
-onclick="selectColor('Orange',this)"
-title="Orange"></button>
-
-<button class="color-btn black"
-onclick="selectColor('Black',this)"
-title="Black"></button>
-
-<button class="color-btn white"
-onclick="selectColor('White',this)"
-title="White"></button>
-
-<button class="color-btn gray"
-onclick="selectColor('Gray',this)"
-title="Gray"></button>
-
-<button class="color-btn metal"
-onclick="selectColor('Metal Gray',this)"
-title="Metal Gray"></button>
-
-</div>
-
-<div class="info">
-    Selected Colour:
-    <strong id="selectedColor">Orange</strong>
-</div>
-
-<div class="buttons">
-    <button class="primary" onclick="saveDesign()">
-        Save Design
-    </button>
-
-    <button class="secondary" onclick="window.print()">
-        Print
-    </button>
-
-    <button class="danger" onclick="resetDesign()">
-        Reset
-    </button>
-</div>
-
-</div>
+    <h2 class="section-title">
+        Product Details
+    </h2>
 
 
-<!-- RIGHT SIDE -->
-<div class="card">
+    <!-- PRODUCT NAME -->
 
-<h2>3D Product Preview</h2>
+    <label for="productName">
+        Product Name
+    </label>
 
-<div class="preview" id="preview">
-
-<div class="no-image" id="noImage">
-    <h3>No Image Uploaded</h3>
-    <p>Upload your product image to preview it here.</p>
-</div>
-
-<img id="previewImage"
-style="display:none;"
-alt="Product Preview">
-
-</div>
-
-<div class="info">
-
-<p>
-<strong>Product:</strong>
-<span id="previewName">Your Product</span>
-</p>
-
-<p style="margin-top:8px;">
-<strong>Colour:</strong>
-<span id="previewColor">Orange</span>
-</p>
-
-<p style="margin-top:8px;">
-<strong>Quantity:</strong>
-<span id="previewQuantity">1</span>
-</p>
-
-<p class="price">
-₹ <span id="price">500</span>
-</p>
-
-</div>
-
-</div>
-
-</div>
+    <input
+        type="text"
+        id="productName"
+        placeholder="Enter product name"
+    >
 
 
-<!-- FEATURES -->
+    <!-- IMAGE UPLOAD -->
 
-<div class="card">
+    <label for="productImage">
+        Upload 3D/Product Image
+    </label>
 
-<h2>Features</h2>
+    <input
+        type="file"
+        id="productImage"
+        accept="image/*"
+    >
 
-<div class="info">
-✓ Product image upload
-</div>
+    <img
+        id="imagePreview"
+        alt="Product Preview"
+    >
 
-<div class="info">
-✓ Orange / Black / White / Gray / Metal Gray
-</div>
 
-<div class="info">
-✓ Size selection
-</div>
+    <!-- SIZE -->
 
-<div class="info">
-✓ Quantity control
-</div>
+    <label for="size">
+        Select Size
+    </label>
 
-<div class="info">
-✓ Automatic price calculation
-</div>
+    <select id="size">
 
-<div class="info">
-✓ Design save option
-</div>
+        <option value="Small">
+            Small
+        </option>
 
-<div class="info">
-✓ Print option
-</div>
+        <option value="Medium">
+            Medium
+        </option>
 
-<div class="info">
-✓ Mobile responsive design
-</div>
+        <option value="Large">
+            Large
+        </option>
+
+        <option value="XL">
+            XL
+        </option>
+
+    </select>
+
+
+    <!-- QUANTITY -->
+
+    <label for="quantity">
+        Quantity
+    </label>
+
+    <input
+        type="number"
+        id="quantity"
+        value="1"
+        min="1"
+    >
+
+
+    <!-- COLOUR -->
+
+    <h2 class="color-title">
+        Select Colour
+    </h2>
+
+    <div class="color-options">
+
+        <div
+            class="color-option orange selected"
+            data-color="Orange"
+            onclick="selectColour(this)"
+        ></div>
+
+        <div
+            class="color-option black"
+            data-color="Black"
+            onclick="selectColour(this)"
+        ></div>
+
+        <div
+            class="color-option white"
+            data-color="White"
+            onclick="selectColour(this)"
+        ></div>
+
+        <div
+            class="color-option grey"
+            data-color="Grey"
+            onclick="selectColour(this)"
+        ></div>
+
+        <div
+            class="color-option silver"
+            data-color="Silver"
+            onclick="selectColour(this)"
+        ></div>
+
+    </div>
+
+
+    <!-- SELECTED COLOUR -->
+
+    <div class="selected-color">
+
+        Selected Colour:
+
+        <span id="selectedColour">
+            Orange
+        </span>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="buttons">
+
+        <button
+            class="save-btn"
+            onclick="saveDesign()"
+        >
+            Save Design
+        </button>
+
+        <button
+            class="print-btn"
+            onclick="printDesign()"
+        >
+            Print
+        </button>
+
+        <button
+            class="reset-btn"
+            onclick="resetDesign()"
+        >
+            Reset
+        </button>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div id="message"></div>
 
 </div>
 
-</div>
 
-<footer>
-RS 3D Custom Studio © 2026
-</footer>
-
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-let selectedColor = "Orange";
-let basePrice = 500;
+/* ================= COLOUR ================= */
 
+function selectColour(element) {
 
-/* IMAGE UPLOAD */
+    const options =
+        document.querySelectorAll(".color-option");
 
-function loadImage(event){
-
-    const file = event.target.files[0];
-
-    if(!file) return;
-
-    const reader = new FileReader();
-
-    reader.onload = function(e){
-
-        const img = document.getElementById("previewImage");
-        const noImage = document.getElementById("noImage");
-
-        img.src = e.target.result;
-
-        img.style.display = "block";
-        noImage.style.display = "none";
-    };
-
-    reader.readAsDataURL(file);
-}
-
-
-/* PRODUCT NAME */
-
-function updatePreview(){
-
-    const name =
-    document.getElementById("productName").value;
-
-    document.getElementById("previewName").textContent =
-    name || "Your Product";
-}
-
-
-/* COLOR */
-
-function selectColor(color,button){
-
-    selectedColor = color;
-
-    document.getElementById("selectedColor").textContent =
-    color;
-
-    document.getElementById("previewColor").textContent =
-    color;
-
-    const buttons =
-    document.querySelectorAll(".color-btn");
-
-    buttons.forEach(btn=>{
-        btn.classList.remove("active");
+    options.forEach(function(option) {
+        option.classList.remove("selected");
     });
 
-    button.classList.add("active");
+    element.classList.add("selected");
+
+    const colour =
+        element.getAttribute("data-color");
+
+    document.getElementById("selectedColour")
+        .textContent = colour;
 }
 
 
-/* PRICE */
+/* ================= IMAGE PREVIEW ================= */
 
-function calculatePrice(){
+document.getElementById("productImage")
+    .addEventListener("change", function(event) {
 
-    const quantity =
-    Number(document.getElementById("quantity").value) || 1;
+        const file = event.target.files[0];
 
-    const size =
-    Number(document.getElementById("size").value) || 1;
+        const preview =
+            document.getElementById("imagePreview");
 
-    const total =
-    Math.round(basePrice * size * quantity);
+        if (file) {
 
-    document.getElementById("price").textContent =
-    total;
+            const reader =
+                new FileReader();
 
-    document.getElementById("previewQuantity").textContent =
-    quantity;
-}
+            reader.onload = function(e) {
+
+                preview.src = e.target.result;
+
+                preview.style.display = "block";
+            };
+
+            reader.readAsDataURL(file);
+
+        } else {
+
+            preview.style.display = "none";
+        }
+
+    });
 
 
-/* SAVE DESIGN */
+/* ================= SAVE ================= */
 
-function saveDesign(){
+function saveDesign() {
 
     const name =
-    document.getElementById("productName").value
-    || "My 3D Design";
+        document.getElementById("productName").value;
 
-    const color = selectedColor;
+    const size =
+        document.getElementById("size").value;
 
     const quantity =
-    document.getElementById("quantity").value;
+        document.getElementById("quantity").value;
 
-    localStorage.setItem(
-        "RS3D_Name",
-        name
-    );
+    const colour =
+        document.getElementById("selectedColour").textContent;
 
-    localStorage.setItem(
-        "RS3D_Color",
-        color
-    );
+    const message =
+        document.getElementById("message");
 
-    localStorage.setItem(
-        "RS3D_Quantity",
-        quantity
-    );
+    if (name.trim() === "") {
 
-    alert("Design saved successfully!");
+        message.textContent =
+            "Please enter the product name.";
+
+        message.style.display = "block";
+
+        return;
+    }
+
+    message.innerHTML =
+        "<strong>Design Saved!</strong><br>" +
+        "Product: " + name + "<br>" +
+        "Size: " + size + "<br>" +
+        "Quantity: " + quantity + "<br>" +
+        "Colour: " + colour;
+
+    message.style.display = "block";
 }
 
 
-/* RESET */
+/* ================= PRINT ================= */
 
-function resetDesign(){
+function printDesign() {
 
-    document.getElementById("productName").value = "";
+    window.print();
 
-    document.getElementById("quantity").value = 1;
+}
 
-    document.getElementById("size").value = 1;
 
-    document.getElementById("imageUpload").value = "";
+/* ================= RESET ================= */
 
-    document.getElementById("previewImage").style.display =
-    "none";
+function resetDesign() {
 
-    document.getElementById("noImage").style.display =
-    "block";
+    document.getElementById("productName")
+        .value = "";
 
-    selectedColor = "Orange";
+    document.getElementById("size")
+        .value = "Small";
 
-    document.getElementById("selectedColor").textContent =
-    "Orange";
+    document.getElementById("quantity")
+        .value = "1";
 
-    document.getElementById("previewColor").textContent =
-    "Orange";
+    document.getElementById("productImage")
+        .value = "";
 
-    document.getElementById("previewName").textContent =
-    "Your Product";
+    document.getElementById("imagePreview")
+        .style.display = "none";
 
-    document.getElementById("previewQuantity").textContent =
-    "1";
+    const options =
+        document.querySelectorAll(".color-option");
 
-    document.getElementById("price").textContent =
-    "500";
-
-    document.querySelectorAll(".color-btn")
-    .forEach(btn=>btn.classList.remove("active"));
+    options.forEach(function(option) {
+        option.classList.remove("selected");
+    });
 
     document.querySelector(".orange")
-    .classList.add("active");
-}
+        .classList.add("selected");
 
-calculatePrice();
+    document.getElementById("selectedColour")
+        .textContent = "Orange";
+
+    document.getElementById("message")
+        .style.display = "none";
+}
 
 </script>
 
