@@ -7,6 +7,11 @@
 <title>RS 3D Custom Studio</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -19,25 +24,44 @@ body{
     color:#f5f5f5;
 }
 
-/* HEADER */
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
 header{
     position:sticky;
     top:0;
     z-index:1000;
+
     background:#050505;
+
     border-bottom:2px solid #c65d00;
+
     padding:14px 4%;
+
     display:flex;
     align-items:center;
+
     gap:20px;
+
     flex-wrap:wrap;
 }
 
 .logo{
     color:#ff8c00;
+
     font-size:22px;
     font-weight:bold;
+
     cursor:pointer;
+
     text-shadow:
         0 0 5px #ff8c00,
         0 0 15px #8a3f00;
@@ -45,106 +69,159 @@ header{
 
 .search{
     flex:1;
+
     min-width:220px;
+
     padding:12px 16px;
+
     border-radius:8px;
+
     border:1px solid #7a3900;
+
     background:#171717;
+
     color:white;
+
     outline:none;
+
     font-size:15px;
 }
 
 .search:focus{
     border-color:#ff8c00;
-    box-shadow:0 0 10px #7a3900;
+
+    box-shadow:
+        0 0 10px #7a3900;
 }
 
 nav{
     display:flex;
+
     gap:8px;
+
     flex-wrap:wrap;
 }
 
 nav button{
     background:#171717;
+
     color:#ff8c00;
+
     border:1px solid #8a4500;
+
     padding:10px 14px;
+
     border-radius:7px;
+
     cursor:pointer;
+
+    font-size:15px;
 }
 
 nav button:hover{
     background:#ff7a00;
+
     color:#000;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
     min-height:430px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
     padding:50px 20px;
 
     background:
-    radial-gradient(
-        circle at 50% 20%,
-        #7a3200 0%,
-        #1a0b00 35%,
-        #050505 75%
-    );
+        radial-gradient(
+            circle at 50% 20%,
+            #7a3200 0%,
+            #1a0b00 35%,
+            #050505 75%
+        );
 }
 
 .hero h1{
     font-size:52px;
+
     color:#ff8c00;
+
     text-shadow:
         0 0 8px #ff8c00,
         0 0 25px #7a3200;
+
     margin-bottom:15px;
 }
 
 .hero p{
     color:#ddd;
+
     font-size:18px;
+
     margin-bottom:30px;
 }
 
+
+/* =========================
+   WRAPPER
+========================= */
+
 .wrap{
     max-width:1200px;
+
     margin:auto;
+
     padding:45px 20px;
 }
 
-/* HOME CATEGORY CARDS */
+
+/* =========================
+   HOME CARDS
+========================= */
 
 .category-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:25px;
 }
 
 .big-card{
     min-height:300px;
+
     padding:35px;
+
     border-radius:18px;
 
     background:
-    linear-gradient(
-        145deg,
-        #1c1c1c,
-        #100b07
-    );
+        linear-gradient(
+            145deg,
+            #1c1c1c,
+            #100b07
+        );
 
     border:1px solid #713500;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
+
     text-align:center;
 
     transition:.3s;
@@ -152,96 +229,133 @@ nav button:hover{
 
 .big-card:hover{
     transform:translateY(-5px);
+
     border-color:#ff8c00;
-    box-shadow:0 0 25px #542800;
+
+    box-shadow:
+        0 0 25px #542800;
 }
 
 .big-card .icon{
     font-size:70px;
+
     margin-bottom:20px;
 }
 
 .big-card h2{
     color:#ff8c00;
+
     margin-bottom:15px;
 }
 
 .big-card p{
     color:#aaa;
+
     margin-bottom:20px;
+
+    line-height:1.6;
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
 
 .btn{
     border:none;
+
     padding:12px 20px;
+
     border-radius:8px;
+
     cursor:pointer;
+
     font-size:15px;
+
     font-weight:bold;
+
     margin:5px;
 }
 
 .primary{
     background:
-    linear-gradient(
-        145deg,
-        #ff9d00,
-        #c65300
-    );
+        linear-gradient(
+            145deg,
+            #ff9d00,
+            #c65300
+        );
+
     color:#000;
 }
 
 .primary:hover{
-    box-shadow:0 0 15px #ff8c00;
+    box-shadow:
+        0 0 15px #ff8c00;
 }
 
 .secondary{
     background:#171717;
+
     color:#ff8c00;
+
     border:1px solid #8a4500;
 }
 
 .secondary:hover{
     background:#ff7a00;
+
     color:#000;
 }
 
-/* PRODUCT GRID */
+
+/* =========================
+   PRODUCT GRID
+========================= */
 
 .product-grid{
     display:grid;
+
     grid-template-columns:
-    repeat(auto-fit,minmax(230px,1fr));
+        repeat(auto-fit,minmax(230px,1fr));
+
     gap:22px;
+
     margin-top:25px;
 }
 
 .product-card{
     background:
-    linear-gradient(
-        145deg,
-        #111,
-        #1b120d
-    );
+        linear-gradient(
+            145deg,
+            #111,
+            #1b120d
+        );
 
     border:1px solid #633000;
+
     border-radius:14px;
+
     overflow:hidden;
+
     transition:.3s;
 }
 
 .product-card:hover{
     transform:translateY(-5px);
+
     border-color:#ff7b00;
-    box-shadow:0 0 20px #542800;
+
+    box-shadow:
+        0 0 20px #542800;
 }
 
 .product-card img{
     width:100%;
+
     height:220px;
+
     object-fit:cover;
+
     background:#080808;
 }
 
@@ -251,65 +365,96 @@ nav button:hover{
 
 .product-content h3{
     color:#fff;
+
     margin-bottom:8px;
+
+    font-size:19px;
 }
 
 .product-content p{
     color:#999;
+
     font-size:14px;
+
+    line-height:1.5;
+
     margin-bottom:10px;
 }
 
 .price{
     color:#ff8c00;
+
     font-size:20px;
+
     font-weight:bold;
+
     margin-bottom:12px;
 }
 
-/* PRODUCT DETAIL */
+
+/* =========================
+   PRODUCT DETAIL
+========================= */
 
 .detail{
     background:
-    linear-gradient(
-        145deg,
-        #111,
-        #1b120d
-    );
+        linear-gradient(
+            145deg,
+            #111,
+            #1b120d
+        );
 
     border:1px solid #6f3400;
+
     border-radius:15px;
+
     padding:25px;
 }
 
 .detail-layout{
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:35px;
 }
 
 .main-image{
     width:100%;
+
     height:480px;
+
     object-fit:contain;
+
     background:#080808;
+
     border:1px solid #713500;
+
     border-radius:10px;
 }
 
 .thumbnails{
     display:flex;
+
     gap:10px;
+
     margin-top:12px;
+
     overflow-x:auto;
 }
 
 .thumbnails img{
     width:80px;
+
     height:70px;
+
     object-fit:cover;
+
     border:2px solid #333;
+
     border-radius:6px;
+
     cursor:pointer;
 }
 
@@ -319,53 +464,83 @@ nav button:hover{
 
 .detail h1{
     color:#ff8c00;
+
     margin-bottom:15px;
 }
 
 .detail .description{
     color:#bbb;
+
     line-height:1.7;
-    margin-bottom:20px;
+
+    margin-bottom:25px;
 }
 
-.option{
-    margin:15px 0;
+
+/* =========================
+   QUANTITY
+========================= */
+
+.quantity-box{
+    margin:20px 0;
 }
 
-.option label{
+.quantity-box label{
     display:block;
+
     color:#ff8c00;
-    margin-bottom:7px;
+
     font-weight:bold;
+
+    margin-bottom:8px;
 }
 
-.option select,
-.option input{
+.quantity-box input{
     width:100%;
-    padding:12px;
+
+    padding:13px;
+
     background:#111;
+
     color:white;
+
     border:1px solid #633000;
+
     border-radius:7px;
+
+    font-size:16px;
 }
 
-/* CART */
+
+/* =========================
+   CART
+========================= */
 
 .cart-item{
     display:flex;
+
     align-items:center;
+
     gap:20px;
+
     padding:15px;
+
     margin-bottom:12px;
+
     background:#111;
+
     border:1px solid #542800;
+
     border-radius:10px;
 }
 
 .cart-item img{
     width:100px;
+
     height:90px;
+
     object-fit:cover;
+
     border-radius:8px;
 }
 
@@ -375,113 +550,161 @@ nav button:hover{
 
 .cart-item-info h3{
     color:#ff8c00;
+
     margin-bottom:7px;
 }
 
 .cart-item-info p{
     color:#aaa;
+
+    margin-top:5px;
 }
 
 .cart-total{
     margin-top:25px;
+
     padding:25px;
+
     background:
-    linear-gradient(
-        145deg,
-        #111,
-        #1c1008
-    );
+        linear-gradient(
+            145deg,
+            #111,
+            #1c1008
+        );
+
     border:1px solid #713500;
+
     border-radius:10px;
+
     text-align:right;
 }
 
 .cart-total h2{
     color:#ff8c00;
+
     margin-bottom:15px;
 }
 
-/* CHECKOUT */
+
+/* =========================
+   CHECKOUT
+========================= */
 
 .checkout-box{
     max-width:700px;
+
     margin:auto;
 
     background:
-    linear-gradient(
-        145deg,
-        #111,
-        #1b120d
-    );
+        linear-gradient(
+            145deg,
+            #111,
+            #1b120d
+        );
 
     border:1px solid #713500;
+
     border-radius:15px;
+
     padding:30px;
 }
 
 .checkout-box h1{
     color:#ff8c00;
+
     margin-bottom:25px;
 }
 
 .checkout-box input,
 .checkout-box textarea{
     width:100%;
+
     margin-bottom:15px;
+
     padding:13px;
+
     border-radius:7px;
+
     background:#111;
+
     border:1px solid #633000;
+
     color:white;
+
+    outline:none;
 }
 
 .checkout-box textarea{
     min-height:100px;
+
     resize:vertical;
 }
 
-/* EMPTY */
+
+/* =========================
+   EMPTY
+========================= */
 
 .empty{
     text-align:center;
+
     padding:60px 20px;
+
     color:#aaa;
 }
 
-/* WHATSAPP */
+
+/* =========================
+   WHATSAPP
+========================= */
 
 .float-wa{
     position:fixed;
+
     right:20px;
+
     bottom:20px;
 
     width:58px;
+
     height:58px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     border-radius:50%;
 
     background:#25D366;
+
     color:white;
 
     font-size:30px;
+
     text-decoration:none;
 
-    box-shadow:0 5px 20px rgba(0,0,0,.5);
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.5);
 
     z-index:999;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     background:#050505;
+
     border-top:1px solid #542800;
+
     text-align:center;
+
     padding:30px 20px;
+
     margin-top:40px;
 }
 
@@ -489,12 +712,16 @@ footer b{
     color:#ff8c00;
 }
 
-/* RESPONSIVE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:800px){
 
     header{
         flex-direction:column;
+
         align-items:stretch;
     }
 
@@ -520,24 +747,38 @@ footer b{
 
     .cart-item{
         flex-direction:column;
+
         align-items:flex-start;
     }
 
     .cart-item img{
         width:100%;
+
         height:200px;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
-    <div class="logo" onclick="goHome()">
+    <div
+        class="logo"
+        onclick="goHome()"
+    >
         RS 3D Custom Studio
     </div>
+
 
     <input
         class="search"
@@ -547,39 +788,67 @@ footer b{
         oninput="globalSearch(this.value)"
     >
 
+
     <nav>
-        <button onclick="goHome()">Home</button>
+
+        <button onclick="goHome()">
+            Home
+        </button>
+
         <button onclick="goCategory('printing')">
             🖨️ 3D Printing
         </button>
+
         <button onclick="goCategory('craft')">
             🎨 Art & Gifts
         </button>
+
         <button onclick="goCart()">
             🛒 Cart (<span id="cartCount">0</span>)
         </button>
+
     </nav>
 
 </header>
 
+
+<!-- =========================
+     MAIN
+========================= -->
+
 <main id="app"></main>
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
 
 <a
     class="float-wa"
     href="https://wa.me/917708859615"
     target="_blank"
-    title="WhatsApp"
 >
     💬
 </a>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
     <p>
-        © 2026 <b>RS 3D Custom Studio</b>
+        © 2026
+        <b>RS 3D Custom Studio</b>
     </p>
 
-    <p style="margin-top:8px;color:#888;">
+    <p
+        style="
+            margin-top:8px;
+            color:#888;
+        "
+    >
         3D Printing • Customized Art • Crafts • Gifts
     </p>
 
@@ -588,20 +857,24 @@ footer b{
 
 <script>
 
+
 /* =====================================================
    PRODUCT DATA
 ===================================================== */
 
 const PRODUCTS = [
 
-/* ================= 3D PRINTING ================= */
+/* =======================
+   3D PRINTING
+======================= */
 
 {
     id:1,
     type:"printing",
     name:"Custom 3D Keychain",
     price:149,
-    description:"Personalized 3D printed keychain with your name, logo or design.",
+    description:
+        "Personalized 3D printed keychain with your name, logo or design.",
     images:[
         "https://images.unsplash.com/photo-1582561833407-b95380302f4f?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=800&q=80",
@@ -615,7 +888,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Personalized Figurine",
     price:499,
-    description:"Custom 3D figurine designed according to your requirement.",
+    description:
+        "Custom 3D figurine designed according to your requirement.",
     images:[
         "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1601643157091-ce5c665179ab?auto=format&fit=crop&w=800&q=80",
@@ -629,7 +903,8 @@ const PRODUCTS = [
     type:"printing",
     name:"3D Miniature",
     price:399,
-    description:"Detailed miniature models for display, gifts and collections.",
+    description:
+        "Detailed miniature models for display, gifts and collections.",
     images:[
         "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=80",
@@ -643,7 +918,8 @@ const PRODUCTS = [
     type:"printing",
     name:"3D Home Decor",
     price:599,
-    description:"Modern 3D printed decorative products for your home.",
+    description:
+        "Modern 3D printed decorative products for your home.",
     images:[
         "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80",
@@ -657,7 +933,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Lithophane Lamp",
     price:899,
-    description:"Personalized photo lithophane lamp made using 3D printing.",
+    description:
+        "Personalized photo lithophane lamp made using 3D printing.",
     images:[
         "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80",
@@ -671,7 +948,8 @@ const PRODUCTS = [
     type:"printing",
     name:"3D Planter",
     price:399,
-    description:"Stylish 3D printed planter for indoor and desktop plants.",
+    description:
+        "Stylish 3D printed planter for indoor and desktop plants.",
     images:[
         "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=800&q=80",
@@ -685,7 +963,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Mobile Stand",
     price:249,
-    description:"Compact 3D printed mobile phone stand for desk use.",
+    description:
+        "Compact 3D printed mobile phone stand for desk use.",
     images:[
         "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
@@ -699,7 +978,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Desk Organizer",
     price:449,
-    description:"Customizable desk organizer for stationery and accessories.",
+    description:
+        "Customizable desk organizer for stationery and accessories.",
     images:[
         "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
@@ -713,7 +993,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Gaming Accessories",
     price:499,
-    description:"3D printed gaming accessories and desk products.",
+    description:
+        "3D printed gaming accessories and desk products.",
     images:[
         "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=800&q=80",
@@ -727,7 +1008,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Car Accessories",
     price:399,
-    description:"Useful custom 3D printed accessories for your car.",
+    description:
+        "Useful custom 3D printed accessories for your car.",
     images:[
         "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80",
@@ -741,7 +1023,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Functional 3D Part",
     price:299,
-    description:"Functional custom parts manufactured according to your dimensions.",
+    description:
+        "Functional custom parts manufactured according to your dimensions.",
     images:[
         "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
@@ -755,7 +1038,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Mechanical Part",
     price:349,
-    description:"Custom mechanical components and replacement parts.",
+    description:
+        "Custom mechanical components and replacement parts.",
     images:[
         "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
@@ -769,7 +1053,8 @@ const PRODUCTS = [
     type:"printing",
     name:"Custom 3D Model",
     price:699,
-    description:"Send your idea, sketch or model and get it 3D printed.",
+    description:
+        "Send your idea, sketch or model and get it 3D printed.",
     images:[
         "https://images.unsplash.com/photo-1633412802994-5c058f151b66?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80",
@@ -778,14 +1063,18 @@ const PRODUCTS = [
     ]
 },
 
-/* ================= CRAFT & GIFTS ================= */
+
+/* =======================
+   ART / CRAFT / GIFTS
+======================= */
 
 {
     id:14,
     type:"craft",
     name:"Personalized Gift",
     price:499,
-    description:"Personalized gift made especially for your loved ones.",
+    description:
+        "Personalized gift made especially for your loved ones.",
     images:[
         "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=800&q=80",
@@ -799,7 +1088,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Couple Gift",
     price:699,
-    description:"Special customized gifts for couples.",
+    description:
+        "Special customized gifts for couples.",
     images:[
         "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80",
@@ -813,7 +1103,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Custom Photo Frame",
     price:599,
-    description:"Customized photo frame with names, dates and messages.",
+    description:
+        "Customized photo frame with names, dates and messages.",
     images:[
         "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
@@ -827,7 +1118,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Custom Name Board",
     price:799,
-    description:"Personalized name boards for home, office and rooms.",
+    description:
+        "Personalized name boards for home, office and rooms.",
     images:[
         "https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=800&q=80",
@@ -841,7 +1133,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Birthday Gift",
     price:499,
-    description:"Customized birthday gifts with names, photos and messages.",
+    description:
+        "Customized birthday gifts with names, photos and messages.",
     images:[
         "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80",
@@ -855,7 +1148,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Anniversary Gift",
     price:699,
-    description:"Romantic personalized anniversary gifts.",
+    description:
+        "Romantic personalized anniversary gifts.",
     images:[
         "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=800&q=80",
@@ -869,7 +1163,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Wedding Gift",
     price:899,
-    description:"Beautiful personalized wedding gifts.",
+    description:
+        "Beautiful personalized wedding gifts.",
     images:[
         "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80",
@@ -883,7 +1178,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Custom Art",
     price:699,
-    description:"Custom artwork based on your photo or idea.",
+    description:
+        "Custom artwork based on your photo or idea.",
     images:[
         "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=800&q=80",
@@ -897,7 +1193,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Decorative Craft",
     price:399,
-    description:"Creative handmade-style decorative craft products.",
+    description:
+        "Creative handmade-style decorative craft products.",
     images:[
         "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80",
@@ -911,7 +1208,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Gift Hamper",
     price:999,
-    description:"Customized gift hamper for birthdays and special occasions.",
+    description:
+        "Customized gift hamper for birthdays and special occasions.",
     images:[
         "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80",
@@ -925,7 +1223,8 @@ const PRODUCTS = [
     type:"craft",
     name:"Return Gift",
     price:199,
-    description:"Affordable customized return gifts for functions and events.",
+    description:
+        "Affordable customized return gifts for functions and events.",
     images:[
         "https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80",
@@ -945,6 +1244,11 @@ let cart = JSON.parse(
     localStorage.getItem("rs3d_cart") || "[]"
 );
 
+
+/* =========================
+   SAVE CART
+========================= */
+
 function saveCart(){
 
     localStorage.setItem(
@@ -955,18 +1259,27 @@ function saveCart(){
     updateCartCount();
 }
 
+
+/* =========================
+   CART COUNT
+========================= */
+
 function updateCartCount(){
 
-    const count = cart.reduce(
-        (sum,item)=>sum + item.quantity,
-        0
-    );
+    const count =
+        cart.reduce(
+            (sum,item)=>
+                sum + item.quantity,
+            0
+        );
 
     const element =
-        document.getElementById("cartCount");
+        document.getElementById(
+            "cartCount"
+        );
 
     if(element){
-        element.textContent = count;
+        element.textContent=count;
     }
 }
 
@@ -979,21 +1292,26 @@ function navigate(state){
 
     let hash="#home";
 
+
     if(state.page==="category"){
         hash="#"+state.type;
     }
+
 
     if(state.page==="product"){
         hash="#product-"+state.id;
     }
 
+
     if(state.page==="cart"){
         hash="#cart";
     }
 
+
     if(state.page==="checkout"){
         hash="#checkout";
     }
+
 
     history.pushState(
         state,
@@ -1001,44 +1319,65 @@ function navigate(state){
         hash
     );
 
+
     render(state);
+
 }
 
+
+/* =========================
+   NAV BUTTONS
+========================= */
+
 function goHome(){
+
     navigate({
         page:"home"
     });
+
 }
 
+
 function goCategory(type){
+
     navigate({
         page:"category",
         type:type
     });
+
 }
 
+
 function goProduct(id){
+
     navigate({
         page:"product",
         id:id
     });
+
 }
 
+
 function goCart(){
+
     navigate({
         page:"cart"
     });
+
 }
 
+
 function goCheckout(){
+
     navigate({
         page:"checkout"
     });
+
 }
 
 
 /* =====================================================
-   BROWSER BACK BUTTON
+   BROWSER BACK
 ===================================================== */
 
 window.addEventListener(
@@ -1046,12 +1385,18 @@ window.addEventListener(
     function(event){
 
         if(event.state){
-            render(event.state);
+
+            render(
+                event.state
+            );
+
         }
         else{
+
             render({
                 page:"home"
             });
+
         }
 
     }
@@ -1071,9 +1416,14 @@ function productCard(product){
         <img
             src="${product.images[0]}"
             alt="${product.name}"
+
             loading="lazy"
-            onerror="this.src='https://via.placeholder.com/800x600/111111/ff8c00?text=RS+3D+Custom+Studio'"
+
+            onerror="
+                this.src='https://via.placeholder.com/800x600/111111/ff8c00?text=RS+3D+Custom+Studio'
+            "
         >
+
 
         <div class="product-content">
 
@@ -1081,24 +1431,32 @@ function productCard(product){
                 ${product.name}
             </h3>
 
+
             <p>
                 ${product.description}
             </p>
+
 
             <div class="price">
                 ₹${product.price}
             </div>
 
+
             <button
                 class="btn primary"
-                onclick="goProduct(${product.id})"
+                onclick="
+                    goProduct(${product.id})
+                "
             >
                 View Product
             </button>
 
+
             <button
                 class="btn secondary"
-                onclick="quickWhatsApp(${product.id})"
+                onclick="
+                    quickWhatsApp(${product.id})
+                "
             >
                 WhatsApp
             </button>
@@ -1108,6 +1466,7 @@ function productCard(product){
     </div>
 
     `;
+
 }
 
 
@@ -1117,7 +1476,10 @@ function productCard(product){
 
 function renderHome(){
 
-    document.getElementById("app").innerHTML = `
+    document.getElementById(
+        "app"
+    ).innerHTML = `
+
 
     <section class="hero">
 
@@ -1127,20 +1489,27 @@ function renderHome(){
                 RS 3D Custom Studio
             </h1>
 
+
             <p>
                 3D Printing • Customized Art • Crafts • Gifts
             </p>
 
+
             <button
                 class="btn primary"
-                onclick="goCategory('printing')"
+                onclick="
+                    goCategory('printing')
+                "
             >
                 Explore 3D Printing
             </button>
 
+
             <button
                 class="btn secondary"
-                onclick="goCategory('craft')"
+                onclick="
+                    goCategory('craft')
+                "
             >
                 Explore Art & Gifts
             </button>
@@ -1154,15 +1523,20 @@ function renderHome(){
 
         <div class="category-grid">
 
+
+            <!-- 3D PRINTING -->
+
             <div class="big-card">
 
                 <div class="icon">
                     🖨️
                 </div>
 
+
                 <h2>
                     3D PRINTING
                 </h2>
+
 
                 <p>
                     Custom 3D printed products,
@@ -1170,9 +1544,12 @@ function renderHome(){
                     decor and more.
                 </p>
 
+
                 <button
                     class="btn primary"
-                    onclick="goCategory('printing')"
+                    onclick="
+                        goCategory('printing')
+                    "
                 >
                     View 3D Products
                 </button>
@@ -1180,15 +1557,19 @@ function renderHome(){
             </div>
 
 
+            <!-- ART & GIFTS -->
+
             <div class="big-card">
 
                 <div class="icon">
                     🎨
                 </div>
 
+
                 <h2>
                     CUSTOMIZED ART, CRAFT & GIFTS
                 </h2>
+
 
                 <p>
                     Personalized gifts,
@@ -1196,14 +1577,18 @@ function renderHome(){
                     hampers and creative products.
                 </p>
 
+
                 <button
                     class="btn primary"
-                    onclick="goCategory('craft')"
+                    onclick="
+                        goCategory('craft')
+                    "
                 >
                     View Custom Products
                 </button>
 
             </div>
+
 
         </div>
 
@@ -1215,7 +1600,7 @@ function renderHome(){
 
 
 /* =====================================================
-   CATEGORY PAGE
+   CATEGORY
 ===================================================== */
 
 function renderCategory(
@@ -1228,15 +1613,26 @@ function renderCategory(
             p=>p.type===type
         );
 
+
     const title =
         type==="printing"
-        ? "🖨️ 3D Printing Products"
-        : "🎨 Customized Art, Craft & Gifts";
+
+        ?
+
+        "🖨️ 3D Printing Products"
+
+        :
+
+        "🎨 Customized Art, Craft & Gifts";
 
 
-    document.getElementById("app").innerHTML = `
+    document.getElementById(
+        "app"
+    ).innerHTML = `
+
 
     <div class="wrap">
+
 
         <button
             class="btn secondary"
@@ -1244,6 +1640,7 @@ function renderCategory(
         >
             ← Home
         </button>
+
 
         <h1
             style="
@@ -1256,6 +1653,7 @@ function renderCategory(
 
 
         <input
+
             style="
                 width:100%;
                 padding:13px;
@@ -1264,10 +1662,21 @@ function renderCategory(
                 color:white;
                 border:1px solid #633000;
                 border-radius:8px;
+                outline:none;
             "
-            placeholder="Search in this category..."
+
+            placeholder="
+                Search in this category...
+            "
+
             value="${searchText}"
-            oninput="categorySearch('${type}',this.value)"
+
+            oninput="
+                categorySearch(
+                    '${type}',
+                    this.value
+                )
+            "
         >
 
 
@@ -1276,9 +1685,14 @@ function renderCategory(
             id="categoryProducts"
         >
 
-            ${products.map(productCard).join("")}
+            ${
+                products
+                .map(productCard)
+                .join("")
+            }
 
         </div>
+
 
     </div>
 
@@ -1301,47 +1715,68 @@ function categorySearch(
         .trim()
         .toLowerCase();
 
+
     const products =
         PRODUCTS.filter(
-            p =>
-                p.type===type &&
+            p=>
+
+                p.type===type
+
+                &&
+
                 (
                     p.name
                     .toLowerCase()
                     .includes(q)
+
                     ||
+
                     p.description
                     .toLowerCase()
                     .includes(q)
                 )
         );
 
+
     const container =
         document.getElementById(
             "categoryProducts"
         );
 
+
     if(!container){
         return;
     }
 
+
     container.innerHTML =
+
         products.length
+
         ?
-        products.map(productCard).join("")
+
+        products
+            .map(productCard)
+            .join("")
+
         :
+
         `
+
         <div class="empty">
 
             <h2>
                 ❌ No Product Found
             </h2>
 
-            <p>
+            <p
+                style="margin-top:15px;"
+            >
                 Try another product name.
             </p>
 
         </div>
+
         `;
 
 }
@@ -1359,10 +1794,7 @@ function globalSearch(value){
         .toLowerCase();
 
 
-    /*
-       If search box is empty,
-       restore the current page.
-    */
+    /* EMPTY SEARCH */
 
     if(q===""){
 
@@ -1376,53 +1808,59 @@ function globalSearch(value){
     }
 
 
-    /*
-       Search product name,
-       description and category.
-    */
+    /* SEARCH */
 
     const results =
-        PRODUCTS.filter(product=>{
+        PRODUCTS.filter(
+            product=>{
 
-            const name =
-                String(
-                    product.name || ""
-                ).toLowerCase();
-
-            const description =
-                String(
-                    product.description || ""
-                ).toLowerCase();
-
-            const type =
-                String(
-                    product.type || ""
-                ).toLowerCase();
+                const name =
+                    String(
+                        product.name || ""
+                    ).toLowerCase();
 
 
-            const categoryText =
-                type==="printing"
-                ?
-                "3d printing print"
-                :
-                "craft art gifts customized";
+                const description =
+                    String(
+                        product.description || ""
+                    ).toLowerCase();
 
 
-            return (
+                const type =
+                    String(
+                        product.type || ""
+                    ).toLowerCase();
 
-                name.includes(q)
 
-                ||
+                const categoryText =
 
-                description.includes(q)
+                    type==="printing"
 
-                ||
+                    ?
 
-                categoryText.includes(q)
+                    "3d printing print"
 
-            );
+                    :
 
-        });
+                    "craft art gifts customized";
+
+
+                return (
+
+                    name.includes(q)
+
+                    ||
+
+                    description.includes(q)
+
+                    ||
+
+                    categoryText.includes(q)
+
+                );
+
+            }
+        );
 
 
     renderSearchResults(
@@ -1446,7 +1884,9 @@ function renderSearchResults(
         "app"
     ).innerHTML = `
 
+
     <div class="wrap">
+
 
         <button
             class="btn secondary"
@@ -1480,6 +1920,7 @@ function renderSearchResults(
         >
 
             ${results.length}
+
             product(s) found for
 
             <b style="color:#ff8c00;">
@@ -1495,6 +1936,7 @@ function renderSearchResults(
             ?
 
             `
+
             <div class="product-grid">
 
                 ${
@@ -1504,18 +1946,23 @@ function renderSearchResults(
                 }
 
             </div>
+
             `
 
             :
 
             `
+
             <div class="empty">
 
                 <h2>
                     ❌ No Product Found
                 </h2>
 
-                <p style="margin-top:15px;">
+
+                <p
+                    style="margin-top:15px;"
+                >
                     Try:
                     Keychain,
                     Figurine,
@@ -1527,8 +1974,10 @@ function renderSearchResults(
                 </p>
 
             </div>
+
             `
         }
+
 
     </div>
 
@@ -1538,7 +1987,7 @@ function renderSearchResults(
 
 
 /* =====================================================
-   ESCAPE SEARCH TEXT
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHTML(text){
@@ -1569,11 +2018,13 @@ function escapeHTML(text){
             /'/g,
             "&#039;"
         );
+
 }
 
 
 /* =====================================================
    PRODUCT DETAIL
+   NO COLOUR OPTION
 ===================================================== */
 
 function renderProduct(id){
@@ -1582,6 +2033,7 @@ function renderProduct(id){
         PRODUCTS.find(
             p=>p.id===Number(id)
         );
+
 
     if(!product){
 
@@ -1607,7 +2059,9 @@ function renderProduct(id){
         "app"
     ).innerHTML = `
 
+
     <div class="wrap">
+
 
         <button
             class="btn secondary"
@@ -1624,18 +2078,26 @@ function renderProduct(id){
             style="margin-top:20px;"
         >
 
+
             <div class="detail-layout">
 
 
-                <!-- IMAGES -->
+                <!-- =================
+                     IMAGES
+                ================= -->
 
                 <div>
 
+
                     <img
                         id="mainImage"
+
                         class="main-image"
+
                         src="${product.images[0]}"
+
                         alt="${product.name}"
+
                         onerror="
                             this.src='https://via.placeholder.com/800x600/111111/ff8c00?text=RS+3D+Custom+Studio'
                         "
@@ -1644,13 +2106,16 @@ function renderProduct(id){
 
                     <div class="thumbnails">
 
+
                         ${
                             product.images
                             .map(
                                 (img,index)=>`
 
                                 <img
+
                                     src="${img}"
+
                                     class="
                                         ${
                                             index===0
@@ -1660,15 +2125,18 @@ function renderProduct(id){
                                             ""
                                         }
                                     "
+
                                     onclick="
                                         changeMainImage(
                                             '${img}',
                                             this
                                         )
                                     "
+
                                     onerror="
                                         this.src='https://via.placeholder.com/150x100/111111/ff8c00?text=Image'
                                     "
+
                                 >
 
                                 `
@@ -1676,14 +2144,19 @@ function renderProduct(id){
                             .join("")
                         }
 
+
                     </div>
+
 
                 </div>
 
 
-                <!-- DETAILS -->
+                <!-- =================
+                     DETAILS
+                ================= -->
 
                 <div>
+
 
                     <h1>
                         ${product.name}
@@ -1700,48 +2173,14 @@ function renderProduct(id){
                     </p>
 
 
-                    <div class="option">
+                    <!-- QUANTITY ONLY -->
 
-                        <label>
-                            Colour
-                        </label>
-
-                        <select id="colour">
-
-                            <option>
-                                Black
-                            </option>
-
-                            <option>
-                                White
-                            </option>
-
-                            <option>
-                                Orange
-                            </option>
-
-                            <option>
-                                Red
-                            </option>
-
-                            <option>
-                                Blue
-                            </option>
-
-                            <option>
-                                Custom Colour
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="option">
+                    <div class="quantity-box">
 
                         <label>
                             Quantity
                         </label>
+
 
                         <input
                             id="quantity"
@@ -1756,7 +2195,9 @@ function renderProduct(id){
                     <button
                         class="btn primary"
                         onclick="
-                            addToCart(${product.id})
+                            addToCart(
+                                ${product.id}
+                            )
                         "
                     >
                         🛒 Add to Cart
@@ -1766,17 +2207,23 @@ function renderProduct(id){
                     <button
                         class="btn secondary"
                         onclick="
-                            quickWhatsApp(${product.id})
+                            quickWhatsApp(
+                                ${product.id}
+                            )
                         "
                     >
                         💬 Order on WhatsApp
                     </button>
 
+
                 </div>
+
 
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -1799,6 +2246,7 @@ function changeMainImage(
             "mainImage"
         );
 
+
     if(main){
         main.src=src;
     }
@@ -1809,9 +2257,10 @@ function changeMainImage(
             ".thumbnails img"
         )
         .forEach(
-            img=>img.classList.remove(
-                "active"
-            )
+            img=>
+                img.classList.remove(
+                    "active"
+                )
         );
 
 
@@ -1824,6 +2273,7 @@ function changeMainImage(
 
 /* =====================================================
    ADD TO CART
+   NO COLOUR
 ===================================================== */
 
 function addToCart(id){
@@ -1832,6 +2282,7 @@ function addToCart(id){
         PRODUCTS.find(
             p=>p.id===Number(id)
         );
+
 
     if(!product){
         return;
@@ -1849,25 +2300,22 @@ function addToCart(id){
         );
 
 
-    const colour =
-        document.getElementById(
-            "colour"
-        ).value;
-
+    /* FIND EXISTING PRODUCT */
 
     const existing =
         cart.find(
             item =>
-                item.id===product.id &&
-                item.colour===colour
+                item.id===product.id
         );
 
 
     if(existing){
 
-        existing.quantity += quantity;
+        existing.quantity +=
+            quantity;
 
     }
+
     else{
 
         cart.push({
@@ -1879,8 +2327,6 @@ function addToCart(id){
             price:product.price,
 
             image:product.images[0],
-
-            colour:colour,
 
             quantity:quantity
 
@@ -1910,12 +2356,14 @@ function quickWhatsApp(id){
             p=>p.id===Number(id)
         );
 
+
     if(!product){
         return;
     }
 
 
     const message =
+
 `Hello RS 3D Custom Studio 👋
 
 I am interested in:
@@ -1926,10 +2374,15 @@ Price: ₹${product.price}
 
 Please share more details.`;
 
+
     window.open(
+
         "https://wa.me/917708859615?text="+
+
         encodeURIComponent(message),
+
         "_blank"
+
     );
 
 }
@@ -1941,23 +2394,31 @@ Please share more details.`;
 
 function renderCart(){
 
+
     if(cart.length===0){
 
         document.getElementById(
             "app"
         ).innerHTML = `
 
+
         <div class="wrap">
 
+
             <div class="empty">
+
 
                 <h1>
                     🛒 Your Cart is Empty
                 </h1>
 
-                <p style="margin:15px 0;">
+
+                <p
+                    style="margin:15px 0;"
+                >
                     Add some products to continue.
                 </p>
+
 
                 <button
                     class="btn primary"
@@ -1966,7 +2427,9 @@ function renderCart(){
                     Continue Shopping
                 </button>
 
+
             </div>
+
 
         </div>
 
@@ -1983,16 +2446,20 @@ function renderCart(){
         cart.map(
             item=>{
 
+
                 const itemTotal =
                     item.price *
                     item.quantity;
+
 
                 total += itemTotal;
 
 
                 return `
 
+
                 <div class="cart-item">
+
 
                     <img
                         src="${item.image}"
@@ -2000,21 +2467,21 @@ function renderCart(){
                     >
 
 
-                    <div class="cart-item-info">
+                    <div
+                        class="cart-item-info"
+                    >
+
 
                         <h3>
                             ${item.name}
                         </h3>
 
-                        <p>
-                            Colour:
-                            ${item.colour}
-                        </p>
 
                         <p>
                             Quantity:
                             ${item.quantity}
                         </p>
+
 
                         <p>
                             ₹${item.price}
@@ -2022,11 +2489,14 @@ function renderCart(){
                             ${item.quantity}
                         </p>
 
+
                     </div>
 
 
                     <strong
-                        style="color:#ff8c00;"
+                        style="
+                            color:#ff8c00;
+                        "
                     >
                         ₹${itemTotal}
                     </strong>
@@ -2035,13 +2505,17 @@ function renderCart(){
                     <button
                         class="btn secondary"
                         onclick="
-                            removeFromCart(${item.id},'${item.colour}')
+                            removeFromCart(
+                                ${item.id}
+                            )
                         "
                     >
                         Remove
                     </button>
 
+
                 </div>
+
 
                 `;
 
@@ -2053,7 +2527,9 @@ function renderCart(){
         "app"
     ).innerHTML = `
 
+
     <div class="wrap">
+
 
         <button
             class="btn secondary"
@@ -2073,7 +2549,9 @@ function renderCart(){
         </h1>
 
 
-        <div style="margin-top:25px;">
+        <div
+            style="margin-top:25px;"
+        >
 
             ${items}
 
@@ -2081,6 +2559,7 @@ function renderCart(){
 
 
         <div class="cart-total">
+
 
             <h2>
                 Total: ₹${total}
@@ -2094,7 +2573,9 @@ function renderCart(){
                 Proceed to Checkout
             </button>
 
+
         </div>
+
 
     </div>
 
@@ -2104,25 +2585,20 @@ function renderCart(){
 
 
 /* =====================================================
-   REMOVE FROM CART
+   REMOVE CART
 ===================================================== */
 
-function removeFromCart(
-    id,
-    colour
-){
+function removeFromCart(id){
 
     cart =
         cart.filter(
             item =>
-                !(
-                    item.id===Number(id) &&
-                    item.colour===colour
-                )
+                item.id !== Number(id)
         );
 
 
     saveCart();
+
 
     renderCart();
 
@@ -2135,6 +2611,7 @@ function removeFromCart(
 
 function renderCheckout(){
 
+
     if(cart.length===0){
 
         goCart();
@@ -2145,11 +2622,14 @@ function renderCheckout(){
 
     let total=0;
 
+
     cart.forEach(
         item=>{
+
             total +=
                 item.price *
                 item.quantity;
+
         }
     );
 
@@ -2158,9 +2638,12 @@ function renderCheckout(){
         "app"
     ).innerHTML = `
 
+
     <div class="wrap">
 
+
         <div class="checkout-box">
+
 
             <h1>
                 📦 Checkout
@@ -2188,7 +2671,10 @@ function renderCheckout(){
 
             <textarea
                 id="customerNotes"
-                placeholder="Additional Notes / Custom Requirements"
+                placeholder="
+                    Additional Notes /
+                    Custom Requirements
+                "
             ></textarea>
 
 
@@ -2204,7 +2690,9 @@ function renderCheckout(){
 
             <button
                 class="btn primary"
-                onclick="sendOrderWhatsApp()"
+                onclick="
+                    sendOrderWhatsApp()
+                "
             >
                 💬 Send Order on WhatsApp
             </button>
@@ -2217,7 +2705,9 @@ function renderCheckout(){
                 ← Back to Cart
             </button>
 
+
         </div>
+
 
     </div>
 
@@ -2231,6 +2721,7 @@ function renderCheckout(){
 ===================================================== */
 
 function sendOrderWhatsApp(){
+
 
     const name =
         document.getElementById(
@@ -2271,6 +2762,7 @@ function sendOrderWhatsApp(){
 
 
     let message =
+
 `Hello RS 3D Custom Studio 👋
 
 NEW ORDER
@@ -2294,17 +2786,19 @@ Products:
     cart.forEach(
         item=>{
 
+
             const itemTotal =
                 item.price *
                 item.quantity;
+
 
             total += itemTotal;
 
 
             message +=
+
 `
 • ${item.name}
-  Colour: ${item.colour}
   Qty: ${item.quantity}
   Price: ₹${itemTotal}
 `;
@@ -2314,6 +2808,7 @@ Products:
 
 
     message +=
+
 `
 TOTAL: ₹${total}
 
@@ -2323,34 +2818,43 @@ ${notes || "None"}
 Thank you!`;
 
 
-
     window.open(
+
         "https://wa.me/917708859615?text="+
+
         encodeURIComponent(message),
+
         "_blank"
+
     );
 
 }
 
 
 /* =====================================================
-   RENDER
+   MAIN RENDER
 ===================================================== */
 
 function render(state){
 
+
     if(!state){
+
         state={
             page:"home"
         };
+
     }
 
 
-    if(state.page==="home"){
+    if(
+        state.page==="home"
+    ){
 
         renderHome();
 
     }
+
 
     else if(
         state.page==="category"
@@ -2362,6 +2866,7 @@ function render(state){
 
     }
 
+
     else if(
         state.page==="product"
     ){
@@ -2372,6 +2877,7 @@ function render(state){
 
     }
 
+
     else if(
         state.page==="cart"
     ){
@@ -2380,6 +2886,7 @@ function render(state){
 
     }
 
+
     else if(
         state.page==="checkout"
     ){
@@ -2387,6 +2894,7 @@ function render(state){
         renderCheckout();
 
     }
+
 
     else{
 
@@ -2401,14 +2909,17 @@ function render(state){
 
 
 /* =====================================================
-   INITIAL LOAD
+   INITIAL PAGE LOAD
 ===================================================== */
 
 (function(){
 
+
     const hash =
         window.location.hash;
 
+
+    /* PRODUCT */
 
     if(
         hash.startsWith(
@@ -2424,10 +2935,12 @@ function render(state){
                 )
             );
 
+
         const state={
             page:"product",
             id:id
         };
+
 
         history.replaceState(
             state,
@@ -2435,9 +2948,13 @@ function render(state){
             hash
         );
 
+
         render(state);
 
     }
+
+
+    /* PRINTING */
 
     else if(
         hash==="#printing"
@@ -2448,15 +2965,20 @@ function render(state){
             type:"printing"
         };
 
+
         history.replaceState(
             state,
             "",
             hash
         );
 
+
         render(state);
 
     }
+
+
+    /* CRAFT */
 
     else if(
         hash==="#craft"
@@ -2467,15 +2989,20 @@ function render(state){
             type:"craft"
         };
 
+
         history.replaceState(
             state,
             "",
             hash
         );
 
+
         render(state);
 
     }
+
+
+    /* CART */
 
     else if(
         hash==="#cart"
@@ -2485,15 +3012,20 @@ function render(state){
             page:"cart"
         };
 
+
         history.replaceState(
             state,
             "",
             hash
         );
 
+
         render(state);
 
     }
+
+
+    /* HOME */
 
     else{
 
@@ -2501,17 +3033,21 @@ function render(state){
             page:"home"
         };
 
+
         history.replaceState(
             state,
             "",
             "#home"
         );
 
+
         render(state);
 
     }
 
+
 })();
+
 
 </script>
 
