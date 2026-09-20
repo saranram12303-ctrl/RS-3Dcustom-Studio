@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RS 3D Custom Studio | Custom Crafts & Arts</title>
+<title>RS 3D Custom Studio | 3D Printing Products</title>
 
 <style>
 *{
@@ -55,11 +55,6 @@ header{
     outline:none;
 }
 
-.header-icons{
-    display:flex;
-    gap:10px;
-}
-
 .icon-btn{
     border:none;
     background:#222;
@@ -76,7 +71,7 @@ header{
 .hero{
     background:linear-gradient(135deg,#111,#333);
     color:white;
-    padding:55px 20px;
+    padding:60px 20px;
     text-align:center;
 }
 
@@ -93,6 +88,12 @@ header{
     color:#ddd;
     font-size:17px;
     margin-bottom:25px;
+}
+
+.container{
+    max-width:1250px;
+    margin:auto;
+    padding:25px 18px;
 }
 
 .btn{
@@ -118,19 +119,13 @@ header{
     color:white;
 }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:25px 18px;
-}
-
 .offer{
     background:#ff7a00;
     color:white;
     padding:15px;
     text-align:center;
     border-radius:12px;
-    margin-bottom:25px;
+    margin-bottom:20px;
     font-weight:bold;
 }
 
@@ -138,7 +133,7 @@ header{
     display:flex;
     gap:10px;
     overflow-x:auto;
-    padding-bottom:15px;
+    padding:10px 0 20px;
 }
 
 .category{
@@ -157,14 +152,6 @@ header{
     border-color:#ff7a00;
 }
 
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
-
 .products{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -180,7 +167,7 @@ header{
 }
 
 .product:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
 .product-img{
@@ -196,19 +183,24 @@ header{
 
 .product h3{
     font-size:17px;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .product p{
     color:#777;
     font-size:14px;
-    margin-bottom:10px;
+    line-height:1.4;
+    margin-bottom:8px;
+}
+
+.rating{
+    color:#f5a623;
+    margin:7px 0;
 }
 
 .price{
     font-size:20px;
     font-weight:bold;
-    color:#111;
 }
 
 .old-price{
@@ -216,12 +208,6 @@ header{
     color:#999;
     font-size:13px;
     margin-left:6px;
-}
-
-.rating{
-    color:#f5a623;
-    font-size:14px;
-    margin:7px 0;
 }
 
 .product-buttons{
@@ -234,11 +220,19 @@ header{
     flex:1;
 }
 
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
 .details{
     background:white;
     padding:25px;
     border-radius:15px;
-    max-width:850px;
+    max-width:900px;
     margin:auto;
 }
 
@@ -261,7 +255,7 @@ header{
 .detail-info p{
     color:#666;
     line-height:1.6;
-    margin-bottom:15px;
+    margin:15px 0;
 }
 
 .option{
@@ -275,14 +269,11 @@ header{
 }
 
 .option select,
-.option input,
-.checkout input,
-.checkout textarea{
+.option input{
     width:100%;
     padding:12px;
     border:1px solid #ddd;
     border-radius:8px;
-    outline:none;
 }
 
 .quantity{
@@ -296,7 +287,6 @@ header{
     height:35px;
     border:none;
     border-radius:7px;
-    background:#eee;
     cursor:pointer;
 }
 
@@ -326,17 +316,10 @@ header{
     flex:1;
 }
 
-.cart-info h3{
-    margin-bottom:5px;
-}
-
 .cart-info p{
     color:#777;
     font-size:14px;
-}
-
-.cart-actions{
-    text-align:right;
+    margin:3px 0;
 }
 
 .cart-total{
@@ -369,16 +352,18 @@ header{
     font-weight:bold;
 }
 
-.checkout textarea{
-    min-height:100px;
-    resize:vertical;
-}
-
+.checkout input,
+.checkout textarea,
 .checkout select{
     width:100%;
     padding:12px;
     border:1px solid #ddd;
     border-radius:8px;
+    outline:none;
+}
+
+.checkout textarea{
+    min-height:100px;
 }
 
 .about-box,
@@ -389,24 +374,16 @@ header{
     line-height:1.7;
 }
 
-.contact-item{
-    margin:12px 0;
-}
-
 footer{
-    margin-top:40px;
     background:#111;
     color:#aaa;
     text-align:center;
     padding:30px 15px;
+    margin-top:40px;
 }
 
 footer strong{
     color:#ff7a00;
-}
-
-.bottom-nav{
-    display:none;
 }
 
 .whatsapp-float{
@@ -443,6 +420,10 @@ footer strong{
     margin-top:15px;
 }
 
+.bottom-nav{
+    display:none;
+}
+
 @media(max-width:700px){
 
     header{
@@ -461,10 +442,6 @@ footer strong{
 
     .hero h1{
         font-size:30px;
-    }
-
-    .detail-grid{
-        grid-template-columns:1fr;
     }
 
     .products{
@@ -492,13 +469,8 @@ footer strong{
         flex-direction:column;
     }
 
-    .cart-item{
-        align-items:flex-start;
-    }
-
-    .cart-item img{
-        width:65px;
-        height:65px;
+    .detail-grid{
+        grid-template-columns:1fr;
     }
 
     .bottom-nav{
@@ -518,13 +490,11 @@ footer strong{
         border:none;
         background:none;
         font-size:12px;
-        color:#444;
     }
 
-    .bottom-nav button span{
+    .bottom-nav span{
         display:block;
         font-size:20px;
-        margin-bottom:2px;
     }
 
     body{
@@ -544,18 +514,20 @@ footer strong{
 
     <div class="search">
         <input
-            type="text"
             id="searchInput"
-            placeholder="Search products..."
+            type="text"
+            placeholder="Search 3D products..."
             oninput="searchProducts()"
         >
     </div>
 
-    <div class="header-icons">
-        <button class="icon-btn" onclick="showPage('cart')">
-            🛒 <span id="cartCount">0</span>
-        </button>
-    </div>
+    <button
+        class="icon-btn"
+        onclick="showPage('cart')">
+
+        🛒 <span id="cartCount">0</span>
+
+    </button>
 
 </header>
 
@@ -567,26 +539,37 @@ footer strong{
     <div class="hero">
 
         <h1>
-            Create. Customize. <span>Celebrate.</span>
+            Custom <span>3D Printing</span>
         </h1>
 
         <p>
-            Customized crafts, arts, gifts and 3D creations made specially for you.
+            Personalized products, gifts, models and useful parts
+            made specially for you.
         </p>
 
         <button
             class="btn btn-orange"
             onclick="scrollToProducts()">
+
             Explore Products
+
         </button>
 
     </div>
 
+
     <div class="container">
 
         <div class="offer">
-            🎉 Custom Orders Available | Personalized Gifts | Unique Designs
+
+            🔥 CUSTOM 3D PRINTING AVAILABLE
+            &nbsp; | &nbsp;
+            Send Your Design & Get a Quote
+
         </div>
+
+
+        <!-- ALL CATEGORIES -->
 
         <div class="categories">
 
@@ -598,35 +581,120 @@ footer strong{
 
             <button
                 class="category"
-                onclick="filterProducts('3D',this)">
-                🖨️ 3D
+                onclick="filterProducts('Keychains',this)">
+                🔑 Keychains
             </button>
 
             <button
                 class="category"
-                onclick="filterProducts('Craft',this)">
-                🎨 Craft
+                onclick="filterProducts('Figurines',this)">
+                👤 Figurines
             </button>
 
             <button
                 class="category"
-                onclick="filterProducts('Keychain',this)">
-                🔑 Keychain
+                onclick="filterProducts('Miniatures',this)">
+                🧍 Miniatures
             </button>
 
             <button
                 class="category"
-                onclick="filterProducts('Home',this)">
-                🏠 Home
+                onclick="filterProducts('Home Decor',this)">
+                🏠 Home Decor
             </button>
 
             <button
                 class="category"
-                onclick="filterProducts('Custom',this)">
-                ✨ Custom
+                onclick="filterProducts('Lamps',this)">
+                💡 Lamps
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Planters',this)">
+                🪴 Planters
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Mobile Stands',this)">
+                📱 Mobile Stands
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Desk Organizers',this)">
+                💻 Desk Organizers
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Gaming',this)">
+                🎮 Gaming
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Car Accessories',this)">
+                🚗 Car Accessories
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Functional Parts',this)">
+                🧰 Functional Parts
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Couple Gifts',this)">
+                ❤️ Couple Gifts
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Personalized Gifts',this)">
+                🎁 Gifts
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Name Plates',this)">
+                🏷️ Name Plates
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Pet Figurines',this)">
+                🐶 Pet Figurines
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Cake Toppers',this)">
+                🎂 Cake Toppers
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Toys & Models',this)">
+                🧩 Toys & Models
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Mechanical Parts',this)">
+                ⚙️ Mechanical Parts
+            </button>
+
+            <button
+                class="category"
+                onclick="filterProducts('Custom Models',this)">
+                📐 Custom Models
             </button>
 
         </div>
+
 
         <div id="productGrid" class="products"></div>
 
@@ -681,12 +749,12 @@ footer strong{
 
             <div class="checkout-group">
 
-                <label>Your Name</label>
+                <label>Name</label>
 
                 <input
-                    type="text"
                     id="customerName"
-                    placeholder="Enter your name"
+                    type="text"
+                    placeholder="Your name"
                 >
 
             </div>
@@ -696,9 +764,9 @@ footer strong{
                 <label>Phone Number</label>
 
                 <input
-                    type="tel"
                     id="phone"
-                    placeholder="Enter phone number"
+                    type="tel"
+                    placeholder="Your phone number"
                 >
 
             </div>
@@ -708,9 +776,9 @@ footer strong{
                 <label>Email</label>
 
                 <input
-                    type="email"
                     id="email"
-                    placeholder="Enter email"
+                    type="email"
+                    placeholder="Your email"
                 >
 
             </div>
@@ -721,7 +789,7 @@ footer strong{
 
                 <textarea
                     id="address"
-                    placeholder="Enter complete delivery address">
+                    placeholder="Complete delivery address">
                 </textarea>
 
             </div>
@@ -732,17 +800,9 @@ footer strong{
 
                 <select id="payment">
 
-                    <option value="Cash on Delivery">
-                        Cash on Delivery
-                    </option>
-
-                    <option value="UPI">
-                        UPI
-                    </option>
-
-                    <option value="Online Payment">
-                        Online Payment
-                    </option>
+                    <option>Cash on Delivery</option>
+                    <option>UPI</option>
+                    <option>Online Payment</option>
 
                 </select>
 
@@ -750,104 +810,19 @@ footer strong{
 
             <button
                 class="btn btn-whatsapp"
-                style="width:100%;margin-top:10px"
+                style="width:100%"
                 onclick="orderOnWhatsApp()">
 
                 💬 Order on WhatsApp
 
             </button>
 
-            <div
-                id="success"
-                class="success">
+            <div id="success" class="success">
 
-                Order details prepared successfully.
-                Please confirm the order in WhatsApp.
+                Order details prepared.
+                Please confirm your order in WhatsApp.
 
             </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CRAFT -->
-
-<section id="craft" class="page">
-
-    <div class="container">
-
-        <div class="about-box">
-
-            <h2>🎨 Custom Crafts & Arts</h2>
-
-            <br>
-
-            <p>
-                We create personalized craft works, handmade-style
-                decorations, customized gifts, name boards, keychains,
-                art pieces and special designs.
-            </p>
-
-            <br>
-
-            <p>
-                Have your own idea?
-                Send us your reference image or explain your design.
-            </p>
-
-            <br>
-
-            <button
-                class="btn btn-whatsapp"
-                onclick="openWhatsApp()">
-
-                💬 Discuss Your Custom Design
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 3D -->
-
-<section id="threeD" class="page">
-
-    <div class="container">
-
-        <div class="about-box">
-
-            <h2>🖨️ 3D Custom Designs</h2>
-
-            <br>
-
-            <p>
-                Personalized 3D models, miniatures, figurines,
-                keychains, functional parts and custom designs.
-            </p>
-
-            <br>
-
-            <p>
-                You can send your idea, photo or reference model
-                through WhatsApp.
-            </p>
-
-            <br>
-
-            <button
-                class="btn btn-whatsapp"
-                onclick="openWhatsApp()">
-
-                💬 Send Your 3D Requirement
-
-            </button>
 
         </div>
 
@@ -869,18 +844,30 @@ footer strong{
             <br>
 
             <p>
-                RS 3D Custom Studio is a creative custom-design
-                business focused on personalized crafts, arts,
-                gifts and 3D creations.
+                RS 3D Custom Studio creates customized
+                3D printed products for gifts, home,
+                gaming, automotive, personal use and
+                mechanical applications.
             </p>
 
             <br>
 
             <p>
-                Our goal is simple:
-                turn your idea into something you can actually hold,
-                gift and remember.
+                Have your own design?
+                Send us your image, STL file or idea.
+                We can discuss the required size,
+                material, colour and quantity.
             </p>
+
+            <br>
+
+            <button
+                class="btn btn-whatsapp"
+                onclick="openWhatsApp()">
+
+                💬 Discuss Custom Design
+
+            </button>
 
         </div>
 
@@ -897,19 +884,14 @@ footer strong{
 
         <div class="contact-box">
 
-            <h2>📞 Contact Us</h2>
+            <h2>📞 Contact RS 3D Custom Studio</h2>
 
             <br>
 
-            <div class="contact-item">
-                📱 WhatsApp:
+            <p>
+                WhatsApp:
                 <strong>7708859615</strong>
-            </div>
-
-            <div class="contact-item">
-                🎨 Custom Orders:
-                <strong>Available</strong>
-            </div>
+            </p>
 
             <br>
 
@@ -928,18 +910,17 @@ footer strong{
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
 
     <p>
-        © 2026 <strong>RS 3D Custom Studio</strong>
+        © 2026
+        <strong>RS 3D Custom Studio</strong>
     </p>
 
     <br>
 
     <p>
-        Custom Crafts • Arts • Gifts • 3D Designs
+        3D Printing • Custom Products • Personalized Designs
     </p>
 
 </footer>
@@ -950,15 +931,14 @@ footer strong{
 <a
     class="whatsapp-float"
     href="https://wa.me/917708859615"
-    target="_blank"
-    title="Chat on WhatsApp">
+    target="_blank">
 
     💬
 
 </a>
 
 
-<!-- BOTTOM NAV -->
+<!-- MOBILE NAV -->
 
 <div class="bottom-nav">
 
@@ -967,14 +947,9 @@ footer strong{
         Home
     </button>
 
-    <button onclick="showPage('craft')">
-        <span>🎨</span>
-        Craft
-    </button>
-
-    <button onclick="showPage('threeD')">
-        <span>🖨️</span>
-        3D
+    <button onclick="showPage('about')">
+        <span>ℹ️</span>
+        About
     </button>
 
     <button onclick="showPage('cart')">
@@ -993,8 +968,7 @@ footer strong{
 <script>
 
 /* =========================================
-   RS 3D CUSTOM STUDIO
-   WHATSAPP NUMBER
+   WHATSAPP
 ========================================= */
 
 const WHATSAPP_NUMBER = "917708859615";
@@ -1006,126 +980,214 @@ const WHATSAPP_NUMBER = "917708859615";
 
 const products = [
 
-    {
-        id:1,
-        name:"3D Personalized Figurine",
-        image:"3DPersonalizedCustomFigurines.jpg",
-        description:"Custom 3D printed personalized figurine.",
-        category:"3D",
-        price:499,
-        old:699,
-        rating:"4.8"
-    },
+{
+id:1,
+name:"Custom Keychain",
+category:"Keychains",
+price:99,
+old:149,
+rating:"4.9",
+image:"",
+description:"Personalized name, logo and design keychains."
+},
 
-    {
-        id:2,
-        name:"3D Miniature",
-        image:"3d-printed-miniatures-sl.jpg",
-        description:"Custom miniature design.",
-        category:"3D",
-        price:399,
-        old:599,
-        rating:"4.7"
-    },
+{
+id:2,
+name:"Personalized Figurine",
+category:"Figurines",
+price:499,
+old:699,
+rating:"4.8",
+image:"",
+description:"Custom 3D printed personalized figurines."
+},
 
-    {
-        id:3,
-        name:"Custom 3D Model",
-        image:"3d-18.jpg",
-        description:"Customized 3D printed model.",
-        category:"Custom",
-        price:599,
-        old:799,
-        rating:"4.8"
-    },
+{
+id:3,
+name:"3D Miniature",
+category:"Miniatures",
+price:399,
+old:599,
+rating:"4.8",
+image:"",
+description:"Detailed 3D printed miniatures and models."
+},
 
-    {
-        id:4,
-        name:"Teddy Bear Keychain",
-        image:"teddy_bear_keychain_01.webp",
-        description:"Cute customized teddy bear keychain.",
-        category:"Keychain",
-        price:149,
-        old:199,
-        rating:"4.9"
-    },
+{
+id:4,
+name:"3D Home Decor",
+category:"Home Decor",
+price:299,
+old:449,
+rating:"4.7",
+image:"",
+description:"Modern 3D printed decoration products."
+},
 
-    {
-        id:5,
-        name:"Custom Home Product",
-        image:"toothbrush.png",
-        description:"Useful customized home product.",
-        category:"Home",
-        price:249,
-        old:349,
-        rating:"4.6"
-    },
+{
+id:5,
+name:"Lithophane Lamp",
+category:"Lamps",
+price:699,
+old:999,
+rating:"4.9",
+image:"",
+description:"Personalized photo lithophane lamp."
+},
 
-    {
-        id:6,
-        name:"Flexi Desk Organizer",
-        image:"flexidesk-pro-modular-office-organizer.jpg",
-        description:"Modular desk organizer.",
-        category:"Home",
-        price:349,
-        old:499,
-        rating:"4.7"
-    },
+{
+id:6,
+name:"3D Printed Planter",
+category:"Planters",
+price:249,
+old:349,
+rating:"4.7",
+image:"",
+description:"Stylish 3D printed planters."
+},
 
-    {
-        id:7,
-        name:"Custom Event Keychain",
-        image:"3Events-keychain.png",
-        description:"Customized keychains for events.",
-        category:"Keychain",
-        price:129,
-        old:179,
-        rating:"4.8"
-    },
+{
+id:7,
+name:"Mobile Stand",
+category:"Mobile Stands",
+price:199,
+old:299,
+rating:"4.8",
+image:"",
+description:"Custom 3D printed phone stand."
+},
 
-    {
-        id:8,
-        name:"Custom Craft Art",
-        image:"i_340x270.8171282022_i2e.jpg",
-        description:"Beautiful customized craft work.",
-        category:"Craft",
-        price:299,
-        old:399,
-        rating:"4.7"
-    },
+{
+id:8,
+name:"Desk Organizer",
+category:"Desk Organizers",
+price:299,
+old:449,
+rating:"4.7",
+image:"",
+description:"Useful modular desk organizer."
+},
 
-    {
-        id:9,
-        name:"Personalized Craft",
-        image:"i_fullxfull.2492821075_kfrj.jpg",
-        description:"Personalized handmade-style craft.",
-        category:"Craft",
-        price:399,
-        old:549,
-        rating:"4.8"
-    },
+{
+id:9,
+name:"Gaming Accessory",
+category:"Gaming",
+price:249,
+old:399,
+rating:"4.8",
+image:"",
+description:"Custom gaming accessories and holders."
+},
 
-    {
-        id:10,
-        name:"Custom Decoration",
-        image:"i_fullxfull.5632971718_i4dg.jpg",
-        description:"Customized decoration piece.",
-        category:"Craft",
-        price:449,
-        old:599,
-        rating:"4.8"
-    },
+{
+id:10,
+name:"Car Accessory",
+category:"Car Accessories",
+price:199,
+old:299,
+rating:"4.7",
+image:"",
+description:"Useful custom 3D printed car accessories."
+},
 
-    {
-        id:11,
-        name:"Personalized Gift",
-        image:"i_fullxfull.8012488356_8q1l.jpg",
-        description:"Special customized gift.",
-        category:"Custom",
-        price:499,
-        old:699,
-        rating:"4.9"
-    }
+{
+id:11,
+name:"Functional 3D Part",
+category:"Functional Parts",
+price:199,
+old:349,
+rating:"4.8",
+image:"",
+description:"Functional parts for daily use."
+},
+
+{
+id:12,
+name:"Couple Gift",
+category:"Couple Gifts",
+price:499,
+old:699,
+rating:"4.9",
+image:"",
+description:"Personalized 3D printed couple gifts."
+},
+
+{
+id:13,
+name:"Personalized Gift",
+category:"Personalized Gifts",
+price:399,
+old:599,
+rating:"4.9",
+image:"",
+description:"Customized gifts for birthdays and special occasions."
+},
+
+{
+id:14,
+name:"3D Name Plate",
+category:"Name Plates",
+price:349,
+old:499,
+rating:"4.8",
+image:"",
+description:"Personalized 3D printed name plates."
+},
+
+{
+id:15,
+name:"Pet Figurine",
+category:"Pet Figurines",
+price:499,
+old:699,
+rating:"4.9",
+image:"",
+description:"Custom 3D figurine based on your pet."
+},
+
+{
+id:16,
+name:"Cake Topper",
+category:"Cake Toppers",
+price:149,
+old:249,
+rating:"4.8",
+image:"",
+description:"Personalized birthday and event cake toppers."
+},
+
+{
+id:17,
+name:"3D Toy & Model",
+category:"Toys & Models",
+price:249,
+old:399,
+rating:"4.7",
+image:"",
+description:"3D printed toys, models and collectibles."
+},
+
+{
+id:18,
+name:"Custom Mechanical Part",
+category:"Mechanical Parts",
+price:299,
+old:499,
+rating:"4.8",
+image:"",
+description:"Custom functional mechanical components."
+},
+
+{
+id:19,
+name:"Custom 3D Model",
+category:"Custom Models",
+price:499,
+old:799,
+rating:"4.9",
+image:"",
+description:"Send your idea or 3D file and get a custom print."
+}
 
 ];
 
@@ -1135,156 +1197,159 @@ const products = [
 ========================================= */
 
 let cart =
-    JSON.parse(
-        localStorage.getItem("rs3dCart") || "[]"
-    );
+JSON.parse(
+localStorage.getItem("rs3dCart") || "[]"
+);
 
 
 function saveCart(){
 
-    localStorage.setItem(
-        "rs3dCart",
-        JSON.stringify(cart)
-    );
+localStorage.setItem(
+"rs3dCart",
+JSON.stringify(cart)
+);
 
-    updateCartCount();
+updateCartCount();
+
+}
+
+
+function updateCartCount(){
+
+let count =
+cart.reduce(
+(sum,item)=>sum+item.quantity,
+0
+);
+
+document.getElementById(
+"cartCount"
+).textContent=count;
 
 }
 
 
 /* =========================================
-   PAGE NAVIGATION
+   PAGE
 ========================================= */
 
 function showPage(page){
 
-    document
-        .querySelectorAll(".page")
-        .forEach(p => {
+document
+.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
 
-            p.classList.remove("active");
+document
+.getElementById(page)
+.classList.add("active");
 
-        });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
-    const selected =
-        document.getElementById(page);
-
-    if(selected){
-
-        selected.classList.add("active");
-
-    }
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-    if(page === "cart"){
-
-        renderCart();
-
-    }
+if(page==="cart"){
+renderCart();
+}
 
 }
 
 
 /* =========================================
-   PRODUCTS DISPLAY
+   PRODUCTS
 ========================================= */
 
-let currentCategory = "All";
+let currentCategory="All";
 
 
-function renderProducts(list = products){
+function renderProducts(list=products){
 
-    const grid =
-        document.getElementById("productGrid");
+const grid=
+document.getElementById("productGrid");
 
-    if(!grid) return;
-
-    grid.innerHTML = "";
-
-    if(list.length === 0){
-
-        grid.innerHTML = `
-            <div class="empty">
-                <h3>No products found 😕</h3>
-                <p>Try another search.</p>
-            </div>
-        `;
-
-        return;
-
-    }
+grid.innerHTML="";
 
 
-    list.forEach(product => {
+if(list.length===0){
 
-        grid.innerHTML += `
+grid.innerHTML=`
 
-            <div class="product">
+<div class="empty">
 
-                <img
-                    class="product-img"
-                    src="${product.image}"
-                    alt="${product.name}"
-                    onerror="this.src='https://via.placeholder.com/500x400?text=RS+3D+Custom+Studio'"
-                >
+<h3>No products found 😕</h3>
 
-                <div class="product-content">
+<p>Try another search.</p>
 
-                    <h3>
-                        ${product.name}
-                    </h3>
+</div>
 
-                    <p>
-                        ${product.description}
-                    </p>
+`;
 
-                    <div class="rating">
-                        ⭐ ${product.rating}
-                    </div>
+return;
 
-                    <div>
+}
 
-                        <span class="price">
-                            ₹${product.price}
-                        </span>
 
-                        <span class="old-price">
-                            ₹${product.old}
-                        </span>
+list.forEach(product=>{
 
-                    </div>
+grid.innerHTML+=`
 
-                    <div class="product-buttons">
+<div class="product">
 
-                        <button
-                            class="btn btn-orange"
-                            onclick="viewProduct(${product.id})">
+<img
+class="product-img"
+src="${product.image || 'https://via.placeholder.com/500x400?text='+encodeURIComponent(product.name)}"
+alt="${product.name}"
+>
 
-                            View
+<div class="product-content">
 
-                        </button>
+<h3>${product.name}</h3>
 
-                        <button
-                            class="btn btn-whatsapp"
-                            onclick="buyProductWhatsApp(${product.id})">
+<p>${product.description}</p>
 
-                            💬
+<div class="rating">
+⭐ ${product.rating}
+</div>
 
-                        </button>
+<div>
 
-                    </div>
+<span class="price">
+₹${product.price}
+</span>
 
-                </div>
+<span class="old-price">
+₹${product.old}
+</span>
 
-            </div>
+</div>
 
-        `;
+<div class="product-buttons">
 
-    });
+<button
+class="btn btn-orange"
+onclick="viewProduct(${product.id})">
+
+View
+
+</button>
+
+<button
+class="btn btn-whatsapp"
+onclick="buyProductWhatsApp(${product.id})">
+
+💬
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
 
 }
 
@@ -1295,35 +1360,28 @@ function renderProducts(list = products){
 
 function filterProducts(category,button){
 
-    currentCategory = category;
+currentCategory=category;
 
-    document
-        .querySelectorAll(".category")
-        .forEach(btn => {
+document
+.querySelectorAll(".category")
+.forEach(btn=>
+btn.classList.remove("active")
+);
 
-            btn.classList.remove("active");
+button.classList.add("active");
 
-        });
+let filtered=products;
 
-    if(button){
+if(category!=="All"){
 
-        button.classList.add("active");
+filtered=
+products.filter(
+p=>p.category===category
+);
 
-    }
+}
 
-    let filtered = products;
-
-    if(category !== "All"){
-
-        filtered =
-            products.filter(
-                product =>
-                    product.category === category
-            );
-
-    }
-
-    renderProducts(filtered);
+renderProducts(filtered);
 
 }
 
@@ -1334,535 +1392,477 @@ function filterProducts(category,button){
 
 function searchProducts(){
 
-    const search =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+let search=
+document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
 
-    let filtered = products;
+let filtered=products;
 
-    if(currentCategory !== "All"){
 
-        filtered =
-            filtered.filter(
-                product =>
-                    product.category === currentCategory
-            );
+if(currentCategory!=="All"){
 
-    }
+filtered=
+filtered.filter(
+p=>p.category===currentCategory
+);
 
-    if(search){
+}
 
-        filtered =
-            filtered.filter(product =>
-                product.name
-                .toLowerCase()
-                .includes(search) ||
 
-                product.description
-                .toLowerCase()
-                .includes(search)
-            );
+if(search){
 
-    }
+filtered=
+filtered.filter(p=>
 
-    renderProducts(filtered);
+p.name
+.toLowerCase()
+.includes(search)
+
+||
+
+p.category
+.toLowerCase()
+.includes(search)
+
+||
+
+p.description
+.toLowerCase()
+.includes(search)
+
+);
+
+}
+
+renderProducts(filtered);
 
 }
 
 
 /* =========================================
-   VIEW PRODUCT
+   PRODUCT DETAILS
 ========================================= */
+
+let detailQuantity=1;
+
 
 function viewProduct(id){
 
-    const product =
-        products.find(
-            p => p.id === id
-        );
+const product=
+products.find(p=>p.id===id);
 
-    if(!product) return;
+if(!product)return;
 
-
-    document.getElementById(
-        "productDetails"
-    ).innerHTML = `
-
-        <div class="details">
-
-            <div class="detail-grid">
-
-                <div>
-
-                    <img
-                        class="detail-image"
-                        src="${product.image}"
-                        onerror="this.src='https://via.placeholder.com/600x500?text=RS+3D+Custom+Studio'"
-                    >
-
-                </div>
-
-                <div class="detail-info">
-
-                    <h1>
-                        ${product.name}
-                    </h1>
-
-                    <div class="rating">
-                        ⭐ ${product.rating}
-                    </div>
-
-                    <p>
-                        ${product.description}
-                    </p>
-
-                    <div>
-
-                        <span class="price">
-                            ₹${product.price}
-                        </span>
-
-                        <span class="old-price">
-                            ₹${product.old}
-                        </span>
-
-                    </div>
-
-                    <div class="option">
-
-                        <label>Size</label>
-
-                        <select id="productSize">
-
-                            <option>Small</option>
-                            <option selected>Medium</option>
-                            <option>Large</option>
-
-                        </select>
-
-                    </div>
-
-                    <div class="option">
-
-                        <label>Colour</label>
-
-                        <select id="productColour">
-
-                            <option>Black</option>
-                            <option>White</option>
-                            <option>Red</option>
-                            <option>Blue</option>
-                            <option>Custom</option>
-
-                        </select>
-
-                    </div>
-
-                    <div class="option">
-
-                        <label>Quantity</label>
-
-                        <div class="quantity">
-
-                            <button
-                                onclick="changeDetailQuantity(-1)">
-                                −
-                            </button>
-
-                            <span id="detailQuantity">
-                                1
-                            </span>
-
-                            <button
-                                onclick="changeDetailQuantity(1)">
-                                +
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <button
-                        class="btn btn-orange"
-                        style="width:100%;margin-top:10px"
-                        onclick="addToCart(${product.id})">
-
-                        🛒 Add to Cart
-
-                    </button>
-
-                    <button
-                        class="btn btn-whatsapp"
-                        style="width:100%;margin-top:10px"
-                        onclick="buyProductWhatsApp(${product.id})">
-
-                        💬 Buy on WhatsApp
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
+detailQuantity=1;
 
 
-    showPage("details");
+document.getElementById(
+"productDetails"
+).innerHTML=`
+
+<div class="details">
+
+<div class="detail-grid">
+
+<div>
+
+<img
+class="detail-image"
+src="${product.image || 'https://via.placeholder.com/600x500?text='+encodeURIComponent(product.name)}"
+>
+
+</div>
+
+<div class="detail-info">
+
+<h1>${product.name}</h1>
+
+<div class="rating">
+⭐ ${product.rating}
+</div>
+
+<p>
+${product.description}
+</p>
+
+<div>
+
+<span class="price">
+₹${product.price}
+</span>
+
+<span class="old-price">
+₹${product.old}
+</span>
+
+</div>
+
+
+<div class="option">
+
+<label>Size</label>
+
+<select id="productSize">
+
+<option>Small</option>
+<option selected>Medium</option>
+<option>Large</option>
+
+</select>
+
+</div>
+
+
+<div class="option">
+
+<label>Colour</label>
+
+<select id="productColour">
+
+<option>Black</option>
+<option>White</option>
+<option>Red</option>
+<option>Blue</option>
+<option>Yellow</option>
+<option>Custom</option>
+
+</select>
+
+</div>
+
+
+<div class="option">
+
+<label>Quantity</label>
+
+<div class="quantity">
+
+<button
+onclick="changeDetailQuantity(-1)">
+−
+</button>
+
+<span id="detailQuantity">
+1
+</span>
+
+<button
+onclick="changeDetailQuantity(1)">
++
+</button>
+
+</div>
+
+</div>
+
+
+<button
+class="btn btn-orange"
+style="width:100%"
+onclick="addToCart(${product.id})">
+
+🛒 Add to Cart
+
+</button>
+
+
+<button
+class="btn btn-whatsapp"
+style="width:100%;margin-top:10px"
+onclick="buyProductWhatsApp(${product.id})">
+
+💬 Buy on WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+showPage("details");
 
 }
-
-
-let detailQuantity = 1;
 
 
 function changeDetailQuantity(amount){
 
-    detailQuantity += amount;
+detailQuantity+=amount;
 
-    if(detailQuantity < 1){
+if(detailQuantity<1){
+detailQuantity=1;
+}
 
-        detailQuantity = 1;
-
-    }
-
-    document.getElementById(
-        "detailQuantity"
-    ).textContent = detailQuantity;
+document.getElementById(
+"detailQuantity"
+).textContent=detailQuantity;
 
 }
 
 
 /* =========================================
-   ADD TO CART
+   ADD CART
 ========================================= */
 
 function addToCart(id){
 
-    const product =
-        products.find(
-            p => p.id === id
-        );
+const product=
+products.find(p=>p.id===id);
 
-    if(!product) return;
+if(!product)return;
 
 
-    const size =
-        document.getElementById(
-            "productSize"
-        )?.value || "Medium";
+const size=
+document.getElementById(
+"productSize"
+)?.value || "Medium";
 
 
-    const colour =
-        document.getElementById(
-            "productColour"
-        )?.value || "Black";
+const colour=
+document.getElementById(
+"productColour"
+)?.value || "Black";
 
 
-    const quantity =
-        detailQuantity || 1;
+const existing=
+cart.find(item=>
+item.id===id &&
+item.size===size &&
+item.colour===colour
+);
 
 
-    const existing =
-        cart.find(item =>
-            item.id === id &&
-            item.size === size &&
-            item.colour === colour
-        );
+if(existing){
+
+existing.quantity+=detailQuantity;
+
+}else{
+
+cart.push({
+
+id:product.id,
+name:product.name,
+price:product.price,
+image:product.image,
+size:size,
+colour:colour,
+quantity:detailQuantity
+
+});
+
+}
 
 
-    if(existing){
+saveCart();
 
-        existing.quantity += quantity;
+alert("Product added to cart 🛒");
 
-    }else{
-
-        cart.push({
-
-            id:product.id,
-            name:product.name,
-            price:product.price,
-            image:product.image,
-            size:size,
-            colour:colour,
-            quantity:quantity
-
-        });
-
-    }
-
-
-    saveCart();
-
-    alert("Added to cart 🛒");
-
-    showPage("cart");
-
-    detailQuantity = 1;
+showPage("cart");
 
 }
 
 
 /* =========================================
-   UPDATE CART COUNT
-========================================= */
-
-function updateCartCount(){
-
-    const count =
-        cart.reduce(
-            (sum,item) =>
-                sum + item.quantity,
-            0
-        );
-
-    document.getElementById(
-        "cartCount"
-    ).textContent = count;
-
-}
-
-
-/* =========================================
-   RENDER CART
+   CART
 ========================================= */
 
 function renderCart(){
 
-    const container =
-        document.getElementById(
-            "cartItems"
-        );
+const container=
+document.getElementById("cartItems");
 
-    const summary =
-        document.getElementById(
-            "cartSummary"
-        );
+const summary=
+document.getElementById("cartSummary");
 
 
-    if(cart.length === 0){
+if(cart.length===0){
 
-        container.innerHTML = `
+container.innerHTML=`
 
-            <div class="empty">
+<div class="empty">
 
-                <h2>Your cart is empty 🛒</h2>
+<h2>Your cart is empty 🛒</h2>
 
-                <br>
+<br>
 
-                <button
-                    class="btn btn-orange"
-                    onclick="showPage('home')">
+<button
+class="btn btn-orange"
+onclick="showPage('home')">
 
-                    Continue Shopping
+Continue Shopping
 
-                </button>
+</button>
 
-            </div>
+</div>
 
-        `;
+`;
 
-        summary.innerHTML = "";
+summary.innerHTML="";
 
-        return;
-
-    }
-
-
-    container.innerHTML = "";
-
-
-    let total = 0;
-
-
-    cart.forEach((item,index) => {
-
-        const itemTotal =
-            item.price * item.quantity;
-
-        total += itemTotal;
-
-
-        container.innerHTML += `
-
-            <div class="cart-item">
-
-                <img
-                    src="${item.image}"
-                    onerror="this.src='https://via.placeholder.com/100?text=Product'"
-                >
-
-                <div class="cart-info">
-
-                    <h3>
-                        ${item.name}
-                    </h3>
-
-                    <p>
-                        Size: ${item.size}
-                    </p>
-
-                    <p>
-                        Colour: ${item.colour}
-                    </p>
-
-                    <p>
-                        Quantity: ${item.quantity}
-                    </p>
-
-                    <strong>
-                        ₹${itemTotal}
-                    </strong>
-
-                </div>
-
-                <div class="cart-actions">
-
-                    <button
-                        class="btn"
-                        onclick="removeFromCart(${index})">
-
-                        ❌
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        `;
-
-    });
-
-
-    summary.innerHTML = `
-
-        <div class="cart-total">
-
-            <p>Total Items:
-                <strong>
-                    ${cart.reduce(
-                        (s,i)=>s+i.quantity,
-                        0
-                    )}
-                </strong>
-            </p>
-
-            <br>
-
-            <p class="total">
-                Total: ₹${total}
-            </p>
-
-            <button
-                class="btn btn-orange"
-                style="width:100%;margin-top:15px"
-                onclick="showPage('checkout')">
-
-                Proceed to Checkout
-
-            </button>
-
-            <button
-                class="btn btn-whatsapp"
-                style="width:100%;margin-top:10px"
-                onclick="quickWhatsAppOrder()">
-
-                💬 Order via WhatsApp
-
-            </button>
-
-        </div>
-
-    `;
+return;
 
 }
 
 
-/* =========================================
-   REMOVE CART ITEM
-========================================= */
+container.innerHTML="";
+
+let total=0;
+
+
+cart.forEach((item,index)=>{
+
+const itemTotal=
+item.price*item.quantity;
+
+total+=itemTotal;
+
+
+container.innerHTML+=`
+
+<div class="cart-item">
+
+<img
+src="${item.image || 'https://via.placeholder.com/100?text=Product'}"
+>
+
+<div class="cart-info">
+
+<h3>${item.name}</h3>
+
+<p>Size: ${item.size}</p>
+
+<p>Colour: ${item.colour}</p>
+
+<p>Quantity: ${item.quantity}</p>
+
+<strong>₹${itemTotal}</strong>
+
+</div>
+
+<button
+class="btn"
+onclick="removeFromCart(${index})">
+
+❌
+
+</button>
+
+</div>
+
+`;
+
+});
+
+
+summary.innerHTML=`
+
+<div class="cart-total">
+
+<p class="total">
+Total: ₹${total}
+</p>
+
+<button
+class="btn btn-orange"
+style="width:100%;margin-top:15px"
+onclick="showPage('checkout')">
+
+Proceed to Checkout
+
+</button>
+
+<button
+class="btn btn-whatsapp"
+style="width:100%;margin-top:10px"
+onclick="quickWhatsAppOrder()">
+
+💬 Order via WhatsApp
+
+</button>
+
+</div>
+
+`;
+
+}
+
 
 function removeFromCart(index){
 
-    cart.splice(index,1);
+cart.splice(index,1);
 
-    saveCart();
+saveCart();
 
-    renderCart();
+renderCart();
 
 }
 
 
 /* =========================================
-   WHATSAPP PRODUCT ORDER
+   WHATSAPP PRODUCT
 ========================================= */
 
 function buyProductWhatsApp(id){
 
-    const product =
-        products.find(
-            p => p.id === id
-        );
+const product=
+products.find(p=>p.id===id);
 
-    if(!product) return;
+if(!product)return;
 
 
-    const message = `
+const message=
 
-Hi RS 3D Custom Studio 👋
+`Hi RS 3D Custom Studio 👋
 
-I am interested in this product:
+I am interested in:
 
 Product: ${product.name}
-Price: ₹${product.price}
 Category: ${product.category}
+Price: ₹${product.price}
 
 Please share more details.
 
-Thank you 😊
-
-`.trim();
+Thank you 😊`;
 
 
-    const url =
-        "https://wa.me/" +
-        WHATSAPP_NUMBER +
-        "?text=" +
-        encodeURIComponent(message);
+const url=
+"https://wa.me/"+
+WHATSAPP_NUMBER+
+"?text="+
+encodeURIComponent(message);
 
 
-    window.open(
-        url,
-        "_blank"
-    );
+window.open(url,"_blank");
 
 }
 
 
 /* =========================================
-   WHATSAPP CART ORDER
+   WHATSAPP CART
 ========================================= */
 
 function quickWhatsAppOrder(){
 
-    if(cart.length === 0){
+if(cart.length===0){
 
-        alert("Your cart is empty.");
+alert("Your cart is empty.");
 
-        return;
+return;
 
-    }
-
-
-    let total = 0;
+}
 
 
-    let message =
+let total=0;
+
+
+let message=
+
 `Hi RS 3D Custom Studio 👋
 
 I want to place an order.
@@ -1871,118 +1871,110 @@ ORDER DETAILS
 -------------`;
 
 
+cart.forEach((item,index)=>{
 
-    cart.forEach((item,index)=>{
+const itemTotal=
+item.price*item.quantity;
 
-        const itemTotal =
-            item.price * item.quantity;
-
-        total += itemTotal;
+total+=itemTotal;
 
 
-        message += `
+message+=`
 
-${index + 1}. ${item.name}
+${index+1}. ${item.name}
 Size: ${item.size}
 Colour: ${item.colour}
 Quantity: ${item.quantity}
-Price: ₹${itemTotal}
-`;
+Price: ₹${itemTotal}`;
 
-    });
+});
 
 
-    message += `
+message+=`
 
 TOTAL: ₹${total}
 
-Please confirm my order. Thank you 😊`;
+Please confirm my order.
+
+Thank you 😊`;
 
 
-    const url =
-        "https://wa.me/" +
-        WHATSAPP_NUMBER +
-        "?text=" +
-        encodeURIComponent(message);
+const url=
+"https://wa.me/"+
+WHATSAPP_NUMBER+
+"?text="+
+encodeURIComponent(message);
 
 
-    window.open(
-        url,
-        "_blank"
-    );
+window.open(url,"_blank");
 
 }
 
 
 /* =========================================
-   WHATSAPP CHECKOUT ORDER
+   CHECKOUT WHATSAPP
 ========================================= */
 
 function orderOnWhatsApp(){
 
-    if(cart.length === 0){
+if(cart.length===0){
 
-        alert("Your cart is empty.");
+alert("Your cart is empty.");
 
-        showPage("home");
+return;
 
-        return;
-
-    }
+}
 
 
-    const name =
-        document
-        .getElementById("customerName")
-        .value
-        .trim();
+const name=
+document
+.getElementById("customerName")
+.value.trim();
 
 
-    const phone =
-        document
-        .getElementById("phone")
-        .value
-        .trim();
+const phone=
+document
+.getElementById("phone")
+.value.trim();
 
 
-    const email =
-        document
-        .getElementById("email")
-        .value
-        .trim();
+const email=
+document
+.getElementById("email")
+.value.trim();
 
 
-    const address =
-        document
-        .getElementById("address")
-        .value
-        .trim();
+const address=
+document
+.getElementById("address")
+.value.trim();
 
 
-    const payment =
-        document
-        .getElementById("payment")
-        .value;
+const payment=
+document
+.getElementById("payment")
+.value;
 
 
-    if(!name || !phone || !address){
+if(!name || !phone || !address){
 
-        alert(
-            "Please enter Name, Phone and Address."
-        );
+alert(
+"Please enter Name, Phone and Address."
+);
 
-        return;
+return;
 
-    }
-
-
-    let total = 0;
+}
 
 
-    let message =
+let total=0;
+
+
+let message=
+
 `Hi RS 3D Custom Studio 👋
 
-*NEW CUSTOM ORDER*
+*NEW 3D PRINTING ORDER*
 
 CUSTOMER DETAILS
 ----------------
@@ -1996,27 +1988,26 @@ ORDER DETAILS
 -------------`;
 
 
-    cart.forEach((item,index)=>{
+cart.forEach((item,index)=>{
 
-        const itemTotal =
-            item.price * item.quantity;
+const itemTotal=
+item.price*item.quantity;
 
-        total += itemTotal;
+total+=itemTotal;
 
 
-        message += `
+message+=`
 
-${index + 1}. ${item.name}
+${index+1}. ${item.name}
 Size: ${item.size}
 Colour: ${item.colour}
 Quantity: ${item.quantity}
-Price: ₹${itemTotal}
-`;
+Price: ₹${itemTotal}`;
 
-    });
+});
 
 
-    message += `
+message+=`
 
 *TOTAL: ₹${total}*
 
@@ -2025,22 +2016,19 @@ Please confirm my order.
 Thank you 😊`;
 
 
-    const url =
-        "https://wa.me/" +
-        WHATSAPP_NUMBER +
-        "?text=" +
-        encodeURIComponent(message);
+const url=
+"https://wa.me/"+
+WHATSAPP_NUMBER+
+"?text="+
+encodeURIComponent(message);
 
 
-    window.open(
-        url,
-        "_blank"
-    );
+window.open(url,"_blank");
 
 
-    document.getElementById(
-        "success"
-    ).style.display = "block";
+document.getElementById(
+"success"
+).style.display="block";
 
 }
 
@@ -2051,55 +2039,52 @@ Thank you 😊`;
 
 function openWhatsApp(){
 
-    const message =
+const message=
+
 `Hi RS 3D Custom Studio 👋
 
-I want to discuss a custom order.
+I want a custom 3D printing product.
 
-I have a custom idea/design.
-Please help me with the details.
+I would like to discuss my requirement.
 
 Thank you 😊`;
 
 
-    const url =
-        "https://wa.me/" +
-        WHATSAPP_NUMBER +
-        "?text=" +
-        encodeURIComponent(message);
+const url=
+"https://wa.me/"+
+WHATSAPP_NUMBER+
+"?text="+
+encodeURIComponent(message);
 
 
-    window.open(
-        url,
-        "_blank"
-    );
+window.open(url,"_blank");
 
 }
 
 
 /* =========================================
-   SCROLL PRODUCTS
+   SCROLL
 ========================================= */
 
 function scrollToProducts(){
 
-    showPage("home");
+showPage("home");
 
-    setTimeout(()=>{
+setTimeout(()=>{
 
-        document
-        .getElementById("productGrid")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+document
+.getElementById("productGrid")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-    },100);
+},100);
 
 }
 
 
 /* =========================================
-   INITIAL LOAD
+   START
 ========================================= */
 
 renderProducts();
