@@ -3,564 +3,513 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>RS 3D Custom Studio</title>
 
 <style>
-/* =========================
-   GLOBAL
-========================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+:root{
+    --orange:#ff6500;
+    --orange2:#ff9d4d;
+    --white:#ffffff;
+    --silver:#e9edf2;
+    --dark:#111315;
+    --dark2:#1b1e21;
+    --glass:rgba(255,255,255,.10);
+    --shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:
-        radial-gradient(circle at 20% 10%,rgba(255,105,0,.12),transparent 25%),
-        radial-gradient(circle at 80% 80%,rgba(255,80,0,.08),transparent 25%),
-        #050505;
-    color:#fff;
+        radial-gradient(circle at 20% 10%,rgba(255,101,0,.18),transparent 30%),
+        radial-gradient(circle at 80% 30%,rgba(255,255,255,.08),transparent 25%),
+        linear-gradient(135deg,#080909,#181a1c 45%,#090a0b);
+    color:white;
     min-height:100vh;
     overflow-x:hidden;
 }
 
-button,
-input,
-textarea{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar{
-    width:8px;
-}
-
-::-webkit-scrollbar-track{
-    background:#080808;
-}
-
-::-webkit-scrollbar-thumb{
-    background:linear-gradient(#ff8a00,#ff3d00);
-    border-radius:20px;
-}
-
-/* =========================
-   HEADER
-========================= */
+/* ================= HEADER ================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(5,5,5,.82);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,102,0,.25);
-    box-shadow:0 10px 40px rgba(0,0,0,.5);
+    background:rgba(10,11,12,.82);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-.nav{
-    max-width:1250px;
+.navbar{
+    max-width:1400px;
     margin:auto;
-    min-height:75px;
+    padding:15px 25px;
     display:flex;
     align-items:center;
     gap:20px;
-    padding:12px 20px;
 }
 
 .logo{
-    font-size:23px;
-    font-weight:900;
-    white-space:nowrap;
-    color:#fff;
-    text-shadow:
-        0 0 10px rgba(255,102,0,.5),
-        0 0 30px rgba(255,102,0,.25);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:230px;
 }
 
-.logo span{
-    color:#ff6a00;
+.logo-box{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+
+    background:
+        linear-gradient(145deg,#fff,#d7dbe0 40%,#ff6500 43%,#ff9a45);
+
+    color:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:20px;
+    font-weight:900;
+
+    box-shadow:
+        inset 3px 3px 8px rgba(255,255,255,.8),
+        inset -4px -4px 8px rgba(0,0,0,.25),
+        0 0 25px rgba(255,101,0,.35);
+}
+
+.logo-text strong{
+    color:white;
+    font-size:18px;
+}
+
+.logo-text span{
+    display:block;
+    color:#ff9147;
+    font-size:12px;
+    margin-top:3px;
 }
 
 .search{
     flex:1;
-    position:relative;
 }
 
 .search input{
     width:100%;
-    background:#101010;
+    padding:13px 20px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.2);
+    background:linear-gradient(145deg,#242729,#0e0f10);
     color:white;
-    border:1px solid #333;
-    border-radius:14px;
-    padding:13px 17px;
     outline:none;
-    transition:.3s;
+    box-shadow:inset 0 2px 8px rgba(0,0,0,.5);
 }
 
 .search input:focus{
-    border-color:#ff6500;
-    box-shadow:0 0 20px rgba(255,101,0,.18);
+    border-color:var(--orange);
+    box-shadow:0 0 20px rgba(255,101,0,.2);
 }
 
-.nav-buttons{
+.nav-actions{
     display:flex;
     gap:8px;
 }
 
 .nav-btn{
-    background:#111;
-    color:#fff;
-    border:1px solid #333;
-    padding:11px 14px;
+    border:1px solid rgba(255,255,255,.18);
+    background:linear-gradient(145deg,#303337,#111315);
+    color:white;
+    padding:11px 16px;
     border-radius:12px;
-    transition:.25s;
-}
-
-.nav-btn:hover{
-    border-color:#ff6500;
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(255,90,0,.15);
-}
-
-.cart-count{
-    color:#ff7100;
+    cursor:pointer;
     font-weight:bold;
 }
 
-/* =========================
-   MAIN
-========================= */
-
-main{
-    max-width:1250px;
-    margin:auto;
-    padding:30px 20px 80px;
+.nav-btn:hover{
+    transform:translateY(-2px);
+    border-color:#ff6500;
 }
 
-/* =========================
-   3D HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero{
-    min-height:620px;
-    position:relative;
+    min-height:650px;
+    max-width:1450px;
+    margin:auto;
+    padding:80px 35px;
     display:grid;
-    grid-template-columns:1.1fr .9fr;
+    grid-template-columns:1fr 1fr;
     align-items:center;
-    gap:40px;
-    overflow:hidden;
-    border-radius:30px;
-    padding:55px;
-    background:
-        linear-gradient(135deg,rgba(255,90,0,.13),transparent 45%),
-        linear-gradient(315deg,rgba(255,50,0,.08),transparent 50%),
-        #080808;
-    border:1px solid rgba(255,100,0,.25);
-    box-shadow:
-        0 40px 100px rgba(0,0,0,.6),
-        inset 0 0 60px rgba(255,90,0,.03);
-    perspective:1000px;
-}
-
-.hero:before,
-.hero:after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    pointer-events:none;
-}
-
-.hero:before{
-    width:400px;
-    height:400px;
-    right:-100px;
-    top:-100px;
-    border:1px solid rgba(255,100,0,.15);
-    box-shadow:
-        0 0 0 30px rgba(255,100,0,.03),
-        0 0 0 60px rgba(255,100,0,.02);
-    animation:spin 15s linear infinite;
-}
-
-.hero:after{
-    width:180px;
-    height:180px;
-    left:-70px;
-    bottom:-70px;
-    border:1px solid rgba(255,120,0,.2);
-}
-
-@keyframes spin{
-    from{transform:rotate(0deg)}
-    to{transform:rotate(360deg)}
+    gap:50px;
+    perspective:1200px;
 }
 
 .hero-content{
-    position:relative;
-    z-index:3;
+    transform-style:preserve-3d;
 }
 
 .badge{
     display:inline-block;
-    border:1px solid rgba(255,100,0,.5);
-    color:#ff8500;
-    padding:8px 13px;
+    padding:9px 18px;
     border-radius:30px;
-    margin-bottom:20px;
-    background:rgba(255,80,0,.06);
-    box-shadow:0 0 20px rgba(255,90,0,.08);
+    color:#fff;
+    background:linear-gradient(145deg,#ff9b4a,#e84d00);
+    box-shadow:
+        inset 2px 2px 5px rgba(255,255,255,.5),
+        0 8px 25px rgba(255,101,0,.3);
+    font-size:13px;
+    font-weight:bold;
 }
 
 .hero h1{
-    font-size:clamp(42px,6vw,78px);
-    line-height:.98;
-    margin-bottom:22px;
+    margin-top:22px;
+    font-size:clamp(42px,6vw,80px);
+    line-height:.95;
     letter-spacing:-3px;
 }
 
 .hero h1 span{
-    color:#ff6500;
-    text-shadow:
-        0 0 10px rgba(255,100,0,.5),
-        0 0 40px rgba(255,70,0,.2);
+    color:#ff7620;
+    text-shadow:0 0 25px rgba(255,101,0,.3);
 }
 
 .hero p{
-    color:#aaa;
-    font-size:18px;
+    margin-top:25px;
+    max-width:580px;
+    color:#c8cdd2;
     line-height:1.7;
-    max-width:620px;
+    font-size:17px;
 }
 
 .hero-buttons{
     display:flex;
-    gap:12px;
-    margin-top:30px;
+    gap:15px;
+    margin-top:32px;
     flex-wrap:wrap;
 }
 
-.primary-btn,
-.secondary-btn{
-    border:none;
+.btn{
+    border:0;
+    padding:15px 25px;
     border-radius:14px;
-    padding:15px 20px;
+    cursor:pointer;
     font-weight:bold;
-    transition:.3s;
+    font-size:15px;
+    transition:.25s;
 }
 
-.primary-btn{
+.btn-orange{
     color:white;
-    background:linear-gradient(135deg,#ff8a00,#ff3d00);
+    background:linear-gradient(145deg,#ff9d4d,#f04d00);
     box-shadow:
-        0 10px 30px rgba(255,70,0,.25),
-        inset 0 1px rgba(255,255,255,.25);
+        inset 2px 2px 5px rgba(255,255,255,.4),
+        0 12px 30px rgba(255,101,0,.25);
 }
 
-.primary-btn:hover{
+.btn-white{
+    color:#111;
+    background:linear-gradient(145deg,#fff,#cfd4d9);
+    box-shadow:
+        inset 2px 2px 5px white,
+        0 10px 25px rgba(0,0,0,.3);
+}
+
+.btn:hover{
     transform:translateY(-4px) scale(1.02);
-    box-shadow:0 15px 40px rgba(255,70,0,.4);
 }
 
-.secondary-btn{
-    color:white;
-    background:#111;
-    border:1px solid #333;
-}
-
-.secondary-btn:hover{
-    border-color:#ff6500;
-    transform:translateY(-3px);
-}
-
-/* =========================
-   3D PRINTER OBJECT
-========================= */
+/* ================= 3D PRINTER ================= */
 
 .hero-3d{
-    height:430px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    perspective:1000px;
+    height:500px;
     position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    perspective:1200px;
 }
 
-.printer-scene{
-    width:280px;
-    height:300px;
+.printer{
+    width:390px;
+    height:340px;
     position:relative;
     transform-style:preserve-3d;
-    transform:rotateX(-8deg) rotateY(-20deg);
+    transform:rotateX(-8deg) rotateY(-18deg);
     animation:printerFloat 5s ease-in-out infinite;
 }
 
 @keyframes printerFloat{
     0%,100%{
-        transform:rotateX(-8deg) rotateY(-20deg) translateY(0);
+        transform:rotateX(-8deg) rotateY(-18deg) translateY(0);
     }
     50%{
-        transform:rotateX(-4deg) rotateY(-14deg) translateY(-15px);
+        transform:rotateX(-5deg) rotateY(-13deg) translateY(-12px);
     }
 }
 
-.printer-body{
+.printer-frame{
     position:absolute;
-    width:240px;
-    height:210px;
-    left:20px;
-    top:45px;
-    background:linear-gradient(135deg,#303030,#0e0e0e);
-    border:2px solid #444;
-    border-radius:18px;
+    left:30px;
+    top:20px;
+    width:330px;
+    height:280px;
+    border:14px solid #dfe3e7;
+    border-radius:20px;
+    background:rgba(255,255,255,.04);
+
     box-shadow:
-        25px 25px 50px rgba(0,0,0,.7),
-        inset 0 0 30px rgba(255,90,0,.06);
-    transform-style:preserve-3d;
+        inset 0 0 20px rgba(0,0,0,.5),
+        0 25px 45px rgba(0,0,0,.45);
 }
 
-.printer-front{
-    position:absolute;
-    width:190px;
-    height:145px;
-    left:24px;
-    top:30px;
-    border:2px solid #555;
-    background:#070707;
-    border-radius:10px;
-    transform:translateZ(18px);
-    overflow:hidden;
-}
-
-.printer-front:after{
+.printer-frame:before{
     content:"";
     position:absolute;
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    border:2px solid rgba(255,100,0,.6);
-    left:45px;
-    top:20px;
-    box-shadow:
-        0 0 20px rgba(255,90,0,.25),
-        inset 0 0 20px rgba(255,90,0,.1);
-    animation:spin 8s linear infinite;
-}
+    width:100%;
+    height:14px;
+    left:-14px;
+    top:-14px;
 
-.printer-top{
-    position:absolute;
-    width:240px;
-    height:45px;
-    left:20px;
-    top:25px;
-    background:linear-gradient(135deg,#444,#171717);
+    background:linear-gradient(90deg,#fff,#bfc5cb,#fff);
     border-radius:15px;
-    transform:translateZ(5px);
 }
 
-.printer-side{
+.orange-column{
     position:absolute;
-    width:40px;
-    height:210px;
-    right:0;
-    top:45px;
-    background:#171717;
-    transform:rotateY(90deg) translateZ(20px);
-    transform-origin:right;
-    border:1px solid #444;
+    width:25px;
+    height:300px;
+    background:linear-gradient(90deg,#b83d00,#ff8a35,#d84c00);
+    top:8px;
+    box-shadow:0 0 20px rgba(255,101,0,.25);
 }
 
-.printer-base{
+.column-left{
+    left:20px;
+}
+
+.column-right{
+    right:20px;
+}
+
+.printer-bed{
     position:absolute;
-    width:260px;
-    height:25px;
-    left:10px;
-    bottom:20px;
-    border-radius:10px;
-    background:linear-gradient(90deg,#222,#111,#222);
-    box-shadow:0 15px 30px rgba(0,0,0,.6);
+    left:25px;
+    bottom:25px;
+    width:340px;
+    height:35px;
+
+    background:
+        linear-gradient(145deg,#ffffff,#aeb5bc);
+
+    transform:rotateX(55deg);
+    transform-origin:center;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 15px 25px rgba(0,0,0,.5),
+        inset 2px 2px 5px white;
+}
+
+.print-object{
+    position:absolute;
+    left:145px;
+    bottom:72px;
+    width:100px;
+    height:110px;
+
+    background:
+        linear-gradient(90deg,#d7dce0,#fff,#bfc5ca);
+
+    clip-path:polygon(
+        10% 100%,
+        0 90%,
+        10% 78%,
+        0 65%,
+        12% 52%,
+        4% 38%,
+        20% 25%,
+        18% 0,
+        82% 0,
+        80% 25%,
+        96% 38%,
+        88% 52%,
+        100% 65%,
+        90% 78%,
+        100% 90%,
+        90% 100%
+    );
+
+    box-shadow:0 15px 25px rgba(0,0,0,.3);
 }
 
 .nozzle{
     position:absolute;
-    width:14px;
-    height:35px;
-    left:130px;
-    top:82px;
-    background:linear-gradient(#777,#222);
-    z-index:5;
-    transform:translateZ(25px);
+    top:68px;
+    left:170px;
+    width:48px;
+    height:55px;
+
+    background:linear-gradient(145deg,#fff,#b7bdc3);
+    border-radius:8px;
+
+    box-shadow:0 8px 15px rgba(0,0,0,.4);
 }
 
 .nozzle-tip{
     position:absolute;
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#ff6500;
-    left:3px;
-    bottom:-4px;
-    box-shadow:0 0 15px #ff6500;
+    bottom:-15px;
+    left:17px;
+    width:14px;
+    height:20px;
+
+    background:linear-gradient(90deg,#ff9a4b,#d84800);
+    clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);
 }
 
-/* =========================
-   SECTION
-========================= */
+.print-line{
+    position:absolute;
+    top:125px;
+    left:70px;
+    width:210px;
+    height:5px;
+    background:#ff6500;
+    box-shadow:0 0 15px #ff6500;
+    animation:printLine 2s linear infinite;
+}
+
+@keyframes printLine{
+    0%{width:20px}
+    50%{width:210px}
+    100%{width:20px}
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    max-width:1400px;
+    margin:auto;
+    padding:70px 25px;
+}
 
 .section-title{
-    margin:65px 0 25px;
+    text-align:center;
+    margin-bottom:45px;
 }
 
 .section-title h2{
-    font-size:34px;
-    margin-bottom:8px;
+    font-size:40px;
+}
+
+.section-title span{
+    color:#ff7220;
 }
 
 .section-title p{
-    color:#888;
+    color:#aeb4ba;
+    margin-top:10px;
 }
 
-/* =========================
-   CATEGORY 3D CARDS
-========================= */
+/* ================= CATEGORY ================= */
 
-.category-grid{
+.categories{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:25px;
-    perspective:1200px;
+    gap:30px;
 }
 
 .category-card{
     min-height:280px;
+    padding:35px;
+    border-radius:28px;
     position:relative;
     overflow:hidden;
-    border:1px solid #292929;
-    border-radius:25px;
-    padding:35px;
+
     background:
-        linear-gradient(135deg,rgba(255,90,0,.13),transparent),
-        #0b0b0b;
+        linear-gradient(145deg,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.04) 45%,
+        rgba(255,101,0,.10));
+
+    border:1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+        inset 2px 2px 10px rgba(255,255,255,.15),
+        0 25px 60px rgba(0,0,0,.35);
+
     transform-style:preserve-3d;
-    transition:.35s;
-    box-shadow:0 25px 60px rgba(0,0,0,.45);
+    transition:.4s;
 }
 
 .category-card:hover{
     transform:rotateX(4deg) rotateY(-5deg) translateY(-8px);
     border-color:#ff6500;
-    box-shadow:
-        20px 30px 70px rgba(0,0,0,.65),
-        0 0 35px rgba(255,80,0,.12);
 }
 
 .category-icon{
     font-size:60px;
-    margin-bottom:25px;
-    transform:translateZ(40px);
+    transform:translateZ(35px);
 }
 
 .category-card h3{
+    margin-top:20px;
     font-size:28px;
-    margin-bottom:10px;
-    transform:translateZ(35px);
-}
-
-.category-card p{
-    color:#999;
-    line-height:1.6;
-    margin-bottom:25px;
     transform:translateZ(25px);
 }
 
-.category-card .primary-btn{
-    transform:translateZ(35px);
+.category-card p{
+    margin-top:10px;
+    color:#bfc4c8;
+    max-width:500px;
+    line-height:1.6;
 }
 
-/* =========================
-   PRODUCTS
-========================= */
-
-.toolbar{
-    display:flex;
-    gap:12px;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-    flex-wrap:wrap;
+.category-card button{
+    margin-top:22px;
 }
 
-.page-title h1{
-    font-size:38px;
-}
+/* ================= PRODUCTS ================= */
 
-.page-title p{
-    color:#888;
-    margin-top:6px;
-}
-
-.product-search{
-    width:280px;
-}
-
-.product-search input{
-    width:100%;
-    padding:13px;
-    border-radius:12px;
-    background:#111;
-    border:1px solid #333;
-    color:#fff;
-    outline:none;
-}
-
-.product-grid{
+.products{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    perspective:1200px;
+    gap:22px;
 }
 
 .product-card{
-    background:linear-gradient(145deg,#111,#080808);
-    border:1px solid #292929;
-    border-radius:18px;
+    position:relative;
     overflow:hidden;
-    transition:.25s;
+
+    background:
+        linear-gradient(145deg,#292c2f,#111315);
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.35),
+        inset 1px 1px 2px rgba(255,255,255,.1);
+
+    transition:.35s;
     transform-style:preserve-3d;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
 .product-card:hover{
+    transform:translateY(-10px) rotateX(3deg) rotateY(-3deg);
     border-color:#ff6500;
-    transform:translateY(-8px) rotateX(3deg) rotateY(-3deg);
-    box-shadow:
-        0 25px 50px rgba(0,0,0,.65),
-        0 0 25px rgba(255,80,0,.1);
 }
 
 .product-image{
-    height:210px;
+    height:220px;
+    position:relative;
     overflow:hidden;
-    background:#151515;
+    background:#202326;
 }
 
 .product-image img{
@@ -575,388 +524,303 @@ main{
 }
 
 .product-info{
-    padding:17px;
+    padding:18px;
 }
 
 .product-info h3{
     font-size:17px;
-    margin-bottom:8px;
 }
 
 .product-info p{
-    color:#888;
+    margin-top:8px;
+    color:#aeb5ba;
     font-size:13px;
     min-height:38px;
-    line-height:1.45;
 }
 
 .price{
-    color:#ff7500;
-    font-size:21px;
+    margin-top:15px;
+    font-size:22px;
+    color:#ff7625;
     font-weight:bold;
-    margin:14px 0;
 }
 
-.card-actions{
+.product-actions{
     display:flex;
     gap:8px;
+    margin-top:15px;
 }
 
 .small-btn{
     flex:1;
     padding:10px;
     border-radius:10px;
-    border:1px solid #333;
-    background:#161616;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.15);
+    background:#24272a;
     color:white;
-    transition:.2s;
 }
 
-.small-btn:hover{
-    border-color:#ff6500;
+.small-btn.orange{
+    background:linear-gradient(145deg,#ff9145,#e84b00);
 }
 
-.small-btn.primary{
-    background:linear-gradient(135deg,#ff8000,#ff4300);
-    border:none;
+/* ================= PRODUCT DETAIL ================= */
+
+.detail{
+    max-width:1200px;
+    margin:60px auto;
+    padding:25px;
 }
 
-/* =========================
-   PRODUCT DETAIL
-========================= */
-
-.product-detail{
+.detail-box{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:40px;
+
+    background:linear-gradient(145deg,#25282b,#111315);
+    padding:30px;
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:var(--shadow);
 }
 
-.gallery{
-    position:sticky;
-    top:100px;
-}
-
-.main-image{
+.gallery-main{
     width:100%;
-    height:500px;
+    height:450px;
     object-fit:cover;
-    border-radius:22px;
-    border:1px solid #333;
-    background:#111;
-    box-shadow:0 30px 70px rgba(0,0,0,.5);
+    border-radius:20px;
+    background:#222;
 }
 
 .thumbs{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
+    display:flex;
     gap:10px;
     margin-top:12px;
+    overflow-x:auto;
 }
 
-.thumb{
-    width:100%;
-    height:90px;
+.thumbs img{
+    width:80px;
+    height:70px;
     object-fit:cover;
     border-radius:10px;
-    border:2px solid #252525;
     cursor:pointer;
-    transition:.2s;
+    border:2px solid transparent;
 }
 
-.thumb:hover,
-.thumb.active{
+.thumbs img:hover{
     border-color:#ff6500;
 }
 
-.detail-content{
-    padding-top:10px;
-}
-
-.detail-content h1{
-    font-size:42px;
-    line-height:1.05;
-    margin-bottom:15px;
+.detail h1{
+    font-size:40px;
 }
 
 .detail-description{
-    color:#aaa;
+    margin-top:15px;
+    color:#b9bec3;
     line-height:1.7;
-    font-size:16px;
-}
-
-.detail-price{
-    color:#ff7200;
-    font-size:32px;
-    font-weight:bold;
-    margin:25px 0;
 }
 
 .quantity-box{
-    margin:20px 0;
+    margin-top:25px;
 }
 
 .quantity-box label{
     display:block;
     margin-bottom:8px;
-    color:#aaa;
 }
 
 .quantity-box input{
     width:100px;
     padding:13px;
     border-radius:10px;
-    border:1px solid #444;
-    background:#111;
-    color:#fff;
-    outline:none;
+    background:#080909;
+    color:white;
+    border:1px solid #555;
 }
 
-.detail-buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+.detail-price{
+    margin-top:25px;
+    color:#ff7625;
+    font-size:32px;
+    font-weight:bold;
 }
 
-/* =========================
-   CART
-========================= */
+/* ================= CART ================= */
 
-.cart-list{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+.cart-container,
+.checkout{
+    max-width:1000px;
+    margin:60px auto;
+    padding:25px;
 }
 
 .cart-item{
-    display:grid;
-    grid-template-columns:100px 1fr auto auto;
-    gap:18px;
+    display:flex;
     align-items:center;
-    background:#0d0d0d;
-    border:1px solid #292929;
-    border-radius:16px;
-    padding:15px;
+    gap:20px;
+    padding:20px;
+    margin-bottom:15px;
+
+    border-radius:18px;
+    background:linear-gradient(145deg,#25282a,#111315);
+    border:1px solid rgba(255,255,255,.12);
 }
 
 .cart-item img{
-    width:100px;
-    height:80px;
+    width:90px;
+    height:75px;
     object-fit:cover;
     border-radius:10px;
 }
 
-.cart-item h3{
-    margin-bottom:5px;
+.cart-info{
+    flex:1;
 }
 
-.cart-item p{
-    color:#888;
-    font-size:13px;
+.cart-info h3{
+    margin-bottom:6px;
 }
 
-.cart-price{
-    color:#ff7200;
-    font-weight:bold;
+.cart-info p{
+    color:#aeb4b9;
 }
 
-.remove-btn{
-    border:1px solid #422;
-    color:#ff6d6d;
-    background:#170b0b;
-    padding:9px 12px;
-    border-radius:9px;
-}
-
-.cart-summary{
-    margin-top:25px;
-    padding:25px;
-    border-radius:18px;
-    background:#101010;
-    border:1px solid #292929;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.total{
-    font-size:28px;
-    color:#ff7200;
-    font-weight:bold;
-}
-
-/* =========================
-   CHECKOUT
-========================= */
-
-.checkout{
-    max-width:850px;
-    margin:auto;
-}
-
-.checkout-form{
-    display:grid;
-    gap:15px;
-    background:#0d0d0d;
-    border:1px solid #292929;
-    border-radius:20px;
-    padding:25px;
-}
-
-.checkout-form label{
-    color:#aaa;
-    font-size:14px;
-}
-
-.checkout-form input,
-.checkout-form textarea{
-    width:100%;
-    margin-top:7px;
-    padding:14px;
-    background:#111;
+.remove{
+    border:0;
+    background:#ef3d25;
     color:white;
-    border:1px solid #333;
-    border-radius:10px;
+    padding:10px 14px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.cart-total{
+    text-align:right;
+    font-size:28px;
+    color:#ff7625;
+    margin-top:25px;
+}
+
+/* ================= FORM ================= */
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.15);
+    background:#101214;
+    color:white;
     outline:none;
 }
 
-.checkout-form input:focus,
-.checkout-form textarea:focus{
-    border-color:#ff6500;
-}
-
-.checkout-form textarea{
+.form-group textarea{
     min-height:100px;
     resize:vertical;
 }
 
-/* =========================
-   SEARCH RESULTS
-========================= */
-
-.no-results{
-    text-align:center;
-    padding:80px 20px;
-    color:#777;
-}
-
-.no-results h2{
-    color:white;
-    margin-bottom:10px;
-}
-
-/* =========================
-   EMPTY
-========================= */
-
-.empty{
-    text-align:center;
-    padding:100px 20px;
-}
-
-.empty-icon{
-    font-size:65px;
-    margin-bottom:20px;
-}
-
-.empty h2{
-    margin-bottom:10px;
-}
-
-.empty p{
-    color:#888;
-    margin-bottom:25px;
-}
-
-/* =========================
-   WHATSAPP
-========================= */
-
-.whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:#25D366;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    z-index:999;
-    box-shadow:0 10px 30px rgba(37,211,102,.3);
-    transition:.25s;
-}
-
-.whatsapp:hover{
-    transform:scale(1.1);
-}
-
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 footer{
-    border-top:1px solid #222;
-    background:#050505;
-    padding:35px 20px;
+    margin-top:80px;
+    padding:40px 25px;
     text-align:center;
-    color:#777;
+
+    background:linear-gradient(145deg,#191b1d,#080909);
+    border-top:1px solid rgba(255,255,255,.12);
 }
 
 footer strong{
-    color:#ff7000;
+    color:#ff7625;
 }
 
-/* =========================
-   BACK BUTTON
-========================= */
-
-.back-btn{
-    margin-bottom:25px;
-    background:#111;
-    color:#fff;
-    border:1px solid #333;
-    border-radius:10px;
-    padding:10px 15px;
+footer p{
+    margin-top:8px;
+    color:#8f969b;
 }
 
-.back-btn:hover{
-    border-color:#ff6500;
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:999;
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+    background:#25D366;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:28px;
+    text-decoration:none;
+
+    box-shadow:0 10px 30px rgba(37,211,102,.35);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ================= EMPTY ================= */
+
+.empty{
+    text-align:center;
+    padding:80px 20px;
+    color:#aaa;
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1000px){
 
-    .product-grid{
-        grid-template-columns:repeat(3,1fr);
+    .products{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .hero{
         grid-template-columns:1fr;
-        padding:40px;
+        text-align:center;
     }
 
-    .hero-3d{
-        height:350px;
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .detail-box{
+        grid-template-columns:1fr;
     }
 
 }
 
-@media(max-width:750px){
+@media(max-width:700px){
 
-    .nav{
+    .navbar{
         flex-wrap:wrap;
     }
 
     .logo{
-        width:100%;
-        text-align:center;
+        min-width:auto;
     }
 
     .search{
@@ -964,106 +828,39 @@ footer strong{
         flex-basis:100%;
     }
 
-    .nav-buttons{
-        margin:auto;
+    .nav-actions{
+        margin-left:auto;
     }
 
-    .hero{
-        min-height:auto;
-        padding:30px 20px;
-        border-radius:20px;
-    }
-
-    .hero h1{
-        letter-spacing:-2px;
-    }
-
-    .category-grid{
+    .categories{
         grid-template-columns:1fr;
     }
 
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .product-detail{
+    .products{
         grid-template-columns:1fr;
     }
 
-    .gallery{
-        position:static;
-    }
-
-    .main-image{
-        height:380px;
-    }
-
-    .cart-item{
-        grid-template-columns:80px 1fr;
-    }
-
-    .cart-item img{
-        width:80px;
-        height:70px;
-    }
-
-    .cart-price,
-    .remove-btn{
-        grid-column:2;
-    }
-}
-
-@media(max-width:500px){
-
-    main{
-        padding:20px 12px 70px;
-    }
-
     .hero{
-        padding:25px 18px;
-    }
-
-    .hero h1{
-        font-size:43px;
-    }
-
-    .hero p{
-        font-size:15px;
+        padding-top:50px;
     }
 
     .hero-3d{
-        height:280px;
-        transform:scale(.8);
+        height:400px;
+        transform:scale(.75);
     }
 
-    .product-grid{
-        grid-template-columns:1fr;
+    .hero h1{
+        font-size:48px;
     }
 
-    .product-image{
-        height:240px;
+    .detail h1{
+        font-size:30px;
     }
 
-    .main-image{
+    .gallery-main{
         height:300px;
     }
 
-    .detail-content h1{
-        font-size:32px;
-    }
-
-    .toolbar{
-        align-items:stretch;
-    }
-
-    .product-search{
-        width:100%;
-    }
-
-    .nav-btn{
-        padding:9px 11px;
-        font-size:13px;
-    }
 }
 </style>
 </head>
@@ -1071,75 +868,95 @@ footer strong{
 <body>
 
 <header>
-    <div class="nav">
 
-        <div class="logo">
-            RS <span>3D</span> Custom Studio
+<div class="navbar">
+
+    <div class="logo" onclick="goHome()" style="cursor:pointer">
+
+        <div class="logo-box">
+            RS
         </div>
 
-        <div class="search">
-            <input
-                type="text"
-                id="globalSearch"
-                placeholder="Search products..."
-                oninput="globalSearch(this.value)"
-            >
-        </div>
-
-        <div class="nav-buttons">
-            <button class="nav-btn" onclick="goHome()">Home</button>
-            <button class="nav-btn" onclick="goCart()">
-                🛒 Cart <span class="cart-count" id="cartCount">0</span>
-            </button>
+        <div class="logo-text">
+            <strong>RS 3D CUSTOM</strong>
+            <span>STUDIO</span>
         </div>
 
     </div>
+
+    <div class="search">
+        <input
+            type="text"
+            placeholder="Search products..."
+            oninput="globalSearch(this.value)"
+        >
+    </div>
+
+    <div class="nav-actions">
+
+        <button class="nav-btn" onclick="goHome()">
+            Home
+        </button>
+
+        <button class="nav-btn" onclick="goCart()">
+            🛒 <span id="cartCount">0</span>
+        </button>
+
+    </div>
+
+</div>
+
 </header>
 
+
 <main id="app"></main>
+
 
 <a
     class="whatsapp"
     href="https://wa.me/917708859615"
     target="_blank"
-    title="WhatsApp"
 >
-    💬
+    ☎
 </a>
 
+
 <footer>
+
+    <strong>RS 3D Custom Studio</strong>
+
     <p>
-        © 2026 <strong>RS 3D Custom Studio</strong>
-    </p>
-    <p style="margin-top:8px">
         3D Printing • Customized Art • Craft • Gifts
     </p>
+
+    <p>
+        WhatsApp: 7708859615
+    </p>
+
 </footer>
 
 
 <script>
 
 /* =========================================================
-   PRODUCT DATABASE
+   PRODUCTS
 ========================================================= */
 
 const PRODUCTS = [
 
-/* =========================
-   3D PRINTING
-========================= */
+/* ================= 3D PRINTING ================= */
 
 {
     id:1,
     type:"printing",
     name:"Custom 3D Keychain",
     price:149,
-    description:"Personalized 3D printed keychain with custom name or design.",
+    description:"Personalized 3D printed keychain.",
     images:[
-        "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=800",
+        "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800",
+        "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?w=800",
+        "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800"
     ]
 },
 
@@ -1147,13 +964,13 @@ const PRODUCTS = [
     id:2,
     type:"printing",
     name:"Personalized Figurine",
-    price:599,
-    description:"Custom 3D printed figurine made from your idea or reference.",
+    price:499,
+    description:"Custom miniature figurine for gifts.",
     images:[
-        "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1577083552431-6e5fd01988a5?w=800",
+        "https://images.unsplash.com/photo-1594784051290-ec0f7c1cfe2a?w=800",
+        "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800",
+        "https://images.unsplash.com/photo-1577083552431-6e5fd01988a5?w=800"
     ]
 },
 
@@ -1161,13 +978,13 @@ const PRODUCTS = [
     id:3,
     type:"printing",
     name:"3D Miniature",
-    price:499,
-    description:"Detailed miniature models for display, gifts and collections.",
+    price:399,
+    description:"Detailed custom 3D miniature.",
     images:[
-        "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1635322966219-b75ed372eb01?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800",
+        "https://images.unsplash.com/photo-1577083552431-6e5fd01988a5?w=800",
+        "https://images.unsplash.com/photo-1594784051290-ec0f7c1cfe2a?w=800",
+        "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=800"
     ]
 },
 
@@ -1175,13 +992,13 @@ const PRODUCTS = [
     id:4,
     type:"printing",
     name:"3D Home Decor",
-    price:399,
-    description:"Modern 3D printed decorative products for your home.",
+    price:599,
+    description:"Modern 3D printed decorative product.",
     images:[
-        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1615529162924-f8605388461d?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800",
+        "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?w=800",
+        "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800",
+        "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=800"
     ]
 },
 
@@ -1190,12 +1007,12 @@ const PRODUCTS = [
     type:"printing",
     name:"Lithophane Lamp",
     price:899,
-    description:"Custom photo lithophane lamp for beautiful night-time display.",
+    description:"Custom photo lithophane lamp.",
     images:[
-        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800",
+        "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800",
+        "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=800",
+        "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=800"
     ]
 },
 
@@ -1203,13 +1020,13 @@ const PRODUCTS = [
     id:6,
     type:"printing",
     name:"3D Planter",
-    price:299,
-    description:"Stylish custom 3D printed planter for indoor plants.",
+    price:349,
+    description:"Modern 3D printed planter.",
     images:[
-        "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800",
+        "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=800",
+        "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800",
+        "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=800"
     ]
 },
 
@@ -1218,12 +1035,12 @@ const PRODUCTS = [
     type:"printing",
     name:"Mobile Stand",
     price:249,
-    description:"Compact custom 3D printed phone stand.",
+    description:"Functional custom 3D printed phone stand.",
     images:[
-        "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1601972602237-8c79241e4e1f?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800",
+        "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800",
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800",
+        "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=800"
     ]
 },
 
@@ -1231,13 +1048,13 @@ const PRODUCTS = [
     id:8,
     type:"printing",
     name:"Desk Organizer",
-    price:349,
-    description:"Custom 3D printed organizer for your desk accessories.",
+    price:399,
+    description:"Organize your desk with a custom 3D organizer.",
     images:[
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800",
+        "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800",
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800"
     ]
 },
 
@@ -1245,13 +1062,13 @@ const PRODUCTS = [
     id:9,
     type:"printing",
     name:"Gaming Accessories",
-    price:449,
-    description:"Custom accessories and holders for your gaming setup.",
+    price:299,
+    description:"Custom 3D gaming accessories.",
     images:[
-        "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=800",
+        "https://images.unsplash.com/photo-1605901309584-818e25960a8f?w=800",
+        "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=800",
+        "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800"
     ]
 },
 
@@ -1259,13 +1076,13 @@ const PRODUCTS = [
     id:10,
     type:"printing",
     name:"Car Accessories",
-    price:399,
-    description:"Useful custom 3D printed accessories for cars.",
+    price:349,
+    description:"Custom 3D printed car accessories.",
     images:[
-        "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800",
+        "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800",
+        "https://images.unsplash.com/photo-1542362567-b07e54358753?w=800",
+        "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800"
     ]
 },
 
@@ -1274,12 +1091,12 @@ const PRODUCTS = [
     type:"printing",
     name:"Functional 3D Part",
     price:299,
-    description:"Functional replacement and custom-use 3D printed parts.",
+    description:"Functional custom printed replacement part.",
     images:[
-        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1565600221635-1c5c1f0b2d8b?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1581091870622-3a6b6d2a8a56?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
+        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800",
+        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800",
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800"
     ]
 },
 
@@ -1288,12 +1105,12 @@ const PRODUCTS = [
     type:"printing",
     name:"Mechanical Part",
     price:399,
-    description:"Custom mechanical components designed and 3D printed.",
+    description:"Custom mechanical 3D printed component.",
     images:[
-        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=800",
+        "https://images.unsplash.com/photo-1581092919535-7146ff1a5900?w=800",
+        "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800",
+        "https://images.unsplash.com/photo-1565600226828-8b2d4f3b6c20?w=800"
     ]
 },
 
@@ -1301,31 +1118,29 @@ const PRODUCTS = [
     id:13,
     type:"printing",
     name:"Custom 3D Model",
-    price:699,
-    description:"Send your idea, sketch or reference and get a custom 3D model.",
+    price:799,
+    description:"Custom model created from your requirement.",
     images:[
-        "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1635322966219-b75ed372eb01?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800",
+        "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800",
+        "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800",
+        "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800"
     ]
 },
 
-/* =========================
-   CUSTOM ART / CRAFT / GIFTS
-========================= */
+/* ================= CRAFT ================= */
 
 {
     id:14,
     type:"craft",
     name:"Personalized Gift",
     price:499,
-    description:"Personalized gift products made specially for your occasion.",
+    description:"Customized gift made specially for you.",
     images:[
-        "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1549465220-1a8f9e1c2f0d?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1513883049090-d0b7439799bf?w=800",
+        "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=800",
+        "https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=800",
+        "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800"
     ]
 },
 
@@ -1333,13 +1148,13 @@ const PRODUCTS = [
     id:15,
     type:"craft",
     name:"Couple Gift",
-    price:599,
-    description:"Cute customized gift ideas for couples.",
+    price:699,
+    description:"Special customized couple gift.",
     images:[
-        "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800",
+        "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800",
+        "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800",
+        "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=800"
     ]
 },
 
@@ -1347,13 +1162,13 @@ const PRODUCTS = [
     id:16,
     type:"craft",
     name:"Custom Photo Frame",
-    price:449,
-    description:"Customized photo frame for birthdays, couples and special occasions.",
+    price:599,
+    description:"Personalized photo frame.",
     images:[
-        "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1544816155-12df9643f363?w=800",
+        "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=800",
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800",
+        "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800"
     ]
 },
 
@@ -1361,13 +1176,13 @@ const PRODUCTS = [
     id:17,
     type:"craft",
     name:"Custom Name Board",
-    price:699,
-    description:"Personalized name boards for home, room and office.",
+    price:799,
+    description:"Customized name board for home or office.",
     images:[
-        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800"
     ]
 },
 
@@ -1376,12 +1191,12 @@ const PRODUCTS = [
     type:"craft",
     name:"Birthday Gift",
     price:499,
-    description:"Customized birthday gift products for friends and family.",
+    description:"Customized birthday gift.",
     images:[
-        "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=800",
+        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800",
+        "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800",
+        "https://images.unsplash.com/photo-1602631985686-1bb0e6a8696e?w=800"
     ]
 },
 
@@ -1389,13 +1204,13 @@ const PRODUCTS = [
     id:19,
     type:"craft",
     name:"Anniversary Gift",
-    price:649,
-    description:"Special customized anniversary gifts.",
+    price:699,
+    description:"Customized anniversary gift.",
     images:[
-        "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800",
+        "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800",
+        "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800",
+        "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=800"
     ]
 },
 
@@ -1403,13 +1218,13 @@ const PRODUCTS = [
     id:20,
     type:"craft",
     name:"Wedding Gift",
-    price:799,
-    description:"Customized wedding gifts for memorable celebrations.",
+    price:899,
+    description:"Customized wedding gift.",
     images:[
-        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
+        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800",
+        "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=800",
+        "https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=800"
     ]
 },
 
@@ -1418,12 +1233,12 @@ const PRODUCTS = [
     type:"craft",
     name:"Custom Art",
     price:599,
-    description:"Custom artwork created from your idea or reference.",
+    description:"Custom handmade artwork.",
     images:[
-        "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1549490349-8643362247b5?w=800",
+        "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800",
+        "https://images.unsplash.com/photo-1577083552431-6e5fd01988a5?w=800",
+        "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800"
     ]
 },
 
@@ -1431,13 +1246,13 @@ const PRODUCTS = [
     id:22,
     type:"craft",
     name:"Decorative Craft",
-    price:349,
-    description:"Handmade and customized decorative craft products.",
+    price:449,
+    description:"Handcrafted decorative item.",
     images:[
-        "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1615529162924-f8605388461d?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800",
+        "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800",
+        "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800"
     ]
 },
 
@@ -1445,13 +1260,13 @@ const PRODUCTS = [
     id:23,
     type:"craft",
     name:"Gift Hamper",
-    price:899,
-    description:"Customized gift hamper with multiple personalized products.",
+    price:999,
+    description:"Customized gift hamper.",
     images:[
-        "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1549465220-1a8f9e1c2f0d?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=800",
+        "https://images.unsplash.com/photo-1513883049090-d0b7439799bf?w=800",
+        "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800",
+        "https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=800"
     ]
 },
 
@@ -1460,14 +1275,15 @@ const PRODUCTS = [
     type:"craft",
     name:"Return Gift",
     price:199,
-    description:"Affordable customized return gifts for functions and events.",
+    description:"Customized return gift for events.",
     images:[
-        "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1549465220-1a8f9e1c2f0d?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800",
+        "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800",
+        "https://images.unsplash.com/photo-1602631985686-1bb0e6a8696e?w=800",
+        "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=800"
     ]
 }
+
 ];
 
 
@@ -1475,44 +1291,32 @@ const PRODUCTS = [
    CART
 ========================================================= */
 
-let cart = JSON.parse(localStorage.getItem("rs3d_cart")) || [];
+let cart=JSON.parse(localStorage.getItem("rs3d_cart")||"[]");
 
-
-/* =========================================================
-   UTILITIES
-========================================================= */
 
 function saveCart(){
-    localStorage.setItem("rs3d_cart",JSON.stringify(cart));
+
+    localStorage.setItem(
+        "rs3d_cart",
+        JSON.stringify(cart)
+    );
+
     updateCartCount();
 }
 
+
 function updateCartCount(){
 
-    const count = cart.reduce(
-        (sum,item)=>sum + item.quantity,
+    const count=cart.reduce(
+        (sum,item)=>sum+item.quantity,
         0
     );
 
-    const el = document.getElementById("cartCount");
+    const el=document.getElementById("cartCount");
 
     if(el){
         el.textContent=count;
     }
-}
-
-function money(value){
-    return "₹" + Number(value).toLocaleString("en-IN");
-}
-
-function escapeHTML(value){
-
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
 }
 
 
@@ -1540,16 +1344,20 @@ function navigate(state){
         hash="#checkout";
     }
 
-    history.pushState(state,"",hash);
+    history.pushState(
+        state,
+        "",
+        hash
+    );
 
     render(state);
 }
 
+
 function goHome(){
-    navigate({
-        page:"home"
-    });
+    navigate({page:"home"});
 }
+
 
 function goCategory(type){
     navigate({
@@ -1558,6 +1366,7 @@ function goCategory(type){
     });
 }
 
+
 function goProduct(id){
     navigate({
         page:"product",
@@ -1565,26 +1374,24 @@ function goProduct(id){
     });
 }
 
+
 function goCart(){
-    navigate({
-        page:"cart"
-    });
+    navigate({page:"cart"});
 }
 
+
 function goCheckout(){
-    navigate({
-        page:"checkout"
-    });
+    navigate({page:"checkout"});
 }
+
 
 window.addEventListener(
     "popstate",
     function(event){
 
         render(
-            event.state || {
-                page:"home"
-            }
+            event.state ||
+            {page:"home"}
         );
 
     }
@@ -1603,36 +1410,37 @@ function renderHome(){
 
         <div class="hero-content">
 
-            <div class="badge">
-                ⚡ CUSTOM • CREATE • PRINT
-            </div>
+            <span class="badge">
+                PREMIUM CUSTOM CREATION STUDIO
+            </span>
 
             <h1>
-                Your Ideas.<br>
-                <span>Made 3D.</span>
+                TURN YOUR
+                <span>IDEA</span>
+                INTO
+                <span>REALITY</span>
             </h1>
 
             <p>
-                Welcome to RS 3D Custom Studio.
-                Create personalized 3D printed products,
-                customized gifts, artwork and craft products
+                Custom 3D printing, personalized gifts,
+                creative art and functional products —
                 designed specially for you.
             </p>
 
             <div class="hero-buttons">
 
                 <button
-                    class="primary-btn"
+                    class="btn btn-orange"
                     onclick="goCategory('printing')"
                 >
                     🖨️ Explore 3D Printing
                 </button>
 
                 <button
-                    class="secondary-btn"
+                    class="btn btn-white"
                     onclick="goCategory('craft')"
                 >
-                    🎨 Custom Art & Gifts
+                    🎨 Explore Custom Gifts
                 </button>
 
             </div>
@@ -1642,23 +1450,24 @@ function renderHome(){
 
         <div class="hero-3d">
 
-            <div class="printer-scene">
+            <div class="printer">
 
-                <div class="printer-top"></div>
+                <div class="printer-frame"></div>
 
-                <div class="printer-body">
+                <div class="orange-column column-left"></div>
+                <div class="orange-column column-right"></div>
 
-                    <div class="printer-front"></div>
+                <div class="print-line"></div>
 
-                    <div class="nozzle">
-                        <div class="nozzle-tip"></div>
-                    </div>
+                <div class="nozzle">
+
+                    <div class="nozzle-tip"></div>
 
                 </div>
 
-                <div class="printer-side"></div>
+                <div class="print-object"></div>
 
-                <div class="printer-base"></div>
+                <div class="printer-bed"></div>
 
             </div>
 
@@ -1667,114 +1476,201 @@ function renderHome(){
     </section>
 
 
-    <div class="section-title">
+    <section class="section">
 
-        <h2>Explore Our Categories</h2>
+        <div class="section-title">
 
-        <p>
-            Choose what you want to create.
-        </p>
-
-    </div>
-
-
-    <section class="category-grid">
-
-        <div class="category-card">
-
-            <div class="category-icon">
-                🖨️
-            </div>
-
-            <h3>
-                3D Printing
-            </h3>
+            <h2>
+                WHAT WE <span>CREATE</span>
+            </h2>
 
             <p>
-                Custom 3D printed models,
-                miniatures, functional parts,
-                home decor and more.
+                Choose your category
             </p>
 
-            <button
-                class="primary-btn"
+        </div>
+
+
+        <div class="categories">
+
+            <div
+                class="category-card"
                 onclick="goCategory('printing')"
             >
-                View 3D Products
-            </button>
 
-        </div>
+                <div class="category-icon">
+                    🖨️
+                </div>
 
+                <h3>
+                    3D PRINTING
+                </h3>
 
-        <div class="category-card">
+                <p>
+                    Custom models, miniatures,
+                    functional parts, home decor,
+                    accessories and more.
+                </p>
 
-            <div class="category-icon">
-                🎨
+                <button
+                    class="btn btn-orange"
+                >
+                    View 3D Products →
+                </button>
+
             </div>
 
-            <h3>
-                Customized Art, Craft & Gifts
-            </h3>
 
-            <p>
-                Personalized gifts, photo frames,
-                name boards, artwork, hampers
-                and customized crafts.
-            </p>
-
-            <button
-                class="primary-btn"
+            <div
+                class="category-card"
                 onclick="goCategory('craft')"
             >
-                View Custom Products
-            </button>
+
+                <div class="category-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    CUSTOMIZED ART,
+                    CRAFT & GIFTS
+                </h3>
+
+                <p>
+                    Personalized gifts, photo frames,
+                    name boards, couple gifts,
+                    hampers and handmade creations.
+                </p>
+
+                <button
+                    class="btn btn-white"
+                >
+                    View Custom Products →
+                </button>
+
+            </div>
 
         </div>
 
     </section>
 
-
-    <div class="section-title">
-
-        <h2>
-            Why RS 3D Custom Studio?
-        </h2>
-
-    </div>
-
-
-    <section class="category-grid">
-
-        <div class="category-card">
-
-            <div class="category-icon">⚙️</div>
-
-            <h3>Custom Designs</h3>
-
-            <p>
-                Your idea can become a
-                customized physical product.
-            </p>
-
-        </div>
-
-
-        <div class="category-card">
-
-            <div class="category-icon">📲</div>
-
-            <h3>Easy WhatsApp Ordering</h3>
-
-            <p>
-                Select your product,
-                choose quantity and send
-                the order directly through WhatsApp.
-            </p>
-
-        </div>
-
-    </section>
     `;
+
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+function renderCategory(type){
+
+    const isPrinting=type==="printing";
+
+    const products=PRODUCTS.filter(
+        p=>p.type===type
+    );
+
+    return `
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>
+                ${isPrinting
+                    ? "🖨️ 3D <span>PRINTING</span>"
+                    : "🎨 CUSTOM <span>ART & GIFTS</span>"
+                }
+            </h2>
+
+            <p>
+                ${isPrinting
+                    ? "Explore our custom 3D printed products"
+                    : "Explore personalized art, craft and gifts"
+                }
+            </p>
+
+        </div>
+
+
+        <div
+            style="
+                max-width:500px;
+                margin:0 auto 35px;
+            "
+        >
+
+            <input
+                id="categorySearch"
+                oninput="categorySearch('${type}',this.value)"
+                placeholder="Search this category..."
+                style="
+                    width:100%;
+                    padding:15px 20px;
+                    border-radius:30px;
+                    background:#17191b;
+                    border:1px solid #444;
+                    color:white;
+                    outline:none;
+                "
+            >
+
+        </div>
+
+
+        <div
+            id="categoryProducts"
+            class="products"
+        >
+
+            ${products
+                .map(productCard)
+                .join("")
+            }
+
+        </div>
+
+    </section>
+
+    `;
+
+}
+
+
+function categorySearch(type,value){
+
+    const q=value
+        .trim()
+        .toLowerCase();
+
+    const products=PRODUCTS.filter(p=>{
+
+        return p.type===type &&
+        (
+            p.name.toLowerCase().includes(q) ||
+            p.description.toLowerCase().includes(q)
+        );
+
+    });
+
+    const container=
+        document.getElementById(
+            "categoryProducts"
+        );
+
+    if(container){
+
+        container.innerHTML=
+            products.length
+            ? products.map(productCard).join("")
+            : `
+                <div class="empty">
+                    No products found.
+                </div>
+            `;
+
+    }
+
 }
 
 
@@ -1788,31 +1684,35 @@ function productCard(product){
 
     <div class="product-card">
 
-        <div class="product-image">
+        <div
+            class="product-image"
+            onclick="goProduct(${product.id})"
+            style="cursor:pointer"
+        >
 
             <img
                 src="${product.images[0]}"
-                alt="${escapeHTML(product.name)}"
-                loading="lazy"
+                alt="${product.name}"
             >
 
         </div>
 
+
         <div class="product-info">
 
             <h3>
-                ${escapeHTML(product.name)}
+                ${product.name}
             </h3>
 
             <p>
-                ${escapeHTML(product.description)}
+                ${product.description}
             </p>
 
             <div class="price">
-                ${money(product.price)}
+                ₹${product.price}
             </div>
 
-            <div class="card-actions">
+            <div class="product-actions">
 
                 <button
                     class="small-btn"
@@ -1822,7 +1722,7 @@ function productCard(product){
                 </button>
 
                 <button
-                    class="small-btn primary"
+                    class="small-btn orange"
                     onclick="addToCart(${product.id},1)"
                 >
                     Add to Cart
@@ -1833,123 +1733,9 @@ function productCard(product){
         </div>
 
     </div>
+
     `;
-}
 
-
-/* =========================================================
-   CATEGORY
-========================================================= */
-
-function renderCategory(type){
-
-    const isPrinting = type==="printing";
-
-    const products = PRODUCTS.filter(
-        p=>p.type===type
-    );
-
-    return `
-
-    <button
-        class="back-btn"
-        onclick="goHome()"
-    >
-        ← Back to Home
-    </button>
-
-
-    <div class="toolbar">
-
-        <div class="page-title">
-
-            <h1>
-                ${isPrinting
-                    ? "🖨️ 3D Printing"
-                    : "🎨 Customized Art, Craft & Gifts"
-                }
-            </h1>
-
-            <p>
-                ${isPrinting
-                    ? "Custom 3D printed products."
-                    : "Personalized gifts and creative products."
-                }
-            </p>
-
-        </div>
-
-        <div class="product-search">
-
-            <input
-                type="text"
-                placeholder="Search this category..."
-                oninput="categorySearch('${type}',this.value)"
-            >
-
-        </div>
-
-    </div>
-
-
-    <div
-        id="categoryProducts"
-        class="product-grid"
-    >
-
-        ${products.map(productCard).join("")}
-
-    </div>
-    `;
-}
-
-
-function categorySearch(type,value){
-
-    const q=value.trim().toLowerCase();
-
-    const products = PRODUCTS.filter(product=>{
-
-        if(product.type!==type){
-            return false;
-        }
-
-        return (
-            product.name.toLowerCase().includes(q) ||
-            product.description.toLowerCase().includes(q)
-        );
-
-    });
-
-    const container =
-        document.getElementById("categoryProducts");
-
-    if(!container){
-        return;
-    }
-
-    if(products.length===0){
-
-        container.innerHTML=`
-
-            <div class="no-results"
-                 style="grid-column:1/-1">
-
-                <h2>No products found</h2>
-
-                <p>
-                    Try another search.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-    container.innerHTML=
-        products.map(productCard).join("");
 }
 
 
@@ -1959,178 +1745,187 @@ function categorySearch(type,value){
 
 function renderProduct(id){
 
-    const product =
-        PRODUCTS.find(
-            p=>p.id===Number(id)
-        );
+    const product=PRODUCTS.find(
+        p=>p.id===Number(id)
+    );
 
     if(!product){
 
         return `
-            <div class="empty">
-                <div class="empty-icon">❌</div>
-                <h2>Product not found</h2>
-                <button
-                    class="primary-btn"
-                    onclick="goHome()"
-                >
-                    Home
-                </button>
-            </div>
+        <div class="empty">
+            Product not found.
+        </div>
         `;
+
     }
+
 
     return `
 
-    <button
-        class="back-btn"
-        onclick="goCategory('${product.type}')"
-    >
-        ← Back
-    </button>
+    <section class="detail">
+
+        <div class="detail-box">
 
 
-    <section class="product-detail">
+            <div>
+
+                <img
+                    id="mainProductImage"
+                    class="gallery-main"
+                    src="${product.images[0]}"
+                    alt="${product.name}"
+                >
 
 
-        <div class="gallery">
+                <div class="thumbs">
 
-            <img
-                id="mainProductImage"
-                class="main-image"
-                src="${product.images[0]}"
-                alt="${escapeHTML(product.name)}"
-            >
+                    ${product.images.map(
+                        (img,index)=>`
+
+                        <img
+                            src="${img}"
+                            onclick="changeMainImage('${img}')"
+                        >
+
+                    `).join("")}
+
+                </div>
+
+            </div>
 
 
-            <div class="thumbs">
+            <div>
 
-                ${product.images.map(
-                    (image,index)=>`
+                <h1>
+                    ${product.name}
+                </h1>
 
-                    <img
-                        class="thumb ${index===0?"active":""}"
-                        src="${image}"
-                        onclick="changeMainImage(this,'${image}')"
-                        alt="${escapeHTML(product.name)}"
+                <div class="detail-price">
+                    ₹${product.price}
+                </div>
+
+                <p class="detail-description">
+                    ${product.description}
+                </p>
+
+
+                <div class="quantity-box">
+
+                    <label>
+                        Quantity
+                    </label>
+
+                    <input
+                        id="quantity"
+                        type="number"
+                        min="1"
+                        value="1"
                     >
 
-                `
-                ).join("")}
-
-            </div>
-
-        </div>
+                </div>
 
 
-        <div class="detail-content">
-
-            <h1>
-                ${escapeHTML(product.name)}
-            </h1>
-
-            <p class="detail-description">
-                ${escapeHTML(product.description)}
-            </p>
-
-            <div class="detail-price">
-                ${money(product.price)}
-            </div>
-
-
-            <div class="quantity-box">
-
-                <label>
-                    Quantity
-                </label>
-
-                <input
-                    id="quantity"
-                    type="number"
-                    min="1"
-                    value="1"
+                <div
+                    style="
+                        display:flex;
+                        gap:10px;
+                        margin-top:25px;
+                        flex-wrap:wrap;
+                    "
                 >
 
-            </div>
+                    <button
+                        class="btn btn-orange"
+                        onclick="addProductDetailToCart(${product.id})"
+                    >
+                        🛒 Add to Cart
+                    </button>
 
 
-            <div class="detail-buttons">
+                    <button
+                        class="btn btn-white"
+                        onclick="quickWhatsApp(${product.id})"
+                    >
+                        💬 Order on WhatsApp
+                    </button>
 
-                <button
-                    class="primary-btn"
-                    onclick="addCurrentProductToCart(${product.id})"
+                </div>
+
+
+                <div
+                    style="
+                        margin-top:30px;
+                        padding:20px;
+                        border-radius:15px;
+                        background:rgba(255,101,0,.08);
+                        border:1px solid rgba(255,101,0,.25);
+                    "
                 >
-                    🛒 Add to Cart
-                </button>
 
-                <button
-                    class="secondary-btn"
-                    onclick="quickWhatsApp(${product.id})"
-                >
-                    💬 Order on WhatsApp
-                </button>
+                    <strong>
+                        Customization
+                    </strong>
+
+                    <p
+                        style="
+                            margin-top:8px;
+                            color:#aaa;
+                            line-height:1.6;
+                        "
+                    >
+                        Send your design, photo,
+                        name or requirements through
+                        WhatsApp after placing the order.
+                    </p>
+
+                </div>
 
             </div>
 
         </div>
 
     </section>
+
     `;
+
 }
 
 
-function changeMainImage(element,image){
+function changeMainImage(src){
 
-    const main =
+    const image=
         document.getElementById(
             "mainProductImage"
         );
 
-    if(main){
-        main.src=image;
+    if(image){
+        image.src=src;
     }
 
-    document
-        .querySelectorAll(".thumb")
-        .forEach(
-            img=>img.classList.remove("active")
-        );
-
-    element.classList.add("active");
 }
 
 
 /* =========================================================
-   CART FUNCTIONS
+   ADD TO CART
 ========================================================= */
 
 function addToCart(id,quantity){
 
-    const product =
-        PRODUCTS.find(
-            p=>p.id===Number(id)
-        );
+    const product=PRODUCTS.find(
+        p=>p.id===Number(id)
+    );
 
-    if(!product){
-        return;
-    }
-
-    quantity =
-        Math.max(
-            1,
-            Number(quantity)||1
-        );
+    if(!product)return;
 
 
-    const existing =
-        cart.find(
-            item=>item.id===product.id
-        );
+    const existing=cart.find(
+        item=>item.id===product.id
+    );
 
 
     if(existing){
 
-        existing.quantity += quantity;
+        existing.quantity+=quantity;
 
     }else{
 
@@ -2141,59 +1936,69 @@ function addToCart(id,quantity){
 
     }
 
+
     saveCart();
 
     alert(
-        product.name +
+        product.name+
         " added to cart!"
     );
+
 }
 
 
-function addCurrentProductToCart(id){
+function addProductDetailToCart(id){
 
-    const input =
-        document.getElementById("quantity");
+    const input=
+        document.getElementById(
+            "quantity"
+        );
 
-    const quantity =
-        input
-        ? Math.max(
+    const quantity=
+        Math.max(
             1,
-            Number(input.value)||1
-        )
-        : 1;
+            Number(input?.value)||1
+        );
 
-    addToCart(id,quantity);
+    addToCart(
+        id,
+        quantity
+    );
+
 }
 
+
+/* =========================================================
+   WHATSAPP PRODUCT ORDER
+========================================================= */
 
 function quickWhatsApp(id){
 
-    const product =
-        PRODUCTS.find(
-            p=>p.id===Number(id)
+    const product=PRODUCTS.find(
+        p=>p.id===Number(id)
+    );
+
+    if(!product)return;
+
+
+    const input=
+        document.getElementById(
+            "quantity"
         );
 
-    if(!product){
-        return;
-    }
 
-    const quantityInput =
-        document.getElementById("quantity");
-
-    const quantity =
-        quantityInput
-        ? Math.max(
+    const quantity=
+        Math.max(
             1,
-            Number(quantityInput.value)||1
-        )
-        : 1;
-
-    const total =
-        product.price * quantity;
+            Number(input?.value)||1
+        );
 
 
-    const message =
+    const total=
+        product.price*quantity;
+
+
+    const message=
 `Hello RS 3D Custom Studio 👋
 
 I want to order:
@@ -2214,6 +2019,7 @@ Please confirm my order.`;
         encodeURIComponent(message),
         "_blank"
     );
+
 }
 
 
@@ -2229,172 +2035,149 @@ function renderCart(){
 
         <div class="empty">
 
-            <div class="empty-icon">
-                🛒
-            </div>
-
             <h2>
-                Your cart is empty
+                🛒 Your cart is empty
             </h2>
 
-            <p>
+            <p style="margin-top:15px">
                 Add some products to continue.
             </p>
 
             <button
-                class="primary-btn"
+                class="btn btn-orange"
+                style="margin-top:25px"
                 onclick="goHome()"
             >
-                Browse Products
+                Continue Shopping
             </button>
 
         </div>
 
         `;
+
     }
 
 
-    let total=0;
+    let grandTotal=0;
 
 
-    const items =
-        cart.map(item=>{
+    const items=cart.map(item=>{
 
-            const product =
-                PRODUCTS.find(
-                    p=>p.id===item.id
-                );
+        const product=PRODUCTS.find(
+            p=>p.id===item.id
+        );
 
-            if(!product){
-                return "";
-            }
-
-            const itemTotal =
-                product.price *
-                item.quantity;
-
-            total += itemTotal;
+        if(!product)return "";
 
 
-            return `
-
-            <div class="cart-item">
-
-                <img
-                    src="${product.images[0]}"
-                    alt="${escapeHTML(product.name)}"
-                >
+        const total=
+            product.price*item.quantity;
 
 
-                <div>
-
-                    <h3>
-                        ${escapeHTML(product.name)}
-                    </h3>
-
-                    <p>
-                        Quantity:
-                        ${item.quantity}
-                    </p>
-
-                    <p>
-                        Price:
-                        ${money(product.price)}
-                    </p>
-
-                </div>
+        grandTotal+=total;
 
 
-                <div class="cart-price">
+        return `
 
-                    ${money(itemTotal)}
+        <div class="cart-item">
 
-                </div>
+            <img
+                src="${product.images[0]}"
+                alt="${product.name}"
+            >
 
+            <div class="cart-info">
 
-                <button
-                    class="remove-btn"
-                    onclick="removeFromCart(${product.id})"
-                >
-                    Remove
-                </button>
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <p>
+                    ₹${product.price}
+                    ×
+                    ${item.quantity}
+                </p>
+
+                <strong>
+                    ₹${total}
+                </strong>
 
             </div>
 
-            `;
 
-        }).join("");
+            <button
+                class="remove"
+                onclick="removeFromCart(${product.id})"
+            >
+                Remove
+            </button>
+
+        </div>
+
+        `;
+
+    }).join("");
 
 
     return `
 
-    <button
-        class="back-btn"
-        onclick="goHome()"
-    >
-        ← Continue Shopping
-    </button>
+    <section class="cart-container">
 
+        <div class="section-title">
 
-    <div class="section-title">
-
-        <h2>
-            🛒 Your Cart
-        </h2>
-
-        <p>
-            Review your products before checkout.
-        </p>
-
-    </div>
-
-
-    <div class="cart-list">
-
-        ${items}
-
-    </div>
-
-
-    <div class="cart-summary">
-
-        <div>
-
-            <p style="color:#888">
-                Grand Total
-            </p>
-
-            <div class="total">
-                ${money(total)}
-            </div>
+            <h2>
+                YOUR <span>CART</span>
+            </h2>
 
         </div>
 
 
-        <button
-            class="primary-btn"
-            onclick="goCheckout()"
-        >
-            Proceed to Checkout →
-        </button>
+        ${items}
 
-    </div>
+
+        <div class="cart-total">
+
+            Grand Total:
+            ₹${grandTotal}
+
+        </div>
+
+
+        <div
+            style="
+                text-align:right;
+                margin-top:25px;
+            "
+        >
+
+            <button
+                class="btn btn-orange"
+                onclick="goCheckout()"
+            >
+                Proceed to Checkout →
+            </button>
+
+        </div>
+
+    </section>
+
     `;
+
 }
 
 
 function removeFromCart(id){
 
-    cart =
-        cart.filter(
-            item=>item.id!==Number(id)
-        );
+    cart=cart.filter(
+        item=>item.id!==Number(id)
+    );
 
     saveCart();
 
     render({
         page:"cart"
     });
+
 }
 
 
@@ -2407,281 +2190,179 @@ function renderCheckout(){
     if(cart.length===0){
 
         return `
-
         <div class="empty">
-
-            <div class="empty-icon">
-                🛒
-            </div>
-
-            <h2>
-                Your cart is empty
-            </h2>
-
-            <button
-                class="primary-btn"
-                onclick="goHome()"
-            >
-                Browse Products
-            </button>
-
+            Cart is empty.
         </div>
-
         `;
+
     }
-
-
-    let total=0;
-
-    const orderItems =
-        cart.map(item=>{
-
-            const product =
-                PRODUCTS.find(
-                    p=>p.id===item.id
-                );
-
-            if(!product){
-                return "";
-            }
-
-            const itemTotal =
-                product.price *
-                item.quantity;
-
-            total += itemTotal;
-
-
-            return `
-
-            <div style="
-                padding:12px 0;
-                border-bottom:1px solid #222;
-            ">
-
-                <strong>
-                    ${escapeHTML(product.name)}
-                </strong>
-
-                <div style="
-                    color:#888;
-                    margin-top:5px;
-                ">
-
-                    Quantity:
-                    ${item.quantity}
-
-                    <br>
-
-                    Price:
-                    ${money(product.price)}
-
-                    <br>
-
-                    Total:
-                    ${money(itemTotal)}
-
-                </div>
-
-            </div>
-
-            `;
-
-        }).join("");
 
 
     return `
 
-    <button
-        class="back-btn"
-        onclick="goCart()"
-    >
-        ← Back to Cart
-    </button>
-
-
-    <div class="checkout">
+    <section class="checkout">
 
         <div class="section-title">
 
             <h2>
-                Checkout
+                CHECK<span>OUT</span>
             </h2>
 
             <p>
-                Enter your details and send the order on WhatsApp.
+                Enter your details and order through WhatsApp.
             </p>
 
         </div>
 
 
-        <div class="checkout-form">
+        <div class="form-group">
 
             <label>
-                Customer Name
-
-                <input
-                    id="customerName"
-                    type="text"
-                    placeholder="Your name"
-                >
-
+                Name
             </label>
 
-
-            <label>
-                Phone Number
-
-                <input
-                    id="customerPhone"
-                    type="tel"
-                    placeholder="Your phone number"
-                >
-
-            </label>
-
-
-            <label>
-                Delivery Address
-
-                <textarea
-                    id="customerAddress"
-                    placeholder="Enter your delivery address"
-                ></textarea>
-
-            </label>
-
-
-            <label>
-                Additional Notes
-
-                <textarea
-                    id="customerNotes"
-                    placeholder="Any customization details..."
-                ></textarea>
-
-            </label>
-
-
-            <div>
-
-                <h3 style="margin-bottom:10px">
-                    Order Summary
-                </h3>
-
-                ${orderItems}
-
-                <div style="
-                    margin-top:20px;
-                    font-size:26px;
-                    font-weight:bold;
-                    color:#ff7200;
-                ">
-
-                    Grand Total:
-                    ${money(total)}
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="primary-btn"
-                onclick="sendOrderWhatsApp()"
+            <input
+                id="customerName"
+                placeholder="Your name"
             >
-                💬 Send Order on WhatsApp
-            </button>
 
         </div>
 
-    </div>
+
+        <div class="form-group">
+
+            <label>
+                Phone
+            </label>
+
+            <input
+                id="customerPhone"
+                placeholder="Your phone number"
+                type="tel"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Address
+            </label>
+
+            <textarea
+                id="customerAddress"
+                placeholder="Delivery address"
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Additional Notes
+            </label>
+
+            <textarea
+                id="customerNotes"
+                placeholder="Customization details..."
+            ></textarea>
+
+        </div>
+
+
+        <button
+            class="btn btn-orange"
+            onclick="sendOrderWhatsApp()"
+        >
+            💬 Send Order on WhatsApp
+        </button>
+
+    </section>
+
     `;
+
 }
 
 
+/* =========================================================
+   CHECKOUT WHATSAPP
+========================================================= */
+
 function sendOrderWhatsApp(){
 
-    const name =
+    const name=
         document.getElementById(
             "customerName"
         ).value.trim();
 
-    const phone =
+
+    const phone=
         document.getElementById(
             "customerPhone"
         ).value.trim();
 
-    const address =
+
+    const address=
         document.getElementById(
             "customerAddress"
         ).value.trim();
 
-    const notes =
+
+    const notes=
         document.getElementById(
             "customerNotes"
         ).value.trim();
 
 
-    if(!name){
+    if(!name || !phone || !address){
 
-        alert("Please enter your name.");
-
-        return;
-    }
-
-
-    if(!phone){
-
-        alert("Please enter your phone number.");
+        alert(
+            "Please enter name, phone and address."
+        );
 
         return;
-    }
 
-
-    if(!address){
-
-        alert("Please enter your address.");
-
-        return;
     }
 
 
     let grandTotal=0;
 
+    let orderText="";
 
-    let productText="";
 
+    cart.forEach((item,index)=>{
 
-    cart.forEach(item=>{
-
-        const product =
+        const product=
             PRODUCTS.find(
                 p=>p.id===item.id
             );
 
-        if(!product){
-            return;
-        }
 
-        const itemTotal =
-            product.price *
+        if(!product)return;
+
+
+        const total=
+            product.price*
             item.quantity;
 
-        grandTotal += itemTotal;
+
+        grandTotal+=total;
 
 
-        productText +=
-`
-Product: ${product.name}
+        orderText+=`
+
+${index+1}. ${product.name}
 Quantity: ${item.quantity}
 Price per item: ₹${product.price}
-Total: ₹${itemTotal}
+Total: ₹${total}
 `;
+
     });
 
 
-    const message =
+    const message=
 `Hello RS 3D Custom Studio 👋
 
 I want to place an order.
@@ -2689,19 +2370,13 @@ I want to place an order.
 CUSTOMER DETAILS
 
 Name: ${name}
-
 Phone: ${phone}
+Address: ${address}
 
-Address:
-${address}
+ORDER DETAILS:
+${orderText}
 
-
-ORDER DETAILS
-
-${productText}
-
-GRAND TOTAL:
-₹${grandTotal}
+GRAND TOTAL: ₹${grandTotal}
 
 Additional Notes:
 ${notes || "None"}
@@ -2714,6 +2389,7 @@ Please confirm my order. Thank you!`;
         encodeURIComponent(message),
         "_blank"
     );
+
 }
 
 
@@ -2723,42 +2399,49 @@ Please confirm my order. Thank you!`;
 
 function globalSearch(value){
 
-    const q =
-        value.trim().toLowerCase();
+    const q=
+        value
+        .trim()
+        .toLowerCase();
 
 
     if(q===""){
 
         render(
             history.state ||
-            {
-                page:"home"
-            }
+            {page:"home"}
         );
 
         return;
+
     }
 
 
-    const results =
+    const results=
         PRODUCTS.filter(product=>{
 
-            const name =
-                product.name.toLowerCase();
+            const name=
+                product.name
+                .toLowerCase();
 
-            const description =
-                product.description.toLowerCase();
+            const description=
+                product.description
+                .toLowerCase();
 
-            const type =
-                product.type.toLowerCase();
+            const type=
+                product.type
+                .toLowerCase();
 
-            const categoryText =
+
+            const categoryText=
                 type==="printing"
-                ? "3d printing print"
-                : "craft art gifts customized";
+                ?
+                "3d printing print"
+                :
+                "craft art gifts customized";
 
 
-            return (
+            return(
                 name.includes(q) ||
                 description.includes(q) ||
                 categoryText.includes(q)
@@ -2771,79 +2454,59 @@ function globalSearch(value){
         value,
         results
     );
+
 }
 
 
-function renderSearchResults(
-    query,
-    results
-){
+/* =========================================================
+   SEARCH RESULTS
+========================================================= */
 
-    const app =
-        document.getElementById("app");
+function renderSearchResults(query,results){
 
+    document.getElementById("app").innerHTML=`
 
-    if(results.length===0){
+    <section class="section">
 
-        app.innerHTML=`
-
-        <div class="no-results">
+        <div class="section-title">
 
             <h2>
-                No products found
+                SEARCH <span>RESULTS</span>
             </h2>
 
             <p>
-                No result for "${escapeHTML(query)}"
+                Results for "${query}"
             </p>
-
-            <button
-                class="primary-btn"
-                style="margin-top:20px"
-                onclick="goHome()"
-            >
-                Back Home
-            </button>
 
         </div>
 
-        `;
 
-        return;
-    }
+        ${
+            results.length
+            ?
+            `<div class="products">
+                ${results.map(productCard).join("")}
+            </div>`
+            :
+            `
+            <div class="empty">
 
+                <h2>
+                    No products found
+                </h2>
 
-    app.innerHTML=`
+                <p style="margin-top:10px">
+                    Try another search.
+                </p>
 
-    <button
-        class="back-btn"
-        onclick="goHome()"
-    >
-        ← Home
-    </button>
+            </div>
+            `
+        }
 
-
-    <div class="section-title">
-
-        <h2>
-            Search Results
-        </h2>
-
-        <p>
-            Results for:
-            "${escapeHTML(query)}"
-        </p>
-
-    </div>
-
-
-    <div class="product-grid">
-
-        ${results.map(productCard).join("")}
-
-    </div>
+    </section>
 
     `;
+
 }
 
 
@@ -2853,194 +2516,73 @@ function renderSearchResults(
 
 function render(state){
 
-    const app =
-        document.getElementById("app");
-
-
-    if(!state || !state.page){
-
-        state={
-            page:"home"
-        };
-
-    }
+    let html="";
 
 
     if(state.page==="home"){
 
-        app.innerHTML =
-            renderHome();
+        html=renderHome();
 
     }
-
-
     else if(state.page==="category"){
 
-        app.innerHTML =
-            renderCategory(state.type);
+        html=renderCategory(
+            state.type
+        );
 
     }
-
-
     else if(state.page==="product"){
 
-        app.innerHTML =
-            renderProduct(state.id);
+        html=renderProduct(
+            state.id
+        );
 
     }
-
-
     else if(state.page==="cart"){
 
-        app.innerHTML =
-            renderCart();
+        html=renderCart();
 
     }
-
-
     else if(state.page==="checkout"){
 
-        app.innerHTML =
-            renderCheckout();
+        html=renderCheckout();
 
     }
+    else{
+
+        html=renderHome();
+
+    }
+
+
+    document.getElementById(
+        "app"
+    ).innerHTML=html;
 
 
     updateCartCount();
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
 }
 
 
 /* =========================================================
-   INITIAL LOAD
+   START
 ========================================================= */
 
-function loadInitialPage(){
-
-    const hash =
-        window.location.hash;
-
-
-    if(hash.startsWith("#product-")){
-
-        const id =
-            Number(
-                hash.replace("#product-","")
-            );
-
-        history.replaceState(
-            {
-                page:"product",
-                id:id
-            },
-            "",
-            hash
-        );
-
-        render({
-            page:"product",
-            id:id
-        });
-
-        return;
-    }
-
-
-    if(hash==="#printing"){
-
-        history.replaceState(
-            {
-                page:"category",
-                type:"printing"
-            },
-            "",
-            hash
-        );
-
-        render({
-            page:"category",
-            type:"printing"
-        });
-
-        return;
-    }
-
-
-    if(hash==="#craft"){
-
-        history.replaceState(
-            {
-                page:"category",
-                type:"craft"
-            },
-            "",
-            hash
-        );
-
-        render({
-            page:"category",
-            type:"craft"
-        });
-
-        return;
-    }
-
-
-    if(hash==="#cart"){
-
-        history.replaceState(
-            {
-                page:"cart"
-            },
-            "",
-            hash
-        );
-
-        render({
-            page:"cart"
-        });
-
-        return;
-    }
-
-
-    if(hash==="#checkout"){
-
-        history.replaceState(
-            {
-                page:"checkout"
-            },
-            "",
-            hash
-        );
-
-        render({
-            page:"checkout"
-        });
-
-        return;
-    }
-
+if(!history.state){
 
     history.replaceState(
-        {
-            page:"home"
-        },
+        {page:"home"},
         "",
         "#home"
     );
 
-    render({
-        page:"home"
-    });
 }
 
-
-loadInitialPage();
+render(
+    history.state ||
+    {page:"home"}
+);
 
 </script>
 
